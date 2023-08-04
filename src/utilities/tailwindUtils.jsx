@@ -1,3 +1,6 @@
+//color pallet. final decision will be made once we talk to group.
+//
+
 export const buttonBgStyles = (color) => {
     switch(color) {
         case 'purple':
@@ -13,10 +16,6 @@ export const buttonBgStyles = (color) => {
     }
 }
 
-export const paddingStyles = (size) => {
-    return `p-${size}`
-}
-
 export const buttonTextColor = (color)=>{
     switch(color){
         case 'black':
@@ -25,6 +24,8 @@ export const buttonTextColor = (color)=>{
             return 'text-white'
     }
 }
+
+
 
 
 
