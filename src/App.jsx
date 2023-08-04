@@ -1,11 +1,9 @@
-function App() {
+import Button from './components/Button'
 
-  return (
-      <div >
-      <button className = 'bg-red text-white'>test</button>
-        
-      </div>
-  )
+function App() {
+  return <div>
+    <Button color='purple' paddingSize ='2'/>
+  </div>;
 }
 
-export default App
+export default App;
