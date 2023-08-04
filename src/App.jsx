@@ -1,9 +1,12 @@
-import Button from './components/Button'
+import Button from "./components/Button";
 
 function App() {
-  return <div>
-    <Button color='purple' paddingSize ='2'/>
-  </div>;
+  return (
+    <div>
+      <Button color="green" textColor="black"/>
+      
+    </div>
+  );
 }
 
 export default App;
