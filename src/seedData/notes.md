@@ -1,5 +1,7 @@
 ## **Seed Data Notes**
 
+> to change view, use `shift + cmd + v` on mac, or `shift + ctrl + v` on windows
+
 ---
 
 ### Entities

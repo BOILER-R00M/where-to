@@ -2,14 +2,14 @@ import AppContext from "./context/AppContext";
 import useDatabaseService from "./customHooks/useDatabaseService";
 
 function App() {
-	// custom hook
+	// custom hook for CRUD operations with database
 	const { fetchUserGroups, fetchGroupLocations, fetchUserLocationsInGroup } =
 		useDatabaseService();
 
 	const userId = "0001";
 	const groupId = "001";
 
-	// return values from mock async requests
+	// return values from database
 	const userGroups = fetchUserGroups(userId);
 	const locations = fetchGroupLocations(groupId);
 	const userLocations = fetchUserLocationsInGroup(groupId, userId);
