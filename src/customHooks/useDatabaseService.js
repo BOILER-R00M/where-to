@@ -1,6 +1,8 @@
 import React from "react";
 import db from "../seedData/fakeDynamoDB.json";
 
+// TODO: Once we are ready to integrate with backend, we will need to change all of these functions to instead send requests to our api gateway
+
 const useDatabaseService = () => {
 	const fetchUserGroups = (userId) => {
 		// Query the mock database to get the list of groups for a specific user
