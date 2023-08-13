@@ -1,11 +1,5 @@
-
-
 function App() {
-  return (
-    <div>
-      
-    </div>
-  );
+	return <div>WhereTo</div>;
 }
 
 export default App;
