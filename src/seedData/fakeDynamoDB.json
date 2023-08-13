@@ -1,0 +1,74 @@
+[
+	{
+		"pk": "USER#0001",
+		"sk": "GROUP#001",
+		"username": "MadisonEvans94",
+		"userID": "0001"
+	},
+	{
+		"pk": "USER#0002",
+		"sk": "GROUP#001",
+		"username": "TonyStarkAvenger",
+		"userID": "0002"
+	},
+	{
+		"pk": "GROUP#001",
+		"sk": "LOCATION#001",
+		"locationName": "Atlanta",
+		"coordinates": {
+			"lat": 33.753746,
+			"lng": -84.38633
+		},
+		"averageScore": {
+			"costOfLiving": 4.5,
+			"pollution": 4.5,
+			"crime": 4.5,
+			"transportation": 4.5,
+			"food": 4.5,
+			"culture": 4.5,
+			"naturalEnvironment": 4.5,
+			"employmentOpportunities": 4.5,
+			"entertainment": 4.5
+		},
+		"usersVisited": [
+			{
+				"userID": "0001",
+				"username": "MadisonEvans94"
+			},
+			{
+				"userID": "0002",
+				"username": "TonyStarkAvenger"
+			}
+		]
+	},
+	{
+		"pk": "GROUP#001#USER#0002",
+		"sk": "LOCATION#001",
+		"score": {
+			"costOfLiving": 5,
+			"pollution": 5,
+			"crime": 5,
+			"transportation": 5,
+			"food": 5,
+			"culture": 5,
+			"naturalEnvironment": 5,
+			"employmentOpportunities": 5,
+			"entertainment": 5
+		}
+	},
+	{
+		"pk": "GROUP#001#USER#0001",
+		"sk": "LOCATION#001",
+		"score": {
+			"costOfLiving": 4,
+			"pollution": 4,
+			"crime": 4,
+			"transportation": 4,
+			"food": 4,
+			"culture": 4,
+			"naturalEnvironment": 4,
+			"employmentOpportunities": 4,
+			"entertainment": 4
+		}
+	}
+]
