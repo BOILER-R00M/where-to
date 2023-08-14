@@ -10,6 +10,21 @@ const DashboardLayout = ({ children }) => {
 	);
 };
 
+// Sub component responsible for displaying the list of groups that a user belongs to
+const GroupList = ({ groups }) => {
+	return (
+		<ul>
+			{groups.map((group) => {
+				return (
+					<>
+						<li>{group.groupName}</li>
+					</>
+				);
+			})}{" "}
+		</ul>
+	);
+};
+
 const Dashboard = () => {
 	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
@@ -17,15 +32,7 @@ const Dashboard = () => {
 	return (
 		<DashboardLayout>
 			{/* sub componenets of the dashboard route go here */}
-			<ul>
-				{groupList.map((group) => {
-					return (
-						<>
-							<li>{group.groupName}</li>
-						</>
-					);
-				})}{" "}
-			</ul>
+			<GroupList groups={groupList} />
 		</DashboardLayout>
 	);
 };
