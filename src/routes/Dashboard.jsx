@@ -2,9 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 import Header from "../components/utility/Header";
-
-// TODO:
-// [ ] update styling with figma styling. Using temp styling for now...
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ header, groupList }) => {
@@ -49,6 +48,7 @@ const Dashboard = () => {
 	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
+
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
