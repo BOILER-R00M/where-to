@@ -2,18 +2,18 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 import Header from "../components/utility/Header";
+import Display from "../components/utility/Display";
 import { useNavigate } from "react-router-dom";
 
 // FIXME: The styling for this route is temporary until we figure out styles from figma
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
-const DashboardLayout = ({ headerText, groupList }) => {
+const DashboardLayout = ({ displayText, groupList }) => {
 	return (
 		<>
-			<Header className="my-4">{headerText}</Header>
-			<div className="grid grid-cols-2">
+			<Display className="my-4">{displayText}</Display>
+			<div className="grid grid-cols-1">
 				<div className="w-full">{groupList}</div>
-				<div className="w-full">some other component... idk yet</div>
 			</div>
 		</>
 	);
@@ -31,7 +31,7 @@ const GroupList = ({ groups }) => {
 						<>
 							<li
 								key={i}
-								className="border cursor-pointer"
+								className="border cursor-pointer py-6 my-2 bg-slate-100 hover:bg-slate-400 transition"
 								onClick={() => {
 									navigate(`/groupspace/${group.groupId}`);
 								}}
@@ -54,7 +54,7 @@ const Dashboard = () => {
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			headerText="Welcome back"
+			displayText="Welcome back"
 		>
 			{/* sub componenets of the dashboard route go here */}
 		</DashboardLayout>
