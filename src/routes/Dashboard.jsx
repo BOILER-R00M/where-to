@@ -24,7 +24,7 @@ const GroupList = ({ groups }) => {
 	const navigate = useNavigate();
 	return (
 		<>
-			<Header className="text-2xl">Your Groups</Header>
+			<Header>Your Groups</Header>
 			<ul>
 				{groups.map((group, i) => {
 					return (
