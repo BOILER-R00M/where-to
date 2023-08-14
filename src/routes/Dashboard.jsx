@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 import Header from "../components/utility/Header";
-import { useContext } from "react";
-import AppContext from "../context/AppContext";
+
+// FIXME: The styling for this route is temporary until we figure out styles from figma
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ header, groupList }) => {
@@ -52,7 +52,7 @@ const Dashboard = () => {
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			header="Welcome back!"
+			header="Welcome back"
 		>
 			{/* sub componenets of the dashboard route go here */}
 		</DashboardLayout>
