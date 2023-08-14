@@ -1,0 +1,164 @@
+[
+	{
+		"pk": "USER#0001",
+		"sk": "GROUP#001",
+		"username": "MadisonEvans94",
+		"userID": "0001"
+	},
+
+	{
+		"pk": "USER#0002",
+		"sk": "GROUP#001",
+		"username": "TonyStarkAvenger",
+		"userID": "0002"
+	},
+	{
+		"pk": "GROUP#001",
+		"sk": "LOCATION#001",
+		"groupName": "Our Travel Group 2023",
+		"locationName": "Atlanta",
+		"coordinates": {
+			"lat": 33.753746,
+			"lng": -84.38633
+		},
+		"averageScore": {
+			"costOfLiving": 4.5,
+			"pollution": 4.5,
+			"crime": 4.5,
+			"transportation": 4.5,
+			"food": 4.5,
+			"culture": 4.5,
+			"naturalEnvironment": 4.5,
+			"employmentOpportunities": 4.5,
+			"entertainment": 4.5
+		},
+		"usersVisited": [
+			{
+				"userID": "0001",
+				"username": "MadisonEvans94"
+			},
+			{
+				"userID": "0002",
+				"username": "TonyStarkAvenger"
+			}
+		]
+	},
+	{
+		"pk": "GROUP#001",
+		"sk": "LOCATION#002",
+		"groupName": "Our Travel Group 2023",
+		"locationName": "New York City",
+		"coordinates": {
+			"lat": 40.7128,
+			"lng": 74.006
+		},
+		"averageScore": {
+			"costOfLiving": 5,
+			"pollution": 5,
+			"crime": 5,
+			"transportation": 5,
+			"food": 5,
+			"culture": 5,
+			"naturalEnvironment": 5,
+			"employmentOpportunities": 5,
+			"entertainment": 5
+		},
+		"usersVisited": [
+			{
+				"userID": "0001",
+				"username": "MadisonEvans94"
+			}
+		]
+	},
+	{
+		"pk": "GROUP#001",
+		"sk": "LOCATION#003",
+		"groupName": "Our Travel Group 2023",
+		"locationName": "Baltimore",
+		"coordinates": {
+			"lat": 39.2904,
+			"lng": 76.6122
+		},
+		"averageScore": {
+			"costOfLiving": 8,
+			"pollution": 8,
+			"crime": 8,
+			"transportation": 8,
+			"food": 8,
+			"culture": 8,
+			"naturalEnvironment": 8,
+			"employmentOpportunities": 8,
+			"entertainment": 8
+		},
+		"usersVisited": [
+			{
+				"userID": "0002",
+				"username": "TonyStarkAvenger"
+			}
+		]
+	},
+	{
+		"pk": "GROUP#001#USER#0002",
+		"sk": "LOCATION#001",
+		"locationName": "Atlanta",
+		"score": {
+			"costOfLiving": 5,
+			"pollution": 5,
+			"crime": 5,
+			"transportation": 5,
+			"food": 5,
+			"culture": 5,
+			"naturalEnvironment": 5,
+			"employmentOpportunities": 5,
+			"entertainment": 5
+		}
+	},
+	{
+		"pk": "GROUP#001#USER#0001",
+		"sk": "LOCATION#001",
+		"locationName": "Atlanta",
+		"score": {
+			"costOfLiving": 4,
+			"pollution": 4,
+			"crime": 4,
+			"transportation": 4,
+			"food": 4,
+			"culture": 4,
+			"naturalEnvironment": 4,
+			"employmentOpportunities": 4,
+			"entertainment": 4
+		}
+	},
+	{
+		"pk": "GROUP#001#USER#0001",
+		"sk": "LOCATION#002",
+		"locationName": "New York City",
+		"score": {
+			"costOfLiving": 5,
+			"pollution": 5,
+			"crime": 5,
+			"transportation": 5,
+			"food": 5,
+			"culture": 5,
+			"naturalEnvironment": 5,
+			"employmentOpportunities": 5,
+			"entertainment": 5
+		}
+	},
+	{
+		"pk": "GROUP#001#USER#0002",
+		"sk": "LOCATION#003",
+		"locationName": "Baltimore",
+		"score": {
+			"costOfLiving": 8,
+			"pollution": 8,
+			"crime": 8,
+			"transportation": 8,
+			"food": 8,
+			"culture": 8,
+			"naturalEnvironment": 8,
+			"employmentOpportunities": 8,
+			"entertainment": 8
+		}
+	}
+]
