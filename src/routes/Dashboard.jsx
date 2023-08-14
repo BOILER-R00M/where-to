@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 // FIXME: The styling for this route is temporary until we figure out styles from figma
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
-const DashboardLayout = ({ header, groupList }) => {
+const DashboardLayout = ({ headerText, groupList }) => {
 	return (
 		<>
-			<Header className="text-4xl my-4">{header}</Header>
+			<Header className="my-4">{headerText}</Header>
 			<div className="grid grid-cols-2">
 				<div className="w-full">{groupList}</div>
 				<div className="w-full">some other component... idk yet</div>
@@ -54,7 +54,7 @@ const Dashboard = () => {
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			header="Welcome back"
+			headerText="Welcome back"
 		>
 			{/* sub componenets of the dashboard route go here */}
 		</DashboardLayout>
