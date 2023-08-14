@@ -20,7 +20,7 @@ const GroupList = ({ groups }) => {
 						<li>{group.groupName}</li>
 					</>
 				);
-			})}{" "}
+			})}
 		</ul>
 	);
 };
