@@ -22,7 +22,7 @@ const DashboardLayout = ({ header, groupList }) => {
 // Sub component responsible for displaying the list of groups that a user belongs to
 const GroupList = ({ groups }) => {
 	const navigate = useNavigate();
-
+	console.log("TEST: ", groups);
 	return (
 		<>
 			<Header className="text-2xl">Your Groups</Header>
@@ -35,7 +35,7 @@ const GroupList = ({ groups }) => {
 								className="border cursor-pointer"
 								onClick={() => {
 									console.log("navigating to Group Space...");
-									navigate("/groupspace");
+									navigate(`/groupspace/${group.groupId}`);
 								}}
 							>
 								{group.groupName}

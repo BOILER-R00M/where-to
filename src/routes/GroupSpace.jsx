@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const GroupSpace = () => {
-	return <div>GroupSpace</div>;
+	const { groupId } = useParams();
+	return <div>{groupId}</div>;
 };
 
 export default GroupSpace;
