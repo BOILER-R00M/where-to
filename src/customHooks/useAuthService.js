@@ -1,4 +1,10 @@
 import React from "react";
+import {UserContext} from "../context/UserContext";
+
+
+// TODO: import Cognito SDK and other necessary dependencies here
+// fyi: user context will be globally available after it's set with setUser
+const {authUser, setAuthUser} = useContext(UserContext)
 
 const useAuthService = () => {
 	// TODO: all auth logic for sign up, log in, and log out will be handled here
