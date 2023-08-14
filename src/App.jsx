@@ -12,14 +12,11 @@ function App() {
 
 	return (
 		<>
+			{/* any state that we want global access to, create it at the app level and stick it in the `value` object of the Provider */}
 			<AppContext.Provider value={{}}>
 				<Router>
 					<Routes>
-						<Route
-							// using path parameters here. for testing purposes, visit "/dashboard/0001"
-							path="/"
-							element={<Home />}
-						/>
+						<Route path="/" element={<Home />} />
 						<Route
 							// using path parameters here. for testing purposes, visit "/dashboard/0001"
 							path="/dashboard/:userId"
