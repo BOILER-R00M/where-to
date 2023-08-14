@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useContext} from 'react';
 
-const Home = () => {
-	return <div>Home</div>;
-};
+export default function Home() {
 
-export default Home;
+
+    return (
+        <div className="bg-black h-screen text-white flex justify-center items-center">
+            <h1 className="text-6xl">Home Yall!</h1>
+        </div>
+    );
+}
