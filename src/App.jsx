@@ -8,7 +8,7 @@ import Home from "./routes/Home";
 
 function App() {
 	// custom hook for CRUD operations with database - Madison
-  // fyi: I recently created state management in userContext for user groups - Keino
+	// fyi: I recently created state management in userContext for user groups - Keino
 	const { fetchUserGroups, fetchGroupLocations, fetchUserLocationsInGroup } =
 		useDatabaseService();
 
@@ -18,7 +18,7 @@ function App() {
 			<AppContext.Provider value={{}}>
 				<Router>
 					<Routes>
-            <Route name="home" path="/" element={<Home />} />
+						<Route name="home" path="/" element={<Home />} />
 
 						<Route
 							// using path parameters here. for testing purposes, visit "/dashboard/0001"
