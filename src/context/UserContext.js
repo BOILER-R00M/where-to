@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import { fetchUserGroups } from "../customHooks/useFetchUserGroups";
 
 // Create the UserContext with an empty default value.
 const UserContext = createContext();
@@ -15,6 +16,7 @@ export const UserProvider = ({ children }) => {
 
 // Setting dummy userid for now
     const [authUid, setAuthUid] = useState("");
+    const [userGroups, setUserGroups] = useState([]);
 
     useEffect(() => {
         if (authUser) {
@@ -22,9 +24,17 @@ export const UserProvider = ({ children }) => {
         }
     },[authUser])
 
+    useEffect(() => {
+        if (authUid) {
+            const userGroups = fetchUserGroups(authUid);
+            setUserGroups(userGroups);
+        }
+    },[authUid])
+
+
 
     return (
-        <UserContext.Provider value={{ authUser, setAuthUser, authUid, setAuthUid }}>
+        <UserContext.Provider value={{ authUser, setAuthUser, authUid, setAuthUid, userGroups }}>
             {children}
         </UserContext.Provider>
     );
