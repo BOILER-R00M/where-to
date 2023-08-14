@@ -21,7 +21,7 @@ function App() {
 					<Routes>
 						<Route name="home" path="/" element={<Home />} />
 						<Route
-							name="groupspce"
+							name="groupspace"
 							path="/"
 							element={<GroupSpace />}
 						/>

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 import Header from "../components/utility/Header";
+import { useNavigate } from "react-router-dom";
 
 // FIXME: The styling for this route is temporary until we figure out styles from figma
 
@@ -20,6 +21,8 @@ const DashboardLayout = ({ header, groupList }) => {
 
 // Sub component responsible for displaying the list of groups that a user belongs to
 const GroupList = ({ groups }) => {
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<Header className="text-2xl">Your Groups</Header>
@@ -30,9 +33,10 @@ const GroupList = ({ groups }) => {
 							<li
 								key={i}
 								className="border cursor-pointer"
-								onClick={() =>
-									console.log("navigate to group page")
-								}
+								onClick={() => {
+									console.log("navigating to Group Space...");
+									navigate("/groupspace");
+								}}
 							>
 								{group.groupName}
 							</li>
