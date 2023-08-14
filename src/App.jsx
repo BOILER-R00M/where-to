@@ -23,6 +23,7 @@ function App() {
 				<Router>
 					<Routes>
 						<Route
+							// using path parameters here. for testing purposes, visit "/dashboard/0001"
 							path="/dashboard/:userId"
 							element={<Dashboard />}
 						/>

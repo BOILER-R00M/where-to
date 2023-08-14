@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
+import Header from "../components/utility/Header";
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ children }) => {
 	return (
@@ -32,6 +33,7 @@ const Dashboard = () => {
 	return (
 		<DashboardLayout>
 			{/* sub componenets of the dashboard route go here */}
+			<Header>Your Groups</Header>
 			<GroupList groups={groupList} />
 		</DashboardLayout>
 	);
