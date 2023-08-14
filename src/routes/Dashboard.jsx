@@ -10,8 +10,11 @@ import Header from "../components/utility/Header";
 const DashboardLayout = ({ header, groupList }) => {
 	return (
 		<>
-			<div>{header}</div>
-			<div>{groupList}</div>
+			<Header className="text-4xl my-4">{header}</Header>
+			<div className="grid grid-cols-2">
+				<div className="w-full">{groupList}</div>
+				<div className="w-full">some other component... idk yet</div>
+			</div>
 		</>
 	);
 };
@@ -47,7 +50,10 @@ const Dashboard = () => {
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
 	return (
-		<DashboardLayout groupList={<GroupList groups={groups} />}>
+		<DashboardLayout
+			groupList={<GroupList groups={groups} />}
+			header="Welcome back!"
+		>
 			{/* sub componenets of the dashboard route go here */}
 		</DashboardLayout>
 	);
