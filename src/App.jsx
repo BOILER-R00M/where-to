@@ -2,7 +2,6 @@ import AppContext from "./context/AppContext";
 import useDatabaseService from "./customHooks/useDatabaseService";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import Home from "./routes/Home";
 import Dashboard from "./routes/Dashboard";
 import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
