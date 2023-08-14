@@ -1,6 +1,6 @@
 import AppContext from "./context/AppContext";
 import useDatabaseService from "./customHooks/useDatabaseService";
-import useAuthService from "./customHooks/useAuthService";
+// import useAuthService from "./customHooks/useAuthService";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./routes/Dashboard";
@@ -16,6 +16,17 @@ function App() {
 	const userGroups = fetchUserGroups(userId);
 	const locations = fetchGroupLocations(groupId);
 	const userLocations = fetchUserLocationsInGroup(groupId, userId);
+
+	// logging for test purposes
+	console.log(
+		"UserGroups: ",
+		userGroups,
+		"\nLocations: ",
+		locations,
+		"\nUserLocations: ",
+		userLocations,
+		"\n"
+	);
 
 	return (
 		<>
