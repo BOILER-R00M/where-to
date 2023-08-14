@@ -2,6 +2,7 @@ import React from "react";
 import db from "../seedData/fakeDynamoDB.json";
 
 // TODO: Once we are ready to integrate with backend, we will need to change all of these functions to instead send requests to our api gateway
+// [ ] need error logic to handle when a user fetches a resource that doesn't exist yet
 
 const useDatabaseService = () => {
 	// Query the mock database to get the list of groups for a specific user

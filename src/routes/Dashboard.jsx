@@ -52,7 +52,7 @@ const Dashboard = () => {
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			header="Welcome back MadisonEvans94!"
+			header="Welcome back"
 		>
 			{/* sub componenets of the dashboard route go here */}
 		</DashboardLayout>
