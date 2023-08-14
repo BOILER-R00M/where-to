@@ -1,5 +1,6 @@
 import AppContext from "./context/AppContext";
 import useDatabaseService from "./customHooks/useDatabaseService";
+import useAuthService from "./customHooks/useAuthService";
 
 function App() {
 	// custom hook for CRUD operations with database
