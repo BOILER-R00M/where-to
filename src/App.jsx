@@ -22,7 +22,10 @@ function App() {
 			<AppContext.Provider value={userGroups}>
 				<Router>
 					<Routes>
-						<Route path="/dashboard" element={<Dashboard />} />
+						<Route
+							path="/dashboard/:userId"
+							element={<Dashboard />}
+						/>
 					</Routes>
 				</Router>
 			</AppContext.Provider>

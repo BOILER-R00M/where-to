@@ -2,6 +2,7 @@
 	{
 		"pk": "USER#0001",
 		"sk": "GROUP#001",
+		"groupName": "Travel Group 2023",
 		"username": "MadisonEvans94",
 		"userID": "0001"
 	},
@@ -9,13 +10,14 @@
 	{
 		"pk": "USER#0002",
 		"sk": "GROUP#001",
+		"groupName": "Travel Group 2023",
 		"username": "TonyStarkAvenger",
 		"userID": "0002"
 	},
 	{
 		"pk": "GROUP#001",
 		"sk": "LOCATION#001",
-		"groupName": "Our Travel Group 2023",
+		"groupName": "Travel Group 2023",
 		"locationName": "Atlanta",
 		"coordinates": {
 			"lat": 33.753746,
@@ -46,7 +48,7 @@
 	{
 		"pk": "GROUP#001",
 		"sk": "LOCATION#002",
-		"groupName": "Our Travel Group 2023",
+		"groupName": "Travel Group 2023",
 		"locationName": "New York City",
 		"coordinates": {
 			"lat": 40.7128,
@@ -73,7 +75,7 @@
 	{
 		"pk": "GROUP#001",
 		"sk": "LOCATION#003",
-		"groupName": "Our Travel Group 2023",
+		"groupName": "Travel Group 2023",
 		"locationName": "Baltimore",
 		"coordinates": {
 			"lat": 39.2904,
