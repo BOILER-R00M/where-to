@@ -6,7 +6,7 @@ import Dashboard from "./routes/Dashboard";
 import Home from "./routes/Home";
 
 function App() {
-	// custom hook for CRUD operations with database
+	// custom hook for CRUD operations with database. see "src/seedData/notes.md" for more info
 	const { fetchUserGroups, fetchGroupLocations, fetchUserLocationsInGroup } =
 		useDatabaseService();
 
