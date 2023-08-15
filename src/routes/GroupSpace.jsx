@@ -5,12 +5,14 @@ const GroupSpace = () => {
 	const { fetchGroupLocations } = useDatabaseService();
 	const { groupId } = useParams();
 	const locations = fetchGroupLocations(groupId);
+	console.log("LOCATION OBJECT: ", locations[0]);
 
 	return (
 		<div className="border h-screen grid grid-cols-[1fr,5fr]">
 			<ul className="overflow-y-auto">
-				{locations.map((location, i) => {
-					return <LocationCard location={location} key={i} />;
+				{/* TODO: update how we're indexing.. `sk` may not be the best */}
+				{locations.map((location, sk) => {
+					return <LocationCard location={location} key={sk} />;
 				})}
 			</ul>
 			<div className="flex flex-col items-center justify-center bg-gray-300">

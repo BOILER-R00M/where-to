@@ -21,12 +21,7 @@ function App() {
 					<Routes>
 						{/* Home Route */}
 						<Route name="home" path="/" element={<Home />} />
-						{/* GroupSpace Route */}
-						<Route
-							name="groupspace"
-							path="/groupspace/:groupId"
-							element={<GroupSpace />}
-						/>
+
 						{/* Dashboard Route */}
 						<Route
 							name="login"
@@ -38,6 +33,13 @@ function App() {
 							name="dashboard"
 							path="/dashboard/:userId"
 							element={<Dashboard />}
+						/>
+
+						{/* GroupSpace Route */}
+						<Route
+							name="groupspace"
+							path="/groupspace/:groupId"
+							element={<GroupSpace />}
 						/>
 					</Routes>
 				</Router>
