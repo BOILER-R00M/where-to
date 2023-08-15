@@ -19,12 +19,15 @@ function App() {
 			<AppContext.Provider value={{}}>
 				<Router>
 					<Routes>
+						{/* Home Route */}
 						<Route name="home" path="/" element={<Home />} />
+						{/* GroupSpace Route */}
 						<Route
 							name="groupspace"
 							path="/groupspace/:groupId"
 							element={<GroupSpace />}
 						/>
+						{/* Dashboard Route */}
 						<Route
 							name="login"
 							path="/login"
