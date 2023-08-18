@@ -3,12 +3,15 @@ const LoginForm = () => {
   return (
     <div
       name="login_form_container"
-      className="mx-auto w-81 pb-[5vh] iphoneXr:pb-[19vh] maxPro:pb-[25vh]"
+      className=" 
+      mx-auto w-81 pb-[5vh] 
+      iphoneXr:pb-[19vh] 
+      maxPro:pb-[25vh]"
     >
       <form className="mx-auto">
         <h2
          
-          className="text-[4vh]  py-3 font-semibold text-center text-lightCoral font-quicksand"
+          className="text-[4vh] py-3 font-semibold text-center text-lightCoral font-quicksand"
         >
           Login
         </h2>

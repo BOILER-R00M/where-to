@@ -3,7 +3,7 @@ import doubleUpArrow from "../../../assets/doubleUp.svg";
 
 const Login = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen overflow-hidden">
       <div className="flex justify-center mx-auto overflow-auto w-81 pt-22 pb-22">
         <h1 className="text-[7vh] font-semibold font-quicksand w-68 text-lightCoral">
           Where To
