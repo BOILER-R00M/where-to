@@ -6,7 +6,21 @@ export default {
   ],
   mode: "jit",
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'lightCoral': '#E68383'
+      },
+      width: {
+        '81': '81.396%',
+        '69': '69.428%',
+      },
+      spacing: {
+        '22': '88px',
+      },
+      fontSize: {
+        '7xl': '56px',  // Adding a new size. You can name it differently if you prefer.
+      }
+    },
   },
   plugins: [],
 }

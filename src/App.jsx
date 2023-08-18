@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./routes/Dashboard";
 import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
+import Login from "./components/pages/login/Login";
 
 function App() {
 	// custom hook for CRUD operations with database - Madison
@@ -23,6 +24,11 @@ function App() {
 							name="groupspace"
 							path="/groupspace/:groupId"
 							element={<GroupSpace />}
+						/>
+						<Route
+							name="login"
+							path="/login"
+							element={<Login/>}
 						/>
 						<Route
 							// using path parameters here. for testing purposes, visit "/dashboard/0001"
