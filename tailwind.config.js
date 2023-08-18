@@ -20,6 +20,7 @@ export default {
      
       spacing: {
         '22': '88px',
+        '193': '192.79px'
       },
       fontSize: {
         '7xl': '56px', 
