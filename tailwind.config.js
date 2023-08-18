@@ -10,15 +10,19 @@ export default {
       colors: {
         'lightCoral': '#E68383'
       },
+      backgroundColor: {
+        'englishViolet': '#444054',
+      },
       width: {
         '81': '81.396%',
         '69': '69.428%',
       },
+     
       spacing: {
         '22': '88px',
       },
       fontSize: {
-        '7xl': '56px',  // Adding a new size. You can name it differently if you prefer.
+        '7xl': '56px', 
       }
     },
   },
