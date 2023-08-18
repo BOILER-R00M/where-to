@@ -12,10 +12,14 @@ export default {
       },
       backgroundColor: {
         'englishViolet': '#444054',
+        'lightCoral': '#E68383',
       },
       width: {
         '81': '81.396%',
         '69': '69.428%',
+      },
+      padding: {
+        '18': '40%'
       },
      
       spacing: {
