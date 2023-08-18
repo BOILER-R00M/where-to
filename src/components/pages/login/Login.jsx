@@ -7,7 +7,7 @@ const Login = () => {
                 <h1 style={{ fontSize: '13vw' }} className="mx-auto w-69 font-semibold text-lightCoral" >Where To</h1>
             </div>
             <LoginForm/>
-            <div name="slideUpContainer" className="flex-grow bg-lightCoral"></div>
+            <div name="slideUpContainer" className="flex-grow bg-lightCoral min-h-[20vh]"></div>
         </div>
        );
 }

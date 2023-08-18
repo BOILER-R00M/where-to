@@ -7,6 +7,9 @@ export default {
   mode: "jit",
   theme: {
     extend: {
+      screens: {
+        'maxPro': '430px',
+      },
       colors: {
         'lightCoral': '#E68383'
       },

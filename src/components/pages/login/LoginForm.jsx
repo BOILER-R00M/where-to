@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 const LoginForm = () => {
   return (
-    <div name="login_form_container" className="mx-auto w-81 pb-193">
+    <div name="login_form_container" className="mx-auto w-81 pb-[9vh] maxPro:pb-[22vh]">
+
       <form className="mx-auto">
         <h2
           style={{ fontSize: "8vw" }}
