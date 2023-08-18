@@ -7,11 +7,15 @@ export default {
   mode: "jit",
   theme: {
     extend: {
+      fontFamily: {
+        'quicksand': ['Quicksand', 'sans-serif'],
+      },
       screens: {
         'maxPro': '430px',
       },
       colors: {
-        'lightCoral': '#E68383'
+        'lightCoral': '#E68383',
+        'englishViolet': '#444054'
       },
       backgroundColor: {
         'englishViolet': '#444054',
