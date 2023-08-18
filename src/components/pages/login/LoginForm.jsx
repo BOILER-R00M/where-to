@@ -3,19 +3,19 @@ const LoginForm = () => {
   return (
     <div
       name="login_form_container"
-      className="mx-auto w-81 pb-[5vh] maxPro:pb-[25vh]"
+      className="mx-auto w-81 pb-[5vh] iphoneXr:pb-[19vh] maxPro:pb-[25vh]"
     >
       <form className="mx-auto">
         <h2
-          style={{ fontSize: "8vw" }}
-          className="text-center text-lightCoral font-semibold py-3 font-quicksand"
+         
+          className="text-[4vh]  py-3 font-semibold text-center text-lightCoral font-quicksand"
         >
           Login
         </h2>
 
         <div className="py-3">
           <input
-            className="border border-black rounded-md py-2 w-full px-3 text-lg font-quicksand"
+            className="w-full px-3 py-2 text-lg border border-black rounded-md font-quicksand"
             type="email"
             placeholder="Email"
             required
@@ -24,7 +24,7 @@ const LoginForm = () => {
 
         <div className="py-3">
           <input
-            className="border border-black rounded-md w-full py-2 px-3 text-lg font-quicksand"
+            className="w-full px-3 py-2 text-lg border border-black rounded-md font-quicksand"
             type="password"
             placeholder="Password"
             required
@@ -35,13 +35,13 @@ const LoginForm = () => {
           <input
             type="submit"
             value="Login"
-            className="font-quicksand text-white py-2 px-2 text-lg bg-englishViolet rounded-md w-full"
+            className="w-full px-2 py-2 text-lg text-white rounded-md font-quicksand bg-englishViolet"
           />
         </div>
       </form>
 
       <Link
-        className=" underline text-lightCoral text-base text-center block font-quicksand"
+        className="block text-base text-center underline text-lightCoral font-quicksand"
         to="/"
       >
         Forgot Password?

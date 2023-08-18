@@ -12,6 +12,7 @@ export default {
       },
       screens: {
         'maxPro': '430px',
+        'iphoneXr': '390px'
       },
       colors: {
         'lightCoral': '#E68383',
