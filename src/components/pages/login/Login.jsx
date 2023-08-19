@@ -41,8 +41,8 @@ const Login = () => {
           initial={{ opacity: 0, y: 0, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
-            opacity: { duration: 1, delay: .2, ease: "easeInOut" },
-            scale: { duration: 1, delay: .2, ease: "easeInOut" },
+            opacity: { duration: 1, delay: 0.2, ease: "easeInOut" },
+            scale: { duration: 1, delay: 0.2, ease: "easeInOut" },
           }}
           exit={{ opacity: 0, y: "100vh", delay: 0 }}
         >
