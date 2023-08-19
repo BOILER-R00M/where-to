@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+// NOTE: I think we should give the color values default names such as "primary" or "secondary" so if we need to change them out later, we don't have to change the names everywhere in the file
 export default {
   content: [
     "./index.html",
