@@ -6,7 +6,38 @@ export default {
   ],
   mode: "jit",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'quicksand': ['Quicksand', 'sans-serif'],
+      },
+      screens: {
+        'maxPro': '430px',
+        'iphoneXr': '390px'
+      },
+      colors: {
+        'lightCoral': '#E68383',
+        'englishViolet': '#444054'
+      },
+      backgroundColor: {
+        'englishViolet': '#444054',
+        'lightCoral': '#E68383',
+      },
+      width: {
+        '81': '81.396%',
+        '69': '69.428%',
+      },
+      padding: {
+        '18': '40%'
+      },
+     
+      spacing: {
+        '22': '88px',
+        '193': '192.79px'
+      },
+      fontSize: {
+        '7xl': '56px', 
+      }
+    },
   },
   plugins: [],
 }

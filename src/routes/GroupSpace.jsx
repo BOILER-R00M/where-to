@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 
@@ -14,7 +13,7 @@ const GroupSpace = () => {
 					return <LocationCard location={location} key={i} />;
 				})}
 			</ul>
-			<div className="bg-gray-300 flex flex-col items-center justify-center">
+			<div className="flex flex-col items-center justify-center bg-gray-300">
 				<Map />
 			</div>
 		</div>
@@ -28,7 +27,7 @@ function Map() {
 
 function LocationCard({ location }) {
 	return (
-		<li className="text-center border-b py-4 cursor-pointer hover:bg-gray-200">
+		<li className="py-4 text-center border-b cursor-pointer hover:bg-gray-200">
 			{location.locationName}
 		</li>
 	);
