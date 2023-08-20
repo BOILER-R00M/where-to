@@ -25,7 +25,7 @@ const DashboardLayout = ({ displayText, groupList }) => {
 const GroupList = ({ groups }) => {
 	return (
 		<>
-			<Header>Your Groups</Header>
+			<Header className="mt-6 mb-3">Your Groups</Header>
 			<ul className="bg-secondary p-3 grid grid-col gap-3 rounded-lg">
 				{groups.map((group) => {
 					return <GroupListItem key={group.sk} group={group} />;
