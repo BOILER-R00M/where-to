@@ -26,7 +26,7 @@ const GroupList = ({ groups }) => {
 	return (
 		<>
 			<Header>Your Groups</Header>
-			<ul>
+			<ul className="bg-secondary p-3 grid grid-col gap-3 rounded-lg">
 				{groups.map((group) => {
 					return <GroupListItem key={group.sk} group={group} />;
 				})}
