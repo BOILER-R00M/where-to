@@ -8,7 +8,7 @@ const GroupSpace = () => {
 	console.log("LOCATION OBJECT: ", locations[0]);
 
 	return (
-		<div className="border h-screen grid grid-cols-[1fr,5fr]">
+		<div className="border h-screen grid grid-cols-[1fr,5fr] bg-primary">
 			<ul className="overflow-y-auto">
 				{locations.map((location, sk) => {
 					return <LocationCard location={location} key={sk} />;

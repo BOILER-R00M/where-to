@@ -5,15 +5,11 @@ import Header from "../components/utility/Header";
 import Display from "../components/utility/Display";
 import GroupListItem from "../components/pages/dashboard/GroupListItem";
 
-// TODO: The styling for this route is temporary until we figure out styles from figma
-// [x] set page-wide padding that will be reused in other components
-// [x] Refactor out the group list items
-
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ displayText, groupList }) => {
 	return (
-		<div className="px-4">
-			<Display className="my-4">{displayText}</Display>
+		<div className="px-4 bg-primary">
+			<Display className="py-4 text-tertiary">{displayText}</Display>
 			<div className="grid grid-cols-1">
 				<div className="w-full">{groupList}</div>
 			</div>
@@ -25,7 +21,7 @@ const DashboardLayout = ({ displayText, groupList }) => {
 const GroupList = ({ groups }) => {
 	return (
 		<>
-			<Header className="mt-6 mb-3">Your Groups</Header>
+			<Header className="pt-6 pb-3 text-tertiary">Your Groups</Header>
 			<ul className="bg-secondary p-3 grid grid-col gap-3 rounded-lg">
 				{groups.map((group) => {
 					return <GroupListItem key={group.sk} group={group} />;
