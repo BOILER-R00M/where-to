@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 
@@ -7,14 +6,17 @@ const GroupSpace = () => {
 	const { groupId } = useParams();
 	const locations = fetchGroupLocations(groupId);
 
+	// TODO:
+	// [ ] change how the page layout looks on mobile
+
 	return (
-		<div className="border h-screen grid grid-cols-[1fr,5fr]">
-			<ul className="overflow-y-auto">
-				{locations.map((location, i) => {
-					return <LocationCard location={location} key={i} />;
+		<div className="h-screen grid grid-cols-[3fr,5fr] lg:grid-cols-[1fr,5fr] bg-primary">
+			<ul className="overflow-y-auto border-r border-tertiary">
+				{locations.map((location, sk) => {
+					return <LocationCard location={location} key={sk} />;
 				})}
 			</ul>
-			<div className="bg-gray-300 flex flex-col items-center justify-center">
+			<div className="flex flex-col items-center justify-center bg-gray-300">
 				<Map />
 			</div>
 		</div>
@@ -28,7 +30,7 @@ function Map() {
 
 function LocationCard({ location }) {
 	return (
-		<li className="text-center border-b py-4 cursor-pointer hover:bg-gray-200">
+		<li className="py-4 text-center border-b border-tertiary cursor-pointer hover:bg-gray-200">
 			{location.locationName}
 		</li>
 	);

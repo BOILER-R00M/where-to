@@ -3,61 +3,53 @@ import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 import Header from "../components/utility/Header";
 import Display from "../components/utility/Display";
-import { useNavigate } from "react-router-dom";
+import GroupListItem from "../components/pages/dashboard/GroupListItem";
+import Button from "../components/utility/Button";
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
 
-// FIXME: The styling for this route is temporary until we figure out styles from figma
-
-// Use DashboardLayout as a layout component that is responsible for structuring the children components only
-const DashboardLayout = ({ displayText, groupList }) => {
-	return (
-		<>
-			<Display className="my-4">{displayText}</Display>
-			<div className="grid grid-cols-1">
-				<div className="w-full">{groupList}</div>
-			</div>
-		</>
-	);
-};
-
-// Sub component responsible for displaying the list of groups that a user belongs to
-const GroupList = ({ groups }) => {
-	const navigate = useNavigate();
-	return (
-		<>
-			<Header>Your Groups</Header>
-			<ul>
-				{groups.map((group, i) => {
-					return (
-						<>
-							<li
-								key={i}
-								className="border cursor-pointer py-6 my-2 bg-slate-100 hover:bg-slate-400 transition"
-								onClick={() => {
-									navigate(`/groupspace/${group.groupId}`);
-								}}
-							>
-								{group.groupName}
-							</li>
-						</>
-					);
-				})}
-			</ul>
-		</>
-	);
-};
+// TODO:
+// [x] Add username to welcome Display message
 
 const Dashboard = () => {
 	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
+	const { user } = useContext(AppContext);
 
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			displayText="Welcome back"
-		>
-			{/* sub componenets of the dashboard route go here */}
-		</DashboardLayout>
+			userName={user.userName}
+		/>
+	);
+};
+
+// Use DashboardLayout as a layout component that is responsible for structuring the children components only
+const DashboardLayout = ({ userName, groupList }) => {
+	return (
+		<div className="px-3 bg-primary h-screen md:px-6 lg:px-12">
+			<Display className="py-4 text-secondary">Welcome Back,</Display>
+			<Display className="py-4 text-secondary">{userName}</Display>
+			{groupList}
+		</div>
+	);
+};
+
+// Sub component responsible for displaying the list of groups that a user belongs to
+const GroupList = ({ groups }) => {
+	return (
+		<div className="flex flex-col">
+			<Header className="pt-6 pb-3 text-tertiary">Your Groups</Header>
+			<div className="border border-tertiary rounded-lg bg-none p-3 flex flex-col">
+				<ul className="grid grid-cols-1 lg:grid-cols-2 gap-3 rounded-lg">
+					{groups.map((group) => {
+						return <GroupListItem key={group.sk} group={group} />;
+					})}
+				</ul>
+				<Button className="mt-3">Create New Group</Button>
+			</div>
+		</div>
 	);
 };
 

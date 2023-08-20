@@ -1,43 +1,50 @@
-import { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from "react";
 import { fetchUserGroups } from "../customHooks/useFetchUserGroups";
 
-// Create the UserContext with an empty default value.
 const UserContext = createContext();
 
-// eslint-disable-next-line react/prop-types
+// Custom hook to access the user context
+export const useUser = () => {
+  const context = useContext(UserContext);
+
+  if (!context) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+
+  return context;
+};
+
 export const UserProvider = ({ children }) => {
+  const initialAuthUser = {
+    pk: "USER#0001",
+    username: "MadisonEvans94",
+    userID: "0001",
+  };
 
-// just setting up a dummy user for now
-    const [authUser, setAuthUser] = useState({
-        "pk": "USER#0001",
-        "username": "MadisonEvans94",
-        "userID": "0001"
-    });
+  const [authUser, setAuthUser] = useState(initialAuthUser);
+  const [authUid, setAuthUid] = useState("");
+  const [userGroups, setUserGroups] = useState([]);
 
-// Setting dummy userid for now
-    const [authUid, setAuthUid] = useState("");
-    const [userGroups, setUserGroups] = useState([]);
+  useEffect(() => {
+    if (authUser) {
+      setAuthUid(authUser.userID);
+    }
+  }, [authUser]);
 
-    useEffect(() => {
-        if (authUser) {
-            setAuthUid(authUser.userID);
-        }
-    },[authUser])
+  useEffect(() => {
+    if (authUid) {
+      const userGroups = fetchUserGroups(authUid);
+      setUserGroups(userGroups);
+    }
+  }, [authUid]);
 
-    useEffect(() => {
-        if (authUid) {
-            const userGroups = fetchUserGroups(authUid);
-            setUserGroups(userGroups);
-        }
-    },[authUid])
-
-
-
-    return (
-        <UserContext.Provider value={{ authUser, setAuthUser, authUid, setAuthUid, userGroups }}>
-            {children}
-        </UserContext.Provider>
-    );
+  return (
+    <UserContext.Provider
+      value={{ authUser, setAuthUser, authUid, setAuthUid, userGroups }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 export default UserContext;
