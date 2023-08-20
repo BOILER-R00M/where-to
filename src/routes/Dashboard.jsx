@@ -5,16 +5,19 @@ import Header from "../components/utility/Header";
 import Display from "../components/utility/Display";
 import GroupListItem from "../components/pages/dashboard/GroupListItem";
 import Button from "../components/utility/Button";
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
 
 // TODO:
 // [ ] change how the layout of the grouplist looks on larger screens. Incorporate a different grid column layout
 // [ ] Add username to welcome Display message
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
-const DashboardLayout = ({ displayText, groupList }) => {
+const DashboardLayout = ({ userName, groupList }) => {
 	return (
 		<div className="px-3 bg-primary h-screen md:px-6 lg:px-12">
-			<Display className="py-4 text-secondary">{displayText}</Display>
+			<Display className="py-4 text-secondary">Welcome Back,</Display>
+			<Display className="py-4 text-secondary">{userName}</Display>
 			{groupList}
 		</div>
 	);
@@ -41,11 +44,12 @@ const Dashboard = () => {
 	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
+	const { user } = useContext(AppContext);
 
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			displayText="Welcome back"
+			userName={user.userName}
 		/>
 	);
 };
