@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+
 const LoginForm = () => {
 	return (
 		<div
 			name="login_form_container"
-			className=" mx-auto w-81 pb-[5vh] iphoneXr:pb-[19vh] maxPro:pb-[25vh]"
+			className="mx-auto w-81 pb-[5vh] iphoneXr:pb-[19vh] maxPro:pb-[25vh]"
 		>
 			<form className="mx-auto">
 				<h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
@@ -29,11 +30,12 @@ const LoginForm = () => {
 				</div>
 
 				<div className="py-3">
-					<input
+					<button
 						type="submit"
-						value="Login"
 						className="w-full px-2 py-2 text-lg text-white cursor-pointer rounded-md font-main bg-tertiary text-primary"
-					/>
+					>
+						Login
+					</button>
 				</div>
 			</form>
 

@@ -12,7 +12,6 @@ export default {
 			fontFamily: {
 				main: ["Quicksand", "sans-serif"],
 			},
-
 			screens: {
 				maxPro: "430px",
 				iphoneXr: "390px",
