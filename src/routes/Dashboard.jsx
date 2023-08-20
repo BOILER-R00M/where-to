@@ -5,7 +5,7 @@ import Header from "../components/utility/Header";
 import Display from "../components/utility/Display";
 import { useNavigate } from "react-router-dom";
 
-// FIXME: The styling for this route is temporary until we figure out styles from figma
+// TODO: The styling for this route is temporary until we figure out styles from figma
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ displayText, groupList }) => {
