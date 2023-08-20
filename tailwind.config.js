@@ -3,11 +3,16 @@ export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	mode: "jit",
 	theme: {
-		colors: { primary: "F1F1F0", secondary: "E68383", terciary: "444054" },
+		colors: {
+			primary: "#F1F1F0",
+			secondary: "#E68383",
+			tertiary: "#444054",
+		},
 		extend: {
 			fontFamily: {
-				quicksand: ["Quicksand", "sans-serif"],
+				main: ["Quicksand", "sans-serif"],
 			},
+
 			screens: {
 				maxPro: "430px",
 				iphoneXr: "390px",

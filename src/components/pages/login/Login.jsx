@@ -47,7 +47,7 @@ const Login = () => {
 					exit={{ opacity: 0, y: "100vh", delay: 0 }}
 				>
 					<div className="flex justify-center mx-auto overflow-auto w-81 pt-22 pb-22">
-						<h1 className="text-[7vh] font-semibold font-quicksand w-68 text-lightCoral overflow-auto scrollbar-hidden">
+						<h1 className="text-[7vh] font-semibold font-main w-68 text-secondary overflow-auto scrollbar-hidden">
 							Where To
 						</h1>
 					</div>
@@ -57,7 +57,7 @@ const Login = () => {
 
 			<div
 				name="slideUpContainer"
-				className={`flex flex-col items-center flex-grow bg-lightCoral ${
+				className={`flex flex-col items-center flex-grow bg-secondary ${
 					slideUp ? "justify-start" : "justify-center"
 				}`}
 				onClick={handleSlideUp}
@@ -67,7 +67,7 @@ const Login = () => {
 					alt={slideUp ? "DoubleDown" : "Double Up Arrow"}
 					className="w-10 mb-4 h-9 cursor-pointer"
 				/>
-				<p className="text-englishViolet font-quicksand">
+				<p className="text-tertiary font-main">
 					{slideUp
 						? "Already have an account? Slide down"
 						: "Don't have an account? Slide up to sign up"}
