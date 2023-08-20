@@ -28,7 +28,7 @@ const Login = () => {
 	return (
 		<motion.div
 			className={`flex flex-col h-screen overflow-hidden ${
-				slideUp ? "" : "bg-white"
+				slideUp ? "" : "bg-primary"
 			}`}
 		>
 			<motion.div
