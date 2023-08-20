@@ -7,7 +7,7 @@ import GroupListItem from "../components/pages/dashboard/GroupListItem";
 
 // TODO: The styling for this route is temporary until we figure out styles from figma
 // [x] set page-wide padding that will be reused in other components
-// [ ] Refactor out the group list items
+// [x] Refactor out the group list items
 // [ ] Replace the button
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ displayText, groupList }) => {
@@ -23,7 +23,6 @@ const DashboardLayout = ({ displayText, groupList }) => {
 
 // Sub component responsible for displaying the list of groups that a user belongs to
 const GroupList = ({ groups }) => {
-	console.log("GROUPS", groups);
 	return (
 		<>
 			<Header>Your Groups</Header>
@@ -45,9 +44,7 @@ const Dashboard = () => {
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
 			displayText="Welcome back"
-		>
-			{/* sub componenets of the dashboard route go here */}
-		</DashboardLayout>
+		/>
 	);
 };
 
