@@ -6,12 +6,16 @@ import Display from "../components/utility/Display";
 import GroupListItem from "../components/pages/dashboard/GroupListItem";
 import Button from "../components/utility/Button";
 
+// TODO:
+// [ ] change how the layout of the grouplist looks on larger screens. Incorporate a different grid column layout
+// [ ] Add additional metadata to the grid list items as shown in figma document
+
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ displayText, groupList }) => {
 	return (
 		<div className="px-4 bg-primary h-screen">
-			<Display className="py-4 text-tertiary">{displayText}</Display>
-			<div className="grid grid-cols-1">
+			<Display className="py-4 text-secondary">{displayText}</Display>
+			<div className="grid grid-cols-1 max-w-[800px] mx-auto">
 				<div className="w-full">{groupList}</div>
 			</div>
 		</div>

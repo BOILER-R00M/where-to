@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import Button from "../../utility/Button";
 
+// TODO:
+// [ ] place a dummy callback function for now for the login button. Will later stick the Cognito fetch function there
+
 const LoginForm = () => {
 	return (
 		<div

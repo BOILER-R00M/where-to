@@ -5,11 +5,13 @@ const GroupSpace = () => {
 	const { fetchGroupLocations } = useDatabaseService();
 	const { groupId } = useParams();
 	const locations = fetchGroupLocations(groupId);
-	console.log("LOCATION OBJECT: ", locations[0]);
+
+	// TODO:
+	// [ ] change how the page layout looks on mobile
 
 	return (
-		<div className="border h-screen grid grid-cols-[1fr,5fr] bg-primary">
-			<ul className="overflow-y-auto">
+		<div className="h-screen grid grid-cols-[3fr,5fr] lg:grid-cols-[1fr,5fr] bg-primary">
+			<ul className="overflow-y-auto border-r border-tertiary">
 				{locations.map((location, sk) => {
 					return <LocationCard location={location} key={sk} />;
 				})}
@@ -28,7 +30,7 @@ function Map() {
 
 function LocationCard({ location }) {
 	return (
-		<li className="py-4 text-center border-b cursor-pointer hover:bg-gray-200">
+		<li className="py-4 text-center border-b border-tertiary cursor-pointer hover:bg-gray-200">
 			{location.locationName}
 		</li>
 	);
