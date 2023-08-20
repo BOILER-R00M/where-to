@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Button from "../../utility/Button";
+
 const LoginForm = () => {
 	return (
 		<div
@@ -12,7 +14,7 @@ const LoginForm = () => {
 
 				<div className="py-3">
 					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main"
+						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
 						type="email"
 						placeholder="Email"
 						required
@@ -21,7 +23,7 @@ const LoginForm = () => {
 
 				<div className="py-3">
 					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main"
+						className="w-full px-3 py-2 text-lg border border-black text-tertiary rounded-md font-main"
 						type="password"
 						placeholder="Password"
 						required
@@ -29,11 +31,7 @@ const LoginForm = () => {
 				</div>
 
 				<div className="py-3">
-					<input
-						type="submit"
-						value="Login"
-						className="w-full px-2 py-2 text-lg text-white cursor-pointer rounded-md font-main bg-tertiary text-primary"
-					/>
+					<Button>Login</Button>
 				</div>
 			</form>
 
