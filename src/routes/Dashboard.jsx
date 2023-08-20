@@ -9,8 +9,21 @@ import { useContext } from "react";
 import AppContext from "../context/AppContext";
 
 // TODO:
-// [ ] change how the layout of the grouplist looks on larger screens. Incorporate a different grid column layout
-// [ ] Add username to welcome Display message
+// [x] Add username to welcome Display message
+
+const Dashboard = () => {
+	const { userId } = useParams();
+	const { fetchUserGroups } = useDatabaseService();
+	const groups = fetchUserGroups(userId);
+	const { user } = useContext(AppContext);
+
+	return (
+		<DashboardLayout
+			groupList={<GroupList groups={groups} />}
+			userName={user.userName}
+		/>
+	);
+};
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ userName, groupList }) => {
@@ -37,20 +50,6 @@ const GroupList = ({ groups }) => {
 				<Button className="mt-3">Create New Group</Button>
 			</div>
 		</div>
-	);
-};
-
-const Dashboard = () => {
-	const { userId } = useParams();
-	const { fetchUserGroups } = useDatabaseService();
-	const groups = fetchUserGroups(userId);
-	const { user } = useContext(AppContext);
-
-	return (
-		<DashboardLayout
-			groupList={<GroupList groups={groups} />}
-			userName={user.userName}
-		/>
 	);
 };
 
