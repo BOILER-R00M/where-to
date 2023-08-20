@@ -26,7 +26,7 @@ const GroupList = ({ groups }) => {
 		<div className="flex flex-col">
 			<Header className="pt-6 pb-3 text-tertiary">Your Groups</Header>
 			<div className="border border-tertiary rounded-lg bg-none p-3 flex flex-col">
-				<ul className="grid grid-col gap-3 rounded-lg">
+				<ul className="grid grid-cols-1 lg:grid-cols-2 gap-3 rounded-lg">
 					{groups.map((group) => {
 						return <GroupListItem key={group.sk} group={group} />;
 					})}
