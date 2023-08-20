@@ -8,16 +8,14 @@ import Button from "../components/utility/Button";
 
 // TODO:
 // [ ] change how the layout of the grouplist looks on larger screens. Incorporate a different grid column layout
-// [ ] Add additional metadata to the grid list items as shown in figma document
+// [ ] Add username to welcome Display message
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ displayText, groupList }) => {
 	return (
-		<div className="px-4 bg-primary h-screen">
+		<div className="px-3 bg-primary h-screen md:px-6 lg:px-12">
 			<Display className="py-4 text-secondary">{displayText}</Display>
-			<div className="grid grid-cols-1 max-w-[800px] mx-auto">
-				<div className="w-full">{groupList}</div>
-			</div>
+			{groupList}
 		</div>
 	);
 };
@@ -25,7 +23,7 @@ const DashboardLayout = ({ displayText, groupList }) => {
 // Sub component responsible for displaying the list of groups that a user belongs to
 const GroupList = ({ groups }) => {
 	return (
-		<>
+		<div className="flex flex-col">
 			<Header className="pt-6 pb-3 text-tertiary">Your Groups</Header>
 			<div className="border border-tertiary rounded-lg bg-none p-3 flex flex-col">
 				<ul className="grid grid-col gap-3 rounded-lg">
@@ -35,7 +33,7 @@ const GroupList = ({ groups }) => {
 				</ul>
 				<Button className="mt-3">Create New Group</Button>
 			</div>
-		</>
+		</div>
 	);
 };
 
