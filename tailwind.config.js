@@ -14,9 +14,8 @@ export default {
 			},
 
 			screens: {
-				sm: "390px", // Small devices
-				md: "430px", // Medium devices
-				// You can continue with 'lg', 'xl', etc., for larger sizes
+				maxPro: "430px",
+				iphoneXr: "390px",
 			},
 			width: {
 				81: "81.396%",
