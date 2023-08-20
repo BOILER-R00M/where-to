@@ -8,7 +8,7 @@ import GroupListItem from "../components/pages/dashboard/GroupListItem";
 // TODO: The styling for this route is temporary until we figure out styles from figma
 // [x] set page-wide padding that will be reused in other components
 // [x] Refactor out the group list items
-// [ ] Replace the button
+
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ displayText, groupList }) => {
 	return (
