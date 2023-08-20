@@ -11,7 +11,8 @@ const Button = ({
 }) => {
 	// Define classes for primary and secondary variants as specified in design doc
 	const variantClasses = {
-		primary: "bg-tertiary text-primary border-tertiary",
+		primary:
+			"bg-tertiary text-primary border-tertiary hover:border-secondary hover:bg-secondary transition",
 		secondary: "bg-primary text-tertiary border-tertiary",
 	};
 
@@ -23,7 +24,7 @@ const Button = ({
 			type={type}
 			onClick={onClick}
 			disabled={disabled}
-			className={`w-full px-2 py-2 text-lg cursor-pointer rounded-md font-main ${variantClass} ${className}`}
+			className={`w-full px-2 py-2 text-lg cursor-pointer rounded-lg font-main ${variantClass} ${className}`}
 		>
 			{children}
 		</button>
