@@ -20,7 +20,16 @@ const SignUpForm = () => {
           <input
             className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
             type="text"
-            placeholder="Full Name"
+            placeholder="First Name"
+            required
+          />
+        </div>
+
+        <div className="py-3">
+          <input
+            className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+            type="text"
+            placeholder="Last Name"
             required
           />
         </div>
@@ -36,12 +45,21 @@ const SignUpForm = () => {
 
         <div className="py-3">
           <input
-            className="w-full px-3 py-2 text-lg border border-black text-tertiary rounded-md font-main"
+            className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
             type="password"
             placeholder="Password"
             required
           />
         </div>
+        <div className="py-3">
+          <input
+            className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
+            type="password"
+            placeholder="Confirm Password"
+            required
+          />
+        </div>
+        
 
         <div className="py-3">
           <Button>Sign Up</Button>
