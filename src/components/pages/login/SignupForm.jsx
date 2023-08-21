@@ -6,7 +6,7 @@ import UserPool from "../../../AWS/auth/UserPool";
 
 // TODO:
 // [ ] place a dummy callback function for now for the login button. Will later stick the Cognito fetch function there
-
+//test
 const SignUpForm = () => {
   const [userOjb, setUserOjb] = useState({
     firstName: "",
