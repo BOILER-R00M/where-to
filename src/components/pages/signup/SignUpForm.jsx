@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 
+
+
+
 const SignUpForm = () => {
   const signUpVariant = {
     hidden: { opacity: 0 },

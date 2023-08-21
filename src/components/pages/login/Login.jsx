@@ -4,6 +4,8 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import doubleUpArrow from "../../../assets/doubleUp.svg";
 import doubleDownArrow from "../../../assets/DoubleDown.svg";
+// part of auth
+
 
 const Login = () => {
 	const [slideUp, setSlideUp] = useState(false);
