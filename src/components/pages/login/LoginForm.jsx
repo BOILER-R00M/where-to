@@ -8,10 +8,10 @@ const LoginForm = () => {
 	return (
 		<div
 			name="login_form_container"
-			className="max-w-[600px] mx-auto w-81 pb-[5vh] sm:pb-10 md:pb-64"
+			className="max-w-[600px] mx-auto w-81 pb-[5vh] samsungS8:pb-60 iphoneXr:pb-60 sm:pb-10  md:pb-64"
 		>
-			<form className="mx-auto">
-				<h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
+			<form className="mx-auto ">
+				<h2 className="text-[4vh] py-2 font-semibold text-center text-secondary font-main">
 					Login
 				</h2>
 
@@ -26,7 +26,7 @@ const LoginForm = () => {
 
 				<div className="py-3">
 					<input
-						className="w-full px-3 py-2 text-lg border border-black text-tertiary rounded-md font-main"
+						className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
 						type="password"
 						placeholder="Password"
 						required

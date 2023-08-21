@@ -61,19 +61,22 @@ const Login = () => {
 				className={`flex flex-col items-center flex-grow bg-secondary ${
 					slideUp ? "justify-start" : "justify-center"
 				}`}
-				onClick={handleSlideUp}
+				
 			>
 				<img
 					src={slideUp ? doubleDownArrow : doubleUpArrow}
 					alt={slideUp ? "DoubleDown" : "Double Up Arrow"}
-					className="w-10 mb-4 h-9 cursor-pointer"
+					className="w-10 mb-4 cursor-pointer h-9"
+					onClick={handleSlideUp}
 				/>
 				<p className="text-tertiary font-main">
 					{slideUp
 						? "Already have an account? Slide down"
 						: "Don't have an account? Slide up to sign up"}
 				</p>
-				<SignupForm />
+				{slideUp? <SignupForm />: null}
+				
+				
 			</div>
 		</motion.div>
 	);

@@ -15,6 +15,7 @@ export default {
 			screens: {
 				maxPro: "430px",
 				iphoneXr: "390px",
+				samsungS8: '360px',
 			},
 			width: {
 				81: "81.396%",
