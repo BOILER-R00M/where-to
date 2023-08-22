@@ -39,10 +39,15 @@ const GroupSpace = () => {
 };
 export default GroupSpace;
 
-function Map() {
+function Map({ locations }) {
 	const position = [33.7488, -84.3877]; // Coordinates for test dot
 	const zoom = 13;
 
+	locations = [
+		[33.7488, -84.3877],
+		[40.7128, -74.006],
+		[42.3601, -71.0589],
+	];
 	return (
 		<MapContainer
 			center={position}
@@ -53,9 +58,16 @@ function Map() {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
-			<Marker position={position} />{" "}
+			{locations.map((location) => {
+				return (
+					<>
+						<Circle center={location} radius={20} />{" "}
+						<Marker position={location} />
+					</>
+				);
+			})}
 			{/* Optional: Adds a marker at the position */}
-			<Circle center={position} radius={20} />{" "}
+
 			{/* Adds a dot at the position with a radius of 20 meters */}
 		</MapContainer>
 	);
