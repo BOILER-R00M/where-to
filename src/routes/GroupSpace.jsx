@@ -6,11 +6,12 @@ import Map from "../components/pages/groupspace/Map";
 import LocationCard from "../components/pages/groupspace/LocationCard";
 
 // TODO:
+// [ ] change how the page layout looks on mobile
 // [x] Add state that allows map component to hold locations via lat/lng metadata
 // [x] render the locations on the map with a  pin or dot or some other kind of indicator
 // [x] refactor sub components into their own files
 // [ ] when user clicks on location from the side bar, it should move to that location
-// [ ] change how the page layout looks on mobile
+// [ ] when user clicks on location from the side bar, after zooming to location, there should be a window that pops up that shows locations metadata (score and list of users who scored it)
 
 const GroupSpace = () => {
 	const { fetchGroupLocations } = useDatabaseService();
