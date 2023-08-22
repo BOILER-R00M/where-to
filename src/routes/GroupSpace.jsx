@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
+import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 const GroupSpace = () => {
 	const { fetchGroupLocations } = useDatabaseService();
@@ -25,7 +27,22 @@ const GroupSpace = () => {
 export default GroupSpace;
 
 function Map() {
-	return <div>map goes here</div>;
+	// You can set the initial coordinates and zoom level here
+	const position = [51.505, -0.09];
+	const zoom = 13;
+
+	return (
+		<MapContainer
+			center={position}
+			zoom={zoom}
+			style={{ height: "100%", width: "100%" }}
+		>
+			<TileLayer
+				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			/>
+		</MapContainer>
+	);
 }
 
 function LocationCard({ location }) {
