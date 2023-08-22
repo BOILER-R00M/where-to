@@ -131,7 +131,7 @@
 		"locationName": "San Diego",
 		"coordinates": {
 			"lat": 32.7157,
-			"lng": 117.1611
+			"lng": -117.1611
 		},
 		"averageScore": {
 			"costOfLiving": 3,
