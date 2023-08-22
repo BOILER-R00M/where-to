@@ -8,7 +8,7 @@ import LocationCard from "../components/pages/groupspace/LocationCard";
 // TODO:
 // [x] Add state that allows map component to hold locations via lat/lng metadata
 // [x] render the locations on the map with a  pin or dot or some other kind of indicator
-// [ ] separate sub components into their own files
+// [x] refactor sub components into their own files
 // [ ] when user clicks on location from the side bar, it should move to that location
 // [ ] change how the page layout looks on mobile
 
