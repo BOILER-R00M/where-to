@@ -3,13 +3,16 @@ import useDatabaseService from "../customHooks/useDatabaseService";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 
+// TODO:
+// [ ] Add state that allows map component to hold locations via lat/lng metadata
+// [ ] render the locations on the map with a  pin or dot or some other kind of indicator
+// [ ] separate sub components into their own files
+// [ ] change how the page layout looks on mobile
+
 const GroupSpace = () => {
 	const { fetchGroupLocations } = useDatabaseService();
 	const { groupId } = useParams();
 	const locations = fetchGroupLocations(groupId);
-
-	// TODO:
-	// [ ] change how the page layout looks on mobile
 
 	return (
 		<div className="h-screen grid grid-cols-[3fr,5fr] lg:grid-cols-[1fr,5fr] bg-primary">
