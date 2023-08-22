@@ -74,7 +74,7 @@
 		"locationName": "New York City",
 		"coordinates": {
 			"lat": 40.7128,
-			"lng": 74.006
+			"lng": -74.006
 		},
 		"averageScore": {
 			"costOfLiving": 5,
@@ -102,7 +102,7 @@
 		"locationName": "Baltimore",
 		"coordinates": {
 			"lat": 39.2904,
-			"lng": 76.6122
+			"lng": -76.6122
 		},
 		"averageScore": {
 			"costOfLiving": 8,

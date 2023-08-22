@@ -18,7 +18,7 @@ const GroupSpace = () => {
 
 	useEffect(() => {
 		setLocations(fetchGroupLocations(groupId));
-	});
+	}, []);
 
 	return (
 		<div className="h-screen grid grid-cols-[3fr,5fr] lg:grid-cols-[1fr,5fr] bg-primary">
@@ -32,7 +32,7 @@ const GroupSpace = () => {
 					: "Loading locations..."}
 			</ul>
 			<div className="flex flex-col items-center justify-center bg-gray-300">
-				<Map />
+				<Map locations={locations} />
 			</div>
 		</div>
 	);
@@ -42,12 +42,7 @@ export default GroupSpace;
 function Map({ locations }) {
 	const position = [33.7488, -84.3877]; // Coordinates for test dot
 	const zoom = 13;
-
-	locations = [
-		[33.7488, -84.3877],
-		[40.7128, -74.006],
-		[42.3601, -71.0589],
-	];
+	console.log(locations);
 	return (
 		<MapContainer
 			center={position}
@@ -58,17 +53,26 @@ function Map({ locations }) {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
-			{locations.map((location) => {
-				return (
-					<>
-						<Circle center={location} radius={20} />{" "}
-						<Marker position={location} />
-					</>
-				);
-			})}
-			{/* Optional: Adds a marker at the position */}
-
-			{/* Adds a dot at the position with a radius of 20 meters */}
+			{locations &&
+				locations.map((location) => {
+					return (
+						<>
+							<Circle
+								center={[
+									location.coordinates.lat,
+									location.coordinates.lng,
+								]}
+								radius={20}
+							/>{" "}
+							<Marker
+								position={[
+									location.coordinates.lat,
+									location.coordinates.lng,
+								]}
+							/>
+						</>
+					);
+				})}
 		</MapContainer>
 	);
 }
