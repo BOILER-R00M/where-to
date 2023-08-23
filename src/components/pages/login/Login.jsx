@@ -6,7 +6,6 @@ import doubleUpArrow from "../../../assets/doubleUp.svg";
 import doubleDownArrow from "../../../assets/DoubleDown.svg";
 // part of auth
 
-
 const Login = () => {
 	const [slideUp, setSlideUp] = useState(false);
 	const handleSlideUp = () => {
@@ -63,7 +62,6 @@ const Login = () => {
 				className={`flex flex-col items-center flex-grow bg-secondary ${
 					slideUp ? "justify-start" : "justify-center"
 				}`}
-				
 			>
 				<img
 					src={slideUp ? doubleDownArrow : doubleUpArrow}
@@ -76,9 +74,7 @@ const Login = () => {
 						? "Already have an account? Slide down"
 						: "Don't have an account? Slide up to sign up"}
 				</p>
-				{slideUp? <SignupForm />: null}
-				
-				
+				{slideUp ? <SignupForm /> : null}
 			</div>
 		</motion.div>
 	);
