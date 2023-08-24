@@ -6,6 +6,7 @@ import UserPool from "../../../AWS/auth/UserPool";
 
 // TODO:
 // [ ] need callback logic to render a form where we can submit verification code
+// [ ] implement sign out link
 
 const SignUpForm = () => {
 	const [userOjb, setUserOjb] = useState({
@@ -58,83 +59,11 @@ const SignUpForm = () => {
 			animate="visible"
 			variants={signUpVariant}
 		>
-			<form className="mx-auto" onSubmit={onSubmit}>
-				<h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
-					Sign Up
-				</h2>
-
-				<div className="py-3">
-					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
-						type="text"
-						placeholder="First Name"
-						name="firstName"
-						value={userOjb.firstName}
-						onChange={handleUserObj}
-						required
-					/>
-				</div>
-
-				<div className="py-3">
-					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
-						type="text"
-						placeholder="Last Name"
-						name="lastName"
-						value={userOjb.lastName}
-						onChange={handleUserObj}
-						required
-					/>
-				</div>
-
-				<div className="py-3">
-					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
-						type="text"
-						placeholder="Username"
-						name="username"
-						value={userOjb.username}
-						onChange={handleUserObj}
-						required
-					/>
-				</div>
-
-				<div className="py-3">
-					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
-						type="email"
-						placeholder="Email"
-						name="email"
-						value={userOjb.email}
-						onChange={handleUserObj}
-						required
-					/>
-				</div>
-
-				<div className="py-3">
-					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
-						type="password"
-						placeholder="Password"
-						name="password"
-						value={userOjb.password}
-						onChange={handleUserObj}
-						required
-					/>
-				</div>
-				<div className="py-3">
-					<input
-						className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
-						type="password"
-						placeholder="Confirm Password"
-						required
-					/>
-				</div>
-
-				<div className="py-3">
-					<Button>Sign Up</Button>
-				</div>
-			</form>
+			<Registration
+				onSubmit={onSubmit}
+				userOjb={userOjb}
+				handleUserObj={handleUserObj}
+			/>
 
 			<Link
 				className="block text-base text-center underline text-secondary font-main"
@@ -147,3 +76,85 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
+
+function Registration({ onSubmit, userOjb, handleUserObj }) {
+	return (
+		<form className="mx-auto" onSubmit={onSubmit}>
+			<h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
+				Sign Up
+			</h2>
+
+			<div className="py-3">
+				<input
+					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					type="text"
+					placeholder="First Name"
+					name="firstName"
+					value={userOjb.firstName}
+					onChange={handleUserObj}
+					required
+				/>
+			</div>
+
+			<div className="py-3">
+				<input
+					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					type="text"
+					placeholder="Last Name"
+					name="lastName"
+					value={userOjb.lastName}
+					onChange={handleUserObj}
+					required
+				/>
+			</div>
+
+			<div className="py-3">
+				<input
+					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					type="text"
+					placeholder="Username"
+					name="username"
+					value={userOjb.username}
+					onChange={handleUserObj}
+					required
+				/>
+			</div>
+
+			<div className="py-3">
+				<input
+					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					type="email"
+					placeholder="Email"
+					name="email"
+					value={userOjb.email}
+					onChange={handleUserObj}
+					required
+				/>
+			</div>
+
+			<div className="py-3">
+				<input
+					className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
+					type="password"
+					placeholder="Password"
+					name="password"
+					value={userOjb.password}
+					onChange={handleUserObj}
+					required
+				/>
+			</div>
+			<div className="py-3">
+				<input
+					className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
+					type="password"
+					placeholder="Confirm Password"
+					required
+				/>
+			</div>
+
+			<div className="py-3">
+				<Button>Sign Up</Button>
+			</div>
+		</form>
+	);
+}
