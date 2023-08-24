@@ -17,18 +17,26 @@ const SignUpForm = () => {
 		email: "",
 	});
 
+	const [isRegistrationPending, setIsRegistrationPending] = useState(false);
+	const [confirmationCode, setConfirmationCode] = useState(null);
+
 	const attributes = [
 		{ Name: "email", Value: userOjb.email },
 		{ Name: "name", Value: `${userOjb.lastName}, ${userOjb.firstName}` },
 		// Add other attributes as needed
 	];
+	const handleConfirmationCode = (e) => {
+		setConfirmationCode((prev) => {
+			return { ...prev, [e.target.name]: e.target.value };
+		});
+	};
 
 	const handleUserObj = (e) => {
 		setUserOjb((prev) => {
 			return { ...prev, [e.target.name]: e.target.value };
 		});
 	};
-	const onSubmit = (e) => {
+	const submitUserDetails = (e) => {
 		e.preventDefault();
 		UserPool.signUp(
 			userOjb.username,
@@ -40,8 +48,14 @@ const SignUpForm = () => {
 					console.log(err);
 				}
 				console.log(data);
+				setIsRegistrationPending(true);
 			}
 		);
+	};
+
+	const submitConfirmationCode = (e) => {
+		e.preventDefault();
+		console.log("submitting confirmation code");
 	};
 
 	const signUpVariant = {
@@ -59,11 +73,33 @@ const SignUpForm = () => {
 			animate="visible"
 			variants={signUpVariant}
 		>
-			<Registration
-				onSubmit={onSubmit}
-				userOjb={userOjb}
-				handleUserObj={handleUserObj}
-			/>
+			{isRegistrationPending ? (
+				<form className="mx-auto" onSubmit={submitConfirmationCode}>
+					<h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
+						Enter Confirmation Code
+					</h2>
+					<div className="py-3">
+						<input
+							className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+							type="text"
+							placeholder="Confirmation Code "
+							name="confirmationCode"
+							value={confirmationCode}
+							onChange={handleConfirmationCode}
+							required
+						/>
+					</div>
+					<div className="py-3">
+						<Button>Submit</Button>
+					</div>
+				</form>
+			) : (
+				<Registration
+					onSubmit={submitUserDetails}
+					userOjb={userOjb}
+					handleUserObj={handleUserObj}
+				/>
+			)}
 
 			<Link
 				className="block text-base text-center underline text-secondary font-main"
