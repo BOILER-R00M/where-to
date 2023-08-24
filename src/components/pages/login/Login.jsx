@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import NavLink from "../../utility/NavLink";
 import LoginForm from "./LoginForm";
 import SignupForm from "../signup/SignupForm";
 import doubleUpArrow from "../../../assets/doubleUp.svg";
@@ -8,8 +8,8 @@ import doubleDownArrow from "../../../assets/DoubleDown.svg";
 import bus from "../../../assets/bus.svg";
 
 const Login = () => {
-	//TODO:
-	//[ ] increase the size of logo when width gets larger
+  //TODO:
+  //[ ] increase the size of logo when width gets larger
   const [slideUp, setSlideUp] = useState(false);
   const handleSlideUp = () => {
     setSlideUp((prev) => !prev);
@@ -95,12 +95,13 @@ const Login = () => {
           <span className="hidden lg:inline lg:mr-2 lg:text-primary">
             New to WhereTo?
           </span>
-          <Link
-            className="hidden lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
-            to="/sign_up"
-          >
-            Create an account
-          </Link>
+          <NavLink
+            tailwind={
+              "hidden lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
+            }
+            textContent="Create an Account"
+            linkTo="/sign_up"
+          />
         </div>
       </div>
     </motion.div>
