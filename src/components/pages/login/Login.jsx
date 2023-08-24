@@ -4,6 +4,7 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import doubleUpArrow from "../../../assets/doubleUp.svg";
 import doubleDownArrow from "../../../assets/DoubleDown.svg";
+import bus from "../../../assets/bus.svg";
 
 const Login = () => {
   const [slideUp, setSlideUp] = useState(false);
@@ -36,7 +37,7 @@ const Login = () => {
         variants={contentVariants}
         initial={slideUp ? "hidden" : "visible"}
         animate={slideUp ? "hidden" : "visible"}
-        className="flex flex-col w-1/2 overflow-hidden lg:order-1"
+        className="flex flex-col overflow-hidden lg:order-1 lg:w-1/2 lg:justify-center lg:items-center"
       >
         <motion.div
           initial={{ opacity: 0, y: 0, scale: 0.8 }}
@@ -47,7 +48,8 @@ const Login = () => {
           }}
           exit={{ opacity: 0, y: "100vh", delay: 0 }}
         >
-          <div className="flex justify-center mx-auto overflow-auto w-81 pt-22 pb-22 lg:w-1/2 lg:hidden">
+          <img src={bus} alt="bus" className="hidden lg:block lg:mx-auto" />
+          <div className="flex justify-center mx-auto overflow-auto w-81 pt-22 pb-22 lg:hidden">
             <h1 className="text-[7vh] font-semibold font-main w-68 text-secondary overflow-auto scrollbar-hidden ">
               Where To
             </h1>
@@ -70,6 +72,7 @@ const Login = () => {
           className="w-10 mb-4 cursor-pointer h-9 lg:hidden"
           onClick={handleSlideUp}
         />
+
         <p className="text-tertiary font-main lg:hidden">
           {slideUp
             ? "Already have an account? Slide down"
@@ -82,4 +85,3 @@ const Login = () => {
 };
 
 export default Login;
-
