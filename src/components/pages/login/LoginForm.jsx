@@ -8,7 +8,7 @@ const LoginForm = () => {
 	return (
 		<div
 			name="login_form_container"
-			className="max-w-[600px] mx-auto w-81 pb-[5vh] samsungS8:pb-60 iphoneXr:pb-60 sm:pb-10  md:pb-64"
+			className="max-w-[600px] mx-auto w-81 pb-[5vh] samsungS8:pb-60 iphoneXr:pb-60 sm:pb-10  md:pb-64 lg:w-[25vw] "
 		>
 			<form className="mx-auto ">
 				<h2 className="text-[4vh] py-2 font-semibold text-center text-secondary font-main lg:hidden">

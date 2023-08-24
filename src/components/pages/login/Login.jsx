@@ -39,7 +39,7 @@ const Login = () => {
         animate={slideUp ? "hidden" : "visible"}
         className="relative flex flex-col overflow-hidden lg:order-1 lg:w-1/2 lg:justify-center lg:items-center"
       >
-        <h1 className="hidden text-[8vh] absolute top-16 right-0 font-semibold font-main text-secondary lg:block">
+        <h1 className="hidden text-[8vh] absolute top-10 right-0 font-semibold font-main text-secondary lg:block">
           Where
         </h1>
         <motion.div
@@ -69,7 +69,7 @@ const Login = () => {
           slideUp ? "justify-start" : "justify-center"
         } lg:order-2 `}
       >
-		<h1 className="hidden text-[8vh] absolute top-16 left-0 font-semibold font-main text-primary lg:block">
+		<h1 className="hidden text-[8vh] absolute top-10 left-0 font-semibold font-main text-primary lg:block">
           To
         </h1>
 		<div className="hidden lg:block">
