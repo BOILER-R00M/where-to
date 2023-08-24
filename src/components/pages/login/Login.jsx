@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import doubleUpArrow from "../../../assets/doubleUp.svg";
@@ -67,14 +68,14 @@ const Login = () => {
         name="slideUpContainer"
         className={`relative flex flex-col items-center flex-grow bg-secondary ${
           slideUp ? "justify-start" : "justify-center"
-        } lg:order-2 `}
+        } lg:order-2 lg:justify-center lg:items-center`}
       >
-		<h1 className="hidden text-[8vh] absolute top-10 left-0 font-semibold font-main text-primary lg:block">
+        <h1 className="hidden text-[8vh] absolute top-10 left-0 font-semibold font-main text-primary lg:block">
           To
         </h1>
-		<div className="hidden lg:block">
-			<LoginForm/>
-		</div>
+        <div className="hidden mx-auto lg:block lg:pb-12">
+          <LoginForm />
+        </div>
         <img
           src={slideUp ? doubleDownArrow : doubleUpArrow}
           alt={slideUp ? "DoubleDown" : "Double Up Arrow"}
@@ -88,6 +89,17 @@ const Login = () => {
             : "Don't have an account? Slide up to sign up"}
         </p>
         {slideUp ? <SignupForm /> : null}
+        <div>
+          <span className="hidden lg:inline lg:mr-2 lg:text-primary">
+            New to WhereTo?
+          </span>
+          <Link
+            className="hidden lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
+            to="/"
+          >
+            Create an account
+          </Link>
+        </div>
       </div>
     </motion.div>
   );
