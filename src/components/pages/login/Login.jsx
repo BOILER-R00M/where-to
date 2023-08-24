@@ -8,6 +8,8 @@ import doubleDownArrow from "../../../assets/DoubleDown.svg";
 import bus from "../../../assets/bus.svg";
 
 const Login = () => {
+	//TODO:
+	//[ ] increase the size of logo when width gets larger
   const [slideUp, setSlideUp] = useState(false);
   const handleSlideUp = () => {
     setSlideUp((prev) => !prev);
@@ -52,7 +54,7 @@ const Login = () => {
           }}
           exit={{ opacity: 0, y: "100vh", delay: 0 }}
         >
-          <img src={bus} alt="bus" className="hidden lg:block lg:mx-auto" />
+          <img src={bus} alt="bus" className="hidden lg:block lg:mx-auto " />
           <div className="flex justify-center mx-auto overflow-auto w-81 pt-22 pb-22 lg:hidden">
             <h1 className="text-[7vh] font-semibold font-main w-68 text-secondary overflow-auto scrollbar-hidden ">
               Where To
