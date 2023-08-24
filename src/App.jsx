@@ -29,7 +29,7 @@ function App() {
 
 						{/* Dashboard Route */}
 						<Route name="login" path="/login" element={<Login />} />
-						<Route name="signUp" path="/sign_up" element={<SignUp/>}/>
+
 						<Route
 							// using path parameters here. for testing purposes, visit "/dashboard/0001"
 							name="dashboard"

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import Button from "../../utility/Button";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -58,7 +58,7 @@ const SignUpForm = () => {
       animate="visible"
       variants={signUpVariant}
     >
-      <form className="mx-auto" onSubmit={onSubmit}>
+      <form className="mx-auto" onSubmit={onSubmit} name="form">
         <h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
           Sign Up
         </h2>
@@ -135,13 +135,6 @@ const SignUpForm = () => {
           <Button>Sign Up</Button>
         </div>
       </form>
-
-      <Link
-        className="block text-base text-center underline text-primary font-main"
-        to="/login"
-      >
-        Already have an account? Login
-      </Link>
     </motion.div>
   );
 };
