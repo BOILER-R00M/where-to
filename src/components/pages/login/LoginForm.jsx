@@ -11,8 +11,11 @@ const LoginForm = () => {
 			className="max-w-[600px] mx-auto w-81 pb-[5vh] samsungS8:pb-60 iphoneXr:pb-60 sm:pb-10  md:pb-64"
 		>
 			<form className="mx-auto ">
-				<h2 className="text-[4vh] py-2 font-semibold text-center text-secondary font-main">
+				<h2 className="text-[4vh] py-2 font-semibold text-center text-secondary font-main lg:hidden">
 					Login
+				</h2>
+				<h2 className="text-[4vh] py-2 font-semibold text-center text-primary font-main">
+					Welcome Back
 				</h2>
 
 				<div className="py-3">
@@ -39,7 +42,7 @@ const LoginForm = () => {
 			</form>
 
 			<Link
-				className="block text-base text-center underline text-secondary font-main"
+				className="block text-base text-center underline text-primary font-main"
 				to="/"
 			>
 				Forgot Password?

@@ -37,8 +37,11 @@ const Login = () => {
         variants={contentVariants}
         initial={slideUp ? "hidden" : "visible"}
         animate={slideUp ? "hidden" : "visible"}
-        className="flex flex-col overflow-hidden lg:order-1 lg:w-1/2 lg:justify-center lg:items-center"
+        className="relative flex flex-col overflow-hidden lg:order-1 lg:w-1/2 lg:justify-center lg:items-center"
       >
+        <h1 className="hidden text-[8vh] absolute top-16 right-0 font-semibold font-main text-secondary lg:block">
+          Where
+        </h1>
         <motion.div
           initial={{ opacity: 0, y: 0, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -62,10 +65,16 @@ const Login = () => {
 
       <div
         name="slideUpContainer"
-        className={`flex flex-col items-center flex-grow bg-secondary ${
+        className={`relative flex flex-col items-center flex-grow bg-secondary ${
           slideUp ? "justify-start" : "justify-center"
-        } lg:order-2`}
+        } lg:order-2 `}
       >
+		<h1 className="hidden text-[8vh] absolute top-16 left-0 font-semibold font-main text-primary lg:block">
+          To
+        </h1>
+		<div className="hidden lg:block">
+			<LoginForm/>
+		</div>
         <img
           src={slideUp ? doubleDownArrow : doubleUpArrow}
           alt={slideUp ? "DoubleDown" : "Double Up Arrow"}
