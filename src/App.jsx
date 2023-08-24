@@ -7,6 +7,7 @@ import Dashboard from "./routes/Dashboard";
 import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
 import Login from "./components/pages/login/Login";
+import SignUp from "./components/pages/signup/SignUp";
 
 function App() {
 	// custom hook for CRUD operations with database - Madison
@@ -28,6 +29,7 @@ function App() {
 
 						{/* Dashboard Route */}
 						<Route name="login" path="/login" element={<Login />} />
+						<Route name="signUp" path="/sign_up" element={<SignUp/>}/>
 						<Route
 							// using path parameters here. for testing purposes, visit "/dashboard/0001"
 							name="dashboard"

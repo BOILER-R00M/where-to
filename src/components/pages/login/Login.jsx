@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
+import SignupForm from "../signup/SignupForm";
 import doubleUpArrow from "../../../assets/doubleUp.svg";
 import doubleDownArrow from "../../../assets/DoubleDown.svg";
 import bus from "../../../assets/bus.svg";
@@ -97,7 +97,7 @@ const Login = () => {
           </span>
           <Link
             className="hidden lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
-            to="/"
+            to="/sign_up"
           >
             Create an account
           </Link>
