@@ -40,6 +40,9 @@ export default GroupSpace;
 const LocationList = ({ locations }) => {
 	const [isListHidden, setIsListHidden] = useState(true);
 
+	const handleShowList = () => {
+		setIsListHidden((prev) => !prev);
+	};
 	return (
 		<div
 			className={`border-tertiary bg-primary z-50 absolute border border-t overflow-y-auto ${
@@ -48,9 +51,10 @@ const LocationList = ({ locations }) => {
 		>
 			<div className="border-b h-16 flex lg:hidden">
 				<img
-					className="m-auto w-12"
+					onClick={handleShowList}
+					className="m-auto w-8"
 					src={isListHidden ? upArrow : downArrow}
-					alt=""
+					alt="arrow"
 				/>
 			</div>
 			<ul>
