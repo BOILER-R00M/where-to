@@ -53,13 +53,13 @@ const SignUpForm = () => {
   return (
     <motion.div
       name="signup_form_container"
-      className="max-w-[600px] mx-auto w-81 pb-[5vh] sm:pb-10 md:pb-64"
+      className="max-w-[600px] mx-auto w-81 pb-[5vh] sm:pb-10 md:pb-64 lg:pb-0"
       initial="hidden"
       animate="visible"
       variants={signUpVariant}
     >
       <form className="mx-auto" onSubmit={onSubmit} name="form">
-        <h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
+        <h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main lg:text-primary">
           Sign Up
         </h2>
 

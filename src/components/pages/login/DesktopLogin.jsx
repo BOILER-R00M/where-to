@@ -20,13 +20,13 @@ const DesktopLogin = ({ handleSlideUp, slideUp }) => {
       
       <div className="flex flex-col items-center justify-center hidden lg:block">
         <span className="lg:inline lg:mr-2 lg:text-primary">
-          New to WhereTo?
+          {slideUp ? "Already have an account?" : "New to WhereTo?"}
         </span>
         <p
           onClick={handleSlideUp}
           className="lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
         >
-          Create an account
+          {slideUp? "Login": "Create an account"}
         </p>
       </div>
     </div>
