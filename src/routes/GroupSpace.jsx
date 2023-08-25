@@ -17,11 +17,12 @@ import plusIcon from "../assets/plusIcon.svg";
 // [x] refactor sub components into their own files
 // [x] add search bar to location list
 // [x] add an "Add Location" action button
+// [x] make the number that appears in UsersLists dynamic
+// [x] users list widget. Create fully with the extended dropdown functionality
 // [ ] hide the scroll bar on side of page
-// [ ] users list widget. Create fully with the extended dropdown functionality
 // [ ] create a form modal for the add location functionality
-// [ ] make the number that appears in UsersLists dynamic
-// [ ] add filtering functionality to search bar
+// [ ] add filtering functionality to Locations search bar
+// [ ] add filtering functionality to UsersList search bar
 // [ ] when user clicks on location from the side bar, it should move to that location
 
 const GroupSpace = () => {
@@ -39,7 +40,7 @@ const GroupSpace = () => {
 	}, []);
 
 	return (
-		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr] bg-primary relative">
+		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr]  bg-primary relative">
 			<LocationList locations={locations} />
 			<UsersList users={users} />
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
