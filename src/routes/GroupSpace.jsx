@@ -96,8 +96,25 @@ const UsersList = () => {
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
 				<img src={plusIcon} className="w-3" alt="" />
 			</div>
-			<div className="border p-3 flex flex-col bg-primary rounded">
-				<div>Users: 48</div>
+			<div className="border py-3 px-6 flex flex-col bg-primary rounded">
+				<div>
+					Users: <strong>3</strong>
+				</div>
+				{isExtended && (
+					<div>
+						<div className="w-full py-4 flex flex-row border-b">
+							<input type="text" className="w-full ml-4" />
+							<img
+								src={searchIcon}
+								alt="search"
+								className="w-8 mx-4"
+							/>
+						</div>
+						<div>Madison</div>
+						<div>Keino</div>
+						<div>Gehrig</div>
+					</div>
+				)}
 				<img
 					onClick={handleExtension}
 					src={isExtended ? upArrow : downArrow}
