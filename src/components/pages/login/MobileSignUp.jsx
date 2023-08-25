@@ -1,19 +1,20 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Arrows from "../../utility/Arrows";
-import LoginForm from "./LoginForm";
 import SignupForm from "../signup/SignupForm.jsx";
 
-const MobileSignUp = ({ slideUp, handleSlideUp }) => {
+const MobileSignUp = ({ slideUp, handleSlideUp,isAbsolute }) => {
+
 
   const slideVariants = {
-    up: { height: '100%' },   // full height
-    down: { height: '20%' }   // reduced height (or whatever initial height you want)
+    up: { top: '0%', height: '100%' },   // positioned at the very top and takes full height
+    down: { top: '80%', height: '20%' }   // starts from 80% of the viewport to the bottom, taking up 20% height
   };
 
   return (
     <motion.div
       name="slideUpContainer"
-      className={`relative flex flex-col items-center flex-grow bg-secondary ${
+      className={`${isAbsolute ? "" : "absolute"} w-full bottom-0 flex flex-col items-center bg-secondary ${
         slideUp ? "justify-start" : "justify-center"
       } lg:hidden`}
       variants={slideVariants}
@@ -32,4 +33,4 @@ const MobileSignUp = ({ slideUp, handleSlideUp }) => {
   );
 };
 
-export default MobileSignUp;
+export default MobileSignUp

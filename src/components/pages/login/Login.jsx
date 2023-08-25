@@ -10,7 +10,11 @@ import DesktopLogin from "./DesktopLogin";
 
 const Login = () => {
   const [slideUp, setSlideUp] = useState(false);
-  const handleSlideUp = () => setSlideUp((prev) => !prev);
+  const [isAbsolute, setIsAbsolute] = useState(true)
+  const handleSlideUp = () => {
+    setSlideUp((prev) => !prev)
+    setIsAbsolute((prev) => !prev)
+  };
 
 
 
@@ -39,7 +43,7 @@ const Login = () => {
         </div>
       </div>
       <DesktopLogin handleSlideUp={handleSlideUp} slideUp={slideUp} />
-      <MobileSignUp slideUp={slideUp} handleSlideUp={handleSlideUp} />
+      <MobileSignUp slideUp={slideUp} handleSlideUp={handleSlideUp} isAbsolute={isAbsolute}/>
     </div>
   );
 };

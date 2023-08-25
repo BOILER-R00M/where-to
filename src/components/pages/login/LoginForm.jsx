@@ -16,7 +16,7 @@ const LoginForm = () => {
         <h2 className="text-[4vh] py-2 font-semibold text-center text-secondary font-main lg:hidden">
           Login
         </h2>
-        <h2 className="text-[2.25rem]  py-2 font-semibold text-center text-primary font-main">
+        <h2 className="hidden lg:block text-[2.25rem]  py-2 font-semibold text-center text-primary font-main">
           Welcome Back
         </h2>
 
