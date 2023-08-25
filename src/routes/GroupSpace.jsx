@@ -87,6 +87,10 @@ const LocationList = ({ locations }) => {
 	);
 };
 const UsersList = () => {
+	const [isExtended, setIsExtended] = useState(false);
+	const handleExtension = () => {
+		setIsExtended((prev) => !prev);
+	};
 	return (
 		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
@@ -95,7 +99,8 @@ const UsersList = () => {
 			<div className="border p-3 flex flex-col bg-primary rounded">
 				<div>Users: 48</div>
 				<img
-					src={downArrow}
+					onClick={handleExtension}
+					src={isExtended ? upArrow : downArrow}
 					className="w-5 m-auto cursor-pointer"
 					alt="arrow"
 				/>
