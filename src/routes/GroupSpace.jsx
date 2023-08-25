@@ -3,40 +3,51 @@ import { useState, useEffect } from "react";
 import useDatabaseService from "../customHooks/useDatabaseService";
 import "leaflet/dist/leaflet.css";
 import Map from "../components/pages/groupspace/Map";
-import LocationCard from "../components/pages/groupspace/LocationCard";
+import addLocationIcon from "../assets/addLocationIcon.svg";
+import LocationList from "../components/pages/groupspace/LocationList";
+import UserList from "../components/pages/groupspace/UserList";
 
 // TODO:
-// [ ] change how the page layout looks on mobile
+// [x] change how the page layout looks on mobile
 // [x] Add state that allows map component to hold locations via lat/lng metadata
 // [x] render the locations on the map with a  pin or dot or some other kind of indicator
 // [x] refactor sub components into their own files
+// [x] add search bar to location list
+// [x] add an "Add Location" action button
+// [x] make the number that appears in UserLists dynamic
+// [x] users list widget. Create fully with the extended dropdown functionality
+// [ ] create a form modal for the add location functionality
+// [ ] add filtering functionality to Locations search bar
+// [ ] add filtering functionality to UserList search bar
 // [ ] when user clicks on location from the side bar, it should move to that location
-// [ ] when user clicks on location from the side bar, after zooming to location, there should be a window that pops up that shows locations metadata (score and list of users who scored it)
+// [ ] hide the scroll bar on side of page
 
 const GroupSpace = () => {
-	const { fetchGroupLocations } = useDatabaseService();
+	const { fetchGroupLocations, fetchUsersInGroup } = useDatabaseService();
 	const { groupId } = useParams();
 	const [locations, setLocations] = useState(null);
+	const users = fetchUsersInGroup(groupId);
 
 	useEffect(() => {
 		setLocations(fetchGroupLocations(groupId));
 	}, []);
 
 	return (
-		<div className="h-screen grid grid-cols-[3fr,5fr] lg:grid-cols-[1fr,5fr] bg-primary">
-			<ul className="overflow-y-auto border-r border-tertiary">
-				{locations
-					? locations.map((location, sk) => {
-							return (
-								<LocationCard location={location} key={sk} />
-							);
-					  })
-					: "Loading locations..."}
-			</ul>
-			<div className="flex flex-col items-center justify-center bg-gray-300">
+		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr]  bg-primary relative">
+			<LocationList locations={locations} />
+			<UserList users={users} />
+			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
+				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
+					<img
+						src={addLocationIcon}
+						alt="location"
+						className="w-10"
+					/>
+				</div>
 				<Map locations={locations} />
 			</div>
 		</div>
 	);
 };
+
 export default GroupSpace;
