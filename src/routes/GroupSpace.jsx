@@ -9,6 +9,7 @@ import downArrow from "../assets/doubleDown.svg";
 import searchIcon from "../assets/searchIcon.svg";
 import addLocationIcon from "../assets/addLocationIcon.svg";
 import plusIcon from "../assets/plusIcon.svg";
+import UserList from "../components/pages/groupspace/UserList";
 
 // TODO:
 // [x] change how the page layout looks on mobile
@@ -17,12 +18,12 @@ import plusIcon from "../assets/plusIcon.svg";
 // [x] refactor sub components into their own files
 // [x] add search bar to location list
 // [x] add an "Add Location" action button
-// [x] make the number that appears in UsersLists dynamic
+// [x] make the number that appears in UserLists dynamic
 // [x] users list widget. Create fully with the extended dropdown functionality
 // [ ] hide the scroll bar on side of page
 // [ ] create a form modal for the add location functionality
 // [ ] add filtering functionality to Locations search bar
-// [ ] add filtering functionality to UsersList search bar
+// [ ] add filtering functionality to UserList search bar
 // [ ] when user clicks on location from the side bar, it should move to that location
 
 const GroupSpace = () => {
@@ -42,7 +43,7 @@ const GroupSpace = () => {
 	return (
 		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr]  bg-primary relative">
 			<LocationList locations={locations} />
-			<UsersList users={users} />
+			<UserList users={users} />
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
 					<img
@@ -61,7 +62,6 @@ export default GroupSpace;
 
 const LocationList = ({ locations }) => {
 	const [isListHidden, setIsListHidden] = useState(true);
-
 	const handleShowList = () => {
 		setIsListHidden((prev) => !prev);
 	};
@@ -90,45 +90,6 @@ const LocationList = ({ locations }) => {
 					  ))
 					: "Loading locations..."}
 			</ul>
-		</div>
-	);
-};
-const UsersList = ({ users }) => {
-	const [isExtended, setIsExtended] = useState(false);
-	const handleExtension = () => {
-		setIsExtended((prev) => !prev);
-	};
-	return (
-		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
-			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
-				<img src={plusIcon} className="w-3" alt="" />
-			</div>
-			<div className="border py-3 px-6 flex flex-col bg-primary rounded">
-				<div className="mx-auto">
-					Users: <strong>{users.length}</strong>
-				</div>
-				{isExtended && (
-					<div>
-						<div className="w-full py-4 flex flex-row border-b">
-							<input type="text" className="w-full ml-4" />
-							<img
-								src={searchIcon}
-								alt="search"
-								className="w-8 mx-4"
-							/>
-						</div>
-						{users.map((user) => {
-							return <div>{user.userName}</div>;
-						})}
-					</div>
-				)}
-				<img
-					onClick={handleExtension}
-					src={isExtended ? upArrow : downArrow}
-					className="w-5 m-auto cursor-pointer"
-					alt="arrow"
-				/>
-			</div>
 		</div>
 	);
 };
