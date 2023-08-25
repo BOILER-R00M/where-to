@@ -33,7 +33,7 @@ const GroupSpace = () => {
 			<LocationList locations={locations} />
 
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
-				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-secondary">
+				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
 					<img
 						src={addLocationIcon}
 						alt="location"

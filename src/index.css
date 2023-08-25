@@ -2,7 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Leaflet Styling*/
+
 .leaflet-container {
 	width: 100%;
 	height: 100%;
+}
+
+/* Target the zoom control container */
+.leaflet-control-zoom {
+	background-color: #f0f0f0; /* Change the background color */
+	border-radius: 5px; /* Add rounded corners */
+}
+
+/* Target the plus button */
+.leaflet-control-zoom-in {
+	font-weight: bold; /* Make the plus sign bold */
+	color: #333; /* Change the color of the plus sign */
+}
+
+/* Target the minus button */
+.leaflet-control-zoom-out {
+	font-weight: bold; /* Make the minus sign bold */
+	color: #333; /* Change the color of the minus sign */
 }
