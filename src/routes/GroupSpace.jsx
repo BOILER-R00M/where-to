@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import Map from "../components/pages/groupspace/Map";
 import LocationCard from "../components/pages/groupspace/LocationCard";
 import upArrow from "../assets/doubleUp.svg";
+import downArrow from "../assets/doubleDown.svg";
 // TODO:
 // [ ] change how the page layout looks on mobile
 // [x] Add state that allows map component to hold locations via lat/lng metadata
@@ -37,10 +38,20 @@ const GroupSpace = () => {
 export default GroupSpace;
 
 const LocationList = ({ locations }) => {
+	const [isListHidden, setIsListHidden] = useState(true);
+
 	return (
-		<div className="border-tertiary bg-primary z-50 absolute border border-t overflow-y-auto -bottom-[336px] w-full bg-white lg:border-t-0 lg:overflow-y-auto lg:static h-[400px] lg:h-auto">
+		<div
+			className={`border-tertiary bg-primary z-50 absolute border border-t overflow-y-auto ${
+				isListHidden ? "-bottom-[336px]" : "-bottom-0"
+			} w-full bg-white lg:border-t-0 lg:overflow-y-auto lg:static h-[400px] lg:h-auto`}
+		>
 			<div className="border-b h-16 flex lg:hidden">
-				<img className="m-auto w-12" src={upArrow} alt="" />
+				<img
+					className="m-auto w-12"
+					src={isListHidden ? upArrow : downArrow}
+					alt=""
+				/>
 			</div>
 			<ul>
 				{locations
