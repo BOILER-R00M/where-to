@@ -9,6 +9,7 @@ const UserList = ({ users }) => {
 	const handleExtension = () => {
 		setIsExtended((prev) => !prev);
 	};
+	const [highlightedUser, setHighlightedUser] = useState(null);
 	return (
 		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
@@ -30,7 +31,12 @@ const UserList = ({ users }) => {
 							/>
 						</div>
 						{users.map((user) => {
-							return <UserListItem user={user} />;
+							return (
+								<UserListItem
+									user={user}
+									setHighlightedUser={setHighlightedUser}
+								/>
+							);
 						})}
 					</div>
 				)}
@@ -46,6 +52,13 @@ const UserList = ({ users }) => {
 };
 
 export default UserList;
-const UserListItem = ({ user }) => {
-	return <div className="mx-auto">{user.username}</div>;
+const UserListItem = ({ user, setHighlightedUser }) => {
+	return (
+		<div
+			onClick={setHighlightedUser(user)}
+			className="mx-auto cursor-pointer text-tertiary hover:text-secondary transition"
+		>
+			{user.username}
+		</div>
+	);
 };
