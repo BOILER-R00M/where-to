@@ -97,7 +97,7 @@ const UsersList = () => {
 				<img src={plusIcon} className="w-3" alt="" />
 			</div>
 			<div className="border py-3 px-6 flex flex-col bg-primary rounded">
-				<div>
+				<div className="mx-auto">
 					Users: <strong>3</strong>
 				</div>
 				{isExtended && (
