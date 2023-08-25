@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+
 const UserListItem = ({ user, setHighlightedUser, highlightedUser }) => {
 	const handleHighlightUser = () => {
 		if (highlightedUser && highlightedUser.userId === user.userId) {
@@ -15,7 +15,7 @@ const UserListItem = ({ user, setHighlightedUser, highlightedUser }) => {
 				highlightedUser && highlightedUser.userId === user.userId
 					? "text-secondary"
 					: "text-tertiary"
-			} hover:text-secondary transition`}
+			} transition`}
 		>
 			{user.username}
 		</div>

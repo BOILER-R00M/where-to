@@ -10,8 +10,9 @@ const UserList = ({ users }) => {
 	const handleExtension = () => {
 		setIsExtended((prev) => !prev);
 	};
+
+	// NOTE: This state will be used to highlight locations when a user is clicked
 	const [highlightedUser, setHighlightedUser] = useState(null);
-	console.log("HIGHLIGHTED USER: ", highlightedUser);
 	return (
 		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
