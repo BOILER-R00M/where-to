@@ -4,7 +4,7 @@ import NavLink from "../../utility/NavLink";
 import LoginForm from "./LoginForm";
 import bus from "../../../assets/bus.svg";
 import MobileSignUp from "./MobileSignUp";
-import DesktopSignUp from "./DesktopSignUp";
+import DesktopLogin from "./DesktopLogin";
 
 const Login = () => {
   //TODO:
@@ -64,7 +64,7 @@ const Login = () => {
           <LoginForm />
         </div>
       </motion.div>
-      <DesktopSignUp/>
+      <DesktopLogin handleSlideUp={handleSlideUp} slideUp={slideUp} />
       <MobileSignUp slideUp={slideUp} handleSlideUp={handleSlideUp} />
     </motion.div>
   );

@@ -7,7 +7,6 @@ import Dashboard from "./routes/Dashboard";
 import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
 import Login from "./components/pages/login/Login";
-import SignUp from "./components/pages/signup/SignUp";
 
 function App() {
 	// custom hook for CRUD operations with database - Madison
