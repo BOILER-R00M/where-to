@@ -17,8 +17,9 @@ import plusIcon from "../assets/plusIcon.svg";
 // [x] refactor sub components into their own files
 // [x] add search bar to location list
 // [x] add an "Add Location" action button
+// [ ] users list widget. Create fully with the extended dropdown functionality
 // [ ] create a form modal for the add location functionality
-// [ ] users list widget
+// [ ] make the number that appears in UsersLists dynamic
 // [ ] add filtering functionality to search bar
 // [ ] when user clicks on location from the side bar, it should move to that location
 
@@ -91,8 +92,13 @@ const UsersList = () => {
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
 				<img src={plusIcon} className="w-3" alt="" />
 			</div>
-			<div className="border p-3 cursor-pointer  bg-primary rounded">
-				Users: 48
+			<div className="border p-3 flex flex-col bg-primary rounded">
+				<div>Users: 48</div>
+				<img
+					src={downArrow}
+					className="w-5 m-auto cursor-pointer"
+					alt="arrow"
+				/>
 			</div>
 		</div>
 	);
