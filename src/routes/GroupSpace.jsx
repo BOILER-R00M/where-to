@@ -39,7 +39,7 @@ export default GroupSpace;
 const LocationList = ({ locations }) => {
 	return (
 		<div className="border-tertiary bg-primary z-50 absolute border border-t overflow-y-auto -bottom-[352px] w-full bg-white lg:border-t-0 lg:overflow-y-auto lg:static h-[400px] lg:h-auto">
-			<div className="border-b h-12 flex">
+			<div className="border-b h-12 flex lg:hidden">
 				<div className="m-auto">d</div>
 			</div>
 			<ul>
