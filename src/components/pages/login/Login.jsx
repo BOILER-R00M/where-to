@@ -2,10 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import NavLink from "../../utility/NavLink";
 import LoginForm from "./LoginForm";
-import SignupForm from "../signup/SignupForm";
-import doubleUpArrow from "../../../assets/doubleUp.svg";
-import doubleDownArrow from "../../../assets/DoubleDown.svg";
 import bus from "../../../assets/bus.svg";
+import MobileSignUp from "./MobileSignUp";
+import DesktopSignUp from "./DesktopSignUp";
 
 const Login = () => {
   //TODO:
@@ -65,45 +64,8 @@ const Login = () => {
           <LoginForm />
         </div>
       </motion.div>
-
-      <div
-        name="slideUpContainer"
-        className={`relative flex flex-col items-center flex-grow bg-secondary ${
-          slideUp ? "justify-start" : "justify-center"
-        } lg:order-2 lg:justify-center lg:items-center`}
-      >
-        <h1 className="hidden text-[8vh] absolute top-10 left-0 font-semibold font-main text-primary lg:block">
-          To
-        </h1>
-        <div className="hidden mx-auto lg:block lg:pb-12">
-          <LoginForm />
-        </div>
-        <img
-          src={slideUp ? doubleDownArrow : doubleUpArrow}
-          alt={slideUp ? "DoubleDown" : "Double Up Arrow"}
-          className="w-10 mb-4 cursor-pointer h-9 lg:hidden"
-          onClick={handleSlideUp}
-        />
-
-        <p className="text-tertiary font-main lg:hidden">
-          {slideUp
-            ? "Already have an account? Slide down"
-            : "Don't have an account? Slide up to sign up"}
-        </p>
-        {slideUp ? <SignupForm /> : null}
-        <div>
-          <span className="hidden lg:inline lg:mr-2 lg:text-primary">
-            New to WhereTo?
-          </span>
-          <NavLink
-            tailwind={
-              "hidden lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
-            }
-            textContent="Create an Account"
-            linkTo="/sign_up"
-          />
-        </div>
-      </div>
+      <DesktopSignUp/>
+      <MobileSignUp slideUp={slideUp} handleSlideUp={handleSlideUp} />
     </motion.div>
   );
 };
