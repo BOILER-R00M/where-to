@@ -20,7 +20,7 @@ const UserList = ({ users }) => {
 					<strong className="text-secondary">{users.length}</strong>
 				</div>
 				{isExtended && (
-					<div>
+					<div className="flex flex-col">
 						<div className="w-full py-4 flex flex-row border-b">
 							<input type="text" className="w-full ml-4" />
 							<img
@@ -30,7 +30,7 @@ const UserList = ({ users }) => {
 							/>
 						</div>
 						{users.map((user) => {
-							return <div>{user.username}</div>;
+							return <UserListItem user={user} />;
 						})}
 					</div>
 				)}
@@ -46,3 +46,6 @@ const UserList = ({ users }) => {
 };
 
 export default UserList;
+const UserListItem = ({ user }) => {
+	return <div className="mx-auto">{user.username}</div>;
+};
