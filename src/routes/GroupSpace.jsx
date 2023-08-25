@@ -4,7 +4,7 @@ import useDatabaseService from "../customHooks/useDatabaseService";
 import "leaflet/dist/leaflet.css";
 import Map from "../components/pages/groupspace/Map";
 import LocationCard from "../components/pages/groupspace/LocationCard";
-
+import upArrow from "../assets/doubleUp.svg";
 // TODO:
 // [ ] change how the page layout looks on mobile
 // [x] Add state that allows map component to hold locations via lat/lng metadata
@@ -38,9 +38,9 @@ export default GroupSpace;
 
 const LocationList = ({ locations }) => {
 	return (
-		<div className="border-tertiary bg-primary z-50 absolute border border-t overflow-y-auto -bottom-[352px] w-full bg-white lg:border-t-0 lg:overflow-y-auto lg:static h-[400px] lg:h-auto">
-			<div className="border-b h-12 flex lg:hidden">
-				<div className="m-auto">d</div>
+		<div className="border-tertiary bg-primary z-50 absolute border border-t overflow-y-auto -bottom-[336px] w-full bg-white lg:border-t-0 lg:overflow-y-auto lg:static h-[400px] lg:h-auto">
+			<div className="border-b h-16 flex lg:hidden">
+				<img className="m-auto w-12" src={upArrow} alt="" />
 			</div>
 			<ul>
 				{locations
