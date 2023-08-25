@@ -2,7 +2,7 @@ import React from "react";
 
 const LocationCard = ({ location }) => {
 	return (
-		<li className="py-4 text-center border-b border-tertiary cursor-pointer hover:bg-gray-200">
+		<li className="py-4 text-center border-b border-tertiary bg-primary cursor-pointer hover:bg-gray-200">
 			{location.locationName}
 		</li>
 	);

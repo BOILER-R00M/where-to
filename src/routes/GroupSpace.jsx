@@ -12,6 +12,7 @@ import LocationCard from "../components/pages/groupspace/LocationCard";
 // [x] refactor sub components into their own files
 // [ ] when user clicks on location from the side bar, it should move to that location
 // [ ] when user clicks on location from the side bar, after zooming to location, there should be a window that pops up that shows locations metadata (score and list of users who scored it)
+// [ ] add search bar to location list
 
 const GroupSpace = () => {
 	const { fetchGroupLocations } = useDatabaseService();
@@ -24,7 +25,7 @@ const GroupSpace = () => {
 
 	return (
 		<div className="h-screen lg:grid lg:grid-cols-[1fr,5fr] bg-primary relative">
-			<ul className="overflow-y-auto border-r z-50 absolute bottom-0 w-full bg-white p-2 lg:border-r lg:overflow-y-auto lg:static h-32 lg:h-auto">
+			<ul className="overflow-y-auto border-r z-50 absolute bottom-0 w-full bg-white lg:border-r lg:overflow-y-auto lg:static h-32 lg:h-auto">
 				{locations
 					? locations.map((location, sk) => {
 							return (
