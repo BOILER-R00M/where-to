@@ -23,15 +23,12 @@ import UserList from "../components/pages/groupspace/UserList";
 // [ ] when user clicks on location from the side bar, it should move to that location
 
 const GroupSpace = () => {
-	const { fetchGroupLocations } = useDatabaseService();
+	const { fetchGroupLocations, fetchUsersInGroup } = useDatabaseService();
 	const { groupId } = useParams();
 	const [locations, setLocations] = useState(null);
-	// dummy users prop for now
-	const users = [
-		{ userName: "Madison" },
-		{ userName: "Keino" },
-		{ userName: "Gehrig" },
-	];
+
+	const users = fetchUsersInGroup(groupId);
+
 	useEffect(() => {
 		setLocations(fetchGroupLocations(groupId));
 	}, []);
