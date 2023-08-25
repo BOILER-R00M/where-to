@@ -16,7 +16,8 @@ const UserList = ({ users }) => {
 			</div>
 			<div className="border py-3 px-6 flex flex-col bg-primary rounded">
 				<div className="mx-auto">
-					Users: <strong>{users.length}</strong>
+					Users:{" "}
+					<strong className="text-secondary">{users.length}</strong>
 				</div>
 				{isExtended && (
 					<div>

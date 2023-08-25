@@ -16,17 +16,16 @@ import UserList from "../components/pages/groupspace/UserList";
 // [x] add an "Add Location" action button
 // [x] make the number that appears in UserLists dynamic
 // [x] users list widget. Create fully with the extended dropdown functionality
-// [ ] hide the scroll bar on side of page
 // [ ] create a form modal for the add location functionality
 // [ ] add filtering functionality to Locations search bar
 // [ ] add filtering functionality to UserList search bar
 // [ ] when user clicks on location from the side bar, it should move to that location
+// [ ] hide the scroll bar on side of page
 
 const GroupSpace = () => {
 	const { fetchGroupLocations, fetchUsersInGroup } = useDatabaseService();
 	const { groupId } = useParams();
 	const [locations, setLocations] = useState(null);
-
 	const users = fetchUsersInGroup(groupId);
 
 	useEffect(() => {
