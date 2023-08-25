@@ -35,14 +35,20 @@ const GroupSpace = () => {
 };
 
 export default GroupSpace;
-function LocationList({ locations }) {
+
+const LocationList = ({ locations }) => {
 	return (
-		<ul className="border overflow-y-auto z-50 absolute bottom-0 w-full bg-white lg:overflow-y-auto lg:static h-32 lg:h-auto">
-			{locations
-				? locations.map((location, sk) => {
-						return <LocationCard location={location} key={sk} />;
-				  })
-				: "Loading locations..."}
-		</ul>
+		<div className="border-tertiary bg-primary z-50 absolute border border-t overflow-y-auto -bottom-[352px] w-full bg-white lg:border-t-0 lg:overflow-y-auto lg:static h-[400px] lg:h-auto">
+			<div className="border-b h-12 flex">
+				<div className="m-auto">d</div>
+			</div>
+			<ul>
+				{locations
+					? locations.map((location, sk) => (
+							<LocationCard location={location} key={sk} />
+					  ))
+					: "Loading locations..."}
+			</ul>
+		</div>
 	);
-}
+};
