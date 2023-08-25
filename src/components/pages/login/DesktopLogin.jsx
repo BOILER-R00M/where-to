@@ -17,7 +17,7 @@ const DesktopLogin = ({ handleSlideUp, slideUp }) => {
         </div>
       )}
 
-      <div className="hidden mx-auto lg:block lg:pb-12"></div>
+      
       <div className="flex flex-col items-center justify-center hidden lg:block">
         <span className="lg:inline lg:mr-2 lg:text-primary">
           New to WhereTo?
