@@ -13,6 +13,19 @@ const useDatabaseService = () => {
 		);
 	};
 
+	const fetchUsersInGroup = (groupId) => {
+		return db
+			.filter(
+				(item) =>
+					item.pk.startsWith("USER#") &&
+					item.sk === `GROUP#${groupId}`
+			)
+			.map((user) => ({
+				userId: user.userID,
+				username: user.username,
+			}));
+	};
+
 	// Query the mock database to get the list of locations for a specific group
 	const fetchGroupLocations = (groupId) => {
 		return db.filter(
@@ -35,6 +48,7 @@ const useDatabaseService = () => {
 		fetchUserGroups,
 		fetchGroupLocations,
 		fetchUserLocationsInGroup,
+		fetchUsersInGroup,
 	};
 };
 
