@@ -8,6 +8,7 @@ import upArrow from "../assets/doubleUp.svg";
 import downArrow from "../assets/doubleDown.svg";
 import searchIcon from "../assets/searchIcon.svg";
 import addLocationIcon from "../assets/addLocationIcon.svg";
+import plusIcon from "../assets/plusIcon.svg";
 
 // TODO:
 // [x] change how the page layout looks on mobile
@@ -33,9 +34,7 @@ const GroupSpace = () => {
 	return (
 		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr] bg-primary relative">
 			<LocationList locations={locations} />
-			<div className="absolute m-3 z-50 right-0">
-				<div className="border p-3 bg-primary rounded">Users: 48</div>
-			</div>
+			<UsersList />
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
 					<img
@@ -83,6 +82,18 @@ const LocationList = ({ locations }) => {
 					  ))
 					: "Loading locations..."}
 			</ul>
+		</div>
+	);
+};
+const UsersList = () => {
+	return (
+		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
+			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
+				<img src={plusIcon} className="w-3" alt="" />
+			</div>
+			<div className="border p-3 cursor-pointer  bg-primary rounded">
+				Users: 48
+			</div>
 		</div>
 	);
 };
