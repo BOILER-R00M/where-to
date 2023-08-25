@@ -58,6 +58,10 @@ const LocationList = ({ locations }) => {
 					alt="arrow"
 				/>
 			</div>
+			<div className="w-full flex flex-row">
+				<input type="text" className="w-full" />
+				<div>asdf</div>
+			</div>
 			<ul>
 				{locations
 					? locations.map((location, sk) => (
