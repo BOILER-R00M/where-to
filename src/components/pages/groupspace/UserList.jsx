@@ -6,14 +6,12 @@ import downArrow from "../../../assets/doubleDown.svg";
 import UserListItem from "./UserListItem";
 import { useState } from "react";
 const UserList = ({ users }) => {
-	console.log(users);
-
 	const [isExtended, setIsExtended] = useState(false);
 	const handleExtension = () => {
 		setIsExtended((prev) => !prev);
 	};
 	const [highlightedUser, setHighlightedUser] = useState(null);
-	console.log(highlightedUser);
+	console.log("HIGHLIGHTED USER: ", highlightedUser);
 	return (
 		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
@@ -39,10 +37,8 @@ const UserList = ({ users }) => {
 								<UserListItem
 									key={user.userId}
 									user={user}
-									isHighlighted={
-										highlightedUser?.userId === user.userId
-									}
 									setHighlightedUser={setHighlightedUser}
+									highlightedUser={highlightedUser}
 								/>
 							);
 						})}
