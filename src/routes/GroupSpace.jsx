@@ -27,7 +27,7 @@ const GroupSpace = () => {
 	}, []);
 
 	return (
-		<div className="h-screen lg:grid lg:grid-cols-[1fr,5fr] bg-primary relative">
+		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr] bg-primary relative">
 			<LocationList locations={locations} />
 
 			<div className="flex flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
