@@ -33,7 +33,7 @@ const GroupSpace = () => {
 					  })
 					: "Loading locations..."}
 			</ul>
-			<div className="-z-10 flex flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
+			<div className="flex flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<Map locations={locations} />
 			</div>
 		</div>
