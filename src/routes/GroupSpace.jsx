@@ -15,7 +15,9 @@ import addLocationIcon from "../assets/addLocationIcon.svg";
 // [x] render the locations on the map with a  pin or dot or some other kind of indicator
 // [x] refactor sub components into their own files
 // [x] add search bar to location list
-// [ ] add an "Add Location" action button
+// [x] add an "Add Location" action button
+// [ ] create a form modal for the add location functionality
+// [ ] users list widget
 // [ ] add filtering functionality to search bar
 // [ ] when user clicks on location from the side bar, it should move to that location
 
@@ -31,7 +33,9 @@ const GroupSpace = () => {
 	return (
 		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr] bg-primary relative">
 			<LocationList locations={locations} />
-
+			<div className="absolute m-3 z-50 right-0">
+				<div className="border p-3 bg-primary rounded">Users: 48</div>
+			</div>
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
 					<img
