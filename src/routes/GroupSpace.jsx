@@ -52,7 +52,7 @@ const LocationList = ({ locations }) => {
 			<div className="border-b h-16 flex lg:hidden">
 				<img
 					onClick={handleShowList}
-					className="m-auto w-8"
+					className="m-auto w-8 cursor-pointer"
 					src={isListHidden ? upArrow : downArrow}
 					alt="arrow"
 				/>
