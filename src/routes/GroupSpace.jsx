@@ -17,6 +17,7 @@ import plusIcon from "../assets/plusIcon.svg";
 // [x] refactor sub components into their own files
 // [x] add search bar to location list
 // [x] add an "Add Location" action button
+// [ ] hide the scroll bar on side of page
 // [ ] users list widget. Create fully with the extended dropdown functionality
 // [ ] create a form modal for the add location functionality
 // [ ] make the number that appears in UsersLists dynamic
@@ -27,7 +28,12 @@ const GroupSpace = () => {
 	const { fetchGroupLocations } = useDatabaseService();
 	const { groupId } = useParams();
 	const [locations, setLocations] = useState(null);
-
+	// dummy users prop for now
+	const users = [
+		{ userName: "Madison" },
+		{ userName: "Keino" },
+		{ userName: "Gehrig" },
+	];
 	useEffect(() => {
 		setLocations(fetchGroupLocations(groupId));
 	}, []);
@@ -35,7 +41,7 @@ const GroupSpace = () => {
 	return (
 		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr] bg-primary relative">
 			<LocationList locations={locations} />
-			<UsersList />
+			<UsersList users={users} />
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
 					<img
@@ -86,7 +92,7 @@ const LocationList = ({ locations }) => {
 		</div>
 	);
 };
-const UsersList = () => {
+const UsersList = ({ users }) => {
 	const [isExtended, setIsExtended] = useState(false);
 	const handleExtension = () => {
 		setIsExtended((prev) => !prev);
@@ -98,7 +104,7 @@ const UsersList = () => {
 			</div>
 			<div className="border py-3 px-6 flex flex-col bg-primary rounded">
 				<div className="mx-auto">
-					Users: <strong>3</strong>
+					Users: <strong>{users.length}</strong>
 				</div>
 				{isExtended && (
 					<div>
@@ -110,9 +116,9 @@ const UsersList = () => {
 								className="w-8 mx-4"
 							/>
 						</div>
-						<div>Madison</div>
-						<div>Keino</div>
-						<div>Gehrig</div>
+						{users.map((user) => {
+							return <div>{user.userName}</div>;
+						})}
 					</div>
 				)}
 				<img
