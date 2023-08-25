@@ -25,15 +25,8 @@ const GroupSpace = () => {
 
 	return (
 		<div className="h-screen lg:grid lg:grid-cols-[1fr,5fr] bg-primary relative">
-			<ul className="overflow-y-auto border-r z-50 absolute bottom-0 w-full bg-white lg:border-r lg:overflow-y-auto lg:static h-32 lg:h-auto">
-				{locations
-					? locations.map((location, sk) => {
-							return (
-								<LocationCard location={location} key={sk} />
-							);
-					  })
-					: "Loading locations..."}
-			</ul>
+			<LocationList locations={locations} />
+
 			<div className="flex flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<Map locations={locations} />
 			</div>
@@ -42,3 +35,14 @@ const GroupSpace = () => {
 };
 
 export default GroupSpace;
+function LocationList({ locations }) {
+	return (
+		<ul className="border overflow-y-auto z-50 absolute bottom-0 w-full bg-white lg:overflow-y-auto lg:static h-32 lg:h-auto">
+			{locations
+				? locations.map((location, sk) => {
+						return <LocationCard location={location} key={sk} />;
+				  })
+				: "Loading locations..."}
+		</ul>
+	);
+}
