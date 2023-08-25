@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Button from "../../utility/Button";
-import or from '../../../assets/or.svg'
+import or from "../../../assets/or.svg";
 
 // TODO:
 // [ ] place a dummy callback function for now for the login button. Will later stick the Cognito fetch function there
-// [ ] increase size of the Welcome Back when width increase. 
+// [ ] increase size of the Welcome Back when width increase.
 
 const LoginForm = () => {
 	return (
@@ -49,8 +49,11 @@ const LoginForm = () => {
 			>
 				Forgot Password?
 			</Link>
-			<img className="hidden mx-auto lg:block lg:pt-12" src={or} alt="or"/>
-			
+			<img
+				className="hidden mx-auto lg:block lg:pt-12"
+				src={or}
+				alt="or"
+			/>
 		</div>
 	);
 };
