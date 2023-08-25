@@ -44,7 +44,7 @@ const LoginForm = () => {
       </form>
       <NavLink
         tailwind={
-          "block text-base text-center underline text-primary font-main"
+          "text-secondary block text-base text-center underline lg:text-primary font-main"
         }
         textContent="Forgot Password?"
       />
