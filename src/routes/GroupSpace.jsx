@@ -7,6 +7,7 @@ import LocationCard from "../components/pages/groupspace/LocationCard";
 import upArrow from "../assets/doubleUp.svg";
 import downArrow from "../assets/doubleDown.svg";
 import searchIcon from "../assets/searchIcon.svg";
+import addLocationIcon from "../assets/addLocationIcon.svg";
 
 // TODO:
 // [x] change how the page layout looks on mobile
@@ -14,6 +15,7 @@ import searchIcon from "../assets/searchIcon.svg";
 // [x] render the locations on the map with a  pin or dot or some other kind of indicator
 // [x] refactor sub components into their own files
 // [x] add search bar to location list
+// [ ] add an "Add Location" action button
 // [ ] add filtering functionality to search bar
 // [ ] when user clicks on location from the side bar, it should move to that location
 
@@ -30,7 +32,14 @@ const GroupSpace = () => {
 		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr] bg-primary relative">
 			<LocationList locations={locations} />
 
-			<div className="flex flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
+			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
+				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-secondary">
+					<img
+						src={addLocationIcon}
+						alt="location"
+						className="w-10"
+					/>
+				</div>
 				<Map locations={locations} />
 			</div>
 		</div>
