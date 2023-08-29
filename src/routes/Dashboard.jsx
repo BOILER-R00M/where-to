@@ -20,11 +20,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar userName={user?.userName}/>
       <DashboardLayout
         groupList={<GroupList groups={groups} />}
         userName={user.userName}
       />
+      
     </>
   );
 };
@@ -32,10 +33,14 @@ const Dashboard = () => {
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
 const DashboardLayout = ({ userName, groupList }) => {
   return (
-    <div className="h-screen px-20 bg-primary md:px-6 lg:px-12">
+    <div className="relative h-screen px-20 bg-primary md:px-6 lg:px-12">
+      
       {/* <Display className="py-4 text-secondary">Welcome Back,</Display>
       <Display className="py-4 text-secondary">{userName}</Display> */}
       {groupList}
+      <button className="fixed flex items-center justify-center w-16 h-16 rounded-full bottom-4 text-primary bg-tertiary right-4">
+        +
+      </button>
     </div>
   );
 };
@@ -51,7 +56,7 @@ const GroupList = ({ groups }) => {
             return <GroupListItem key={group.sk} group={group} />;
           })}
         </ul>
-        <Button className="mt-3">Create New Group</Button>
+        {/* <Button className="mt-3">Create New Group</Button> */}
       </div>
     </div>
   );

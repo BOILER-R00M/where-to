@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import{ useState } from "react";
 import { Link } from "react-router-dom";
 import dropDown from "../../assets/dropDown.svg";
 import DropDown from "./DropDown";
 
-const NavBar = () => {
+const NavBar = ({userName}) => {
+    console.log(userName)
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -27,7 +28,7 @@ const NavBar = () => {
             alt="Dropdown Icon"
             className="w-6 h-6 transition-opacity cursor-pointer hover:opacity-80"
           />
-          {isDropdownOpen && <DropDown />}
+          {isDropdownOpen && <DropDown userName={userName} />}
         </li>
       </ul>
     </nav>
