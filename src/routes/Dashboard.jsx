@@ -38,7 +38,7 @@ const DashboardLayout = ({ userName, groupList }) => {
       {/* <Display className="py-4 text-secondary">Welcome Back,</Display>
       <Display className="py-4 text-secondary">{userName}</Display> */}
       {groupList}
-      <button className="fixed flex items-center justify-center w-16 h-16 rounded-full bottom-4 text-primary bg-tertiary right-4">
+      <button className="fixed flex items-center justify-center w-16 h-16 text-2xl rounded-full bottom-4 text-primary bg-tertiary right-4">
         +
       </button>
     </div>
@@ -49,14 +49,14 @@ const DashboardLayout = ({ userName, groupList }) => {
 const GroupList = ({ groups }) => {
   return (
     <div className="flex flex-col">
-      <Header className="pt-6 pb-3 text-tertiary">Your Groups</Header>
-      <div className="flex flex-col p-3 border rounded-lg border-tertiary bg-none">
+      <Header className="pt-6 pb-3 text-tertiary">My Groups: </Header>
+      <div className="flex flex-col p-3 border rounded-lg border-tertiary bg-tertiary">
         <ul className="grid grid-cols-1 gap-3 rounded-lg lg:grid-cols-2">
           {groups.map((group) => {
             return <GroupListItem key={group.sk} group={group} />;
           })}
         </ul>
-        {/* <Button className="mt-3">Create New Group</Button> */}
+ 
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const GroupListItem = ({ group }) => {
     <div>
       
       <li
-        className="p-6 transition border rounded-lg cursor-pointer border-tertiary hover:bg-secondary hover:text-primary hover:border-secondary"
+        className="p-6 text-center transition border rounded-lg cursor-pointer bg-primary border-tertiary hover:bg-secondary hover:text-primary hover:border-secondary"
         onClick={() => {
           navigate(`/groupspace/${group.groupId}`);
         }}
