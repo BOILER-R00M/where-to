@@ -2,44 +2,97 @@ import Button from "../../utility/Button";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import UserPool from "../../../AWS/auth/UserPool";
+import { createUser } from "../../../AWS/auth/dynamodb";
 
 // TODO:
 // [ ] need callback logic to render a form where we can submit verification code
 
 const SignUpForm = () => {
-  const [userOjb, setUserOjb] = useState({
+  const [userObj, setUserObj] = useState({
     firstName: "",
     lastName: "",
     username: "",
     password: "",
     email: "",
   });
-
+  const [cognitoUserId, setCognitoUserId] = useState(null);
+console.log(cognitoUserId)
   const attributes = [
-    { Name: "email", Value: userOjb.email },
-    { Name: "name", Value: `${userOjb.lastName}, ${userOjb.firstName}` },
+    { Name: "email", Value: userObj.email },
+    { Name: "name", Value: `${userObj.lastName}, ${userObj.firstName}` },
     // Add other attributes as needed
   ];
 
   const handleUserObj = (e) => {
-    setUserOjb((prev) => {
+    setUserObj((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
-  const onSubmit = (e) => {
+
+  // const cognitoUserSignup = ()=> {
+  //   UserPool.signUp(
+  //     userObj.username,
+  //     userObj.password,
+  //     attributes,
+  //     null,
+  //     (err, data) => {
+  //        setCognitoUserId(data.userSub);
+  //       if (err) {
+  //         console.log(err);
+  //       }
+  //       console.log(data);
+  //     }
+  //   );
+  // }
+  const cognitoUserSignup = async () => {
+    try {
+      const data = await new Promise((resolve, reject) => {
+        UserPool.signUp(
+          userObj.username,
+          userObj.password,
+          attributes,
+          null,
+          (err, data) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(data);
+            }
+          }
+        );
+      });
+      setCognitoUserId(data.userSub);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+
+  const handleSignUp = async () => {
+    
+    if (!userObj) {
+      return; // Early return if userObj is falsy
+    }
+    
+    try {
+      await createUser(userObj,cognitoUserId);
+    } catch (err) {
+      console.error('Error:', err); // Improved error message
+    }
+  };
+  
+
+  const handleNewUserSignup = async (e) => {
     e.preventDefault();
-    UserPool.signUp(
-      userOjb.username,
-      userOjb.password,
-      attributes,
-      null,
-      (err, data) => {
-        if (err) {
-          console.log(err);
-        }
-        console.log(data);
-      }
-    );
+    try {
+      cognitoUserSignup();
+      console.log(`Cognito userId: ${cognitoUserId}`)
+      await handleSignUp(userObj, cognitoUserId);
+
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const signUpVariant = {
@@ -57,7 +110,7 @@ const SignUpForm = () => {
       animate="visible"
       variants={signUpVariant}
     >
-      <form className="mx-auto" onSubmit={onSubmit} name="form">
+      <form className="mx-auto" onSubmit={(e)=>handleNewUserSignup(e)} name="form">
         <h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main lg:text-primary">
           Sign Up
         </h2>
@@ -68,7 +121,7 @@ const SignUpForm = () => {
             type="text"
             placeholder="First Name"
             name="firstName"
-            value={userOjb.firstName}
+            value={userObj.firstName}
             onChange={handleUserObj}
             required
           />
@@ -80,7 +133,7 @@ const SignUpForm = () => {
             type="text"
             placeholder="Last Name"
             name="lastName"
-            value={userOjb.lastName}
+            value={userObj.lastName}
             onChange={handleUserObj}
             required
           />
@@ -92,7 +145,7 @@ const SignUpForm = () => {
             type="text"
             placeholder="Username"
             name="username"
-            value={userOjb.username}
+            value={userObj.username}
             onChange={handleUserObj}
             required
           />
@@ -104,7 +157,7 @@ const SignUpForm = () => {
             type="email"
             placeholder="Email"
             name="email"
-            value={userOjb.email}
+            value={userObj.email}
             onChange={handleUserObj}
             required
           />
@@ -116,7 +169,7 @@ const SignUpForm = () => {
             type="password"
             placeholder="Password"
             name="password"
-            value={userOjb.password}
+            value={userObj.password}
             onChange={handleUserObj}
             required
           />

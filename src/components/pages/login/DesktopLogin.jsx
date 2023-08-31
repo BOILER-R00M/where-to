@@ -1,5 +1,5 @@
 import LoginForm from "./LoginForm";
-import SignupForm from "../signup/SignupForm.jsx";
+import SignupForm from "../signup/SignUpForm.jsx";
 
 const DesktopLogin = ({ handleSlideUp, slideUp }) => {
   return (
