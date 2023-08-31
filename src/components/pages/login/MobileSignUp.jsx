@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Arrows from "../../utility/Arrows";
-import SignupForm from "../signup/SignupForm.jsx";
+import SignupForm from "../signup/SignUpForm.jsx";
 
 const MobileSignUp = ({ slideUp, handleSlideUp,isAbsolute }) => {
 

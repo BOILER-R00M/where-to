@@ -3,7 +3,7 @@ import Button from "../../utility/Button";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import UserPool from "../../../AWS/auth/UserPool";
-
+import { createUser } from "../../../AWS/auth/dynamodb";
 // TODO:
 // [ ] need callback logic to render a form where we can submit verification code
 // [ ] implement sign out link
@@ -48,10 +48,24 @@ const SignUpForm = () => {
 					console.log(err);
 				}
 				console.log(data);
+				// handleSignUp(e);
 				setIsRegistrationPending(true);
 			}
 		);
 	};
+
+	const handleSignUp = async (e) => {
+		e.preventDefault();
+		if (!userOjb){
+			return ''
+		}
+		try {
+			await createUser(userOjb);
+		}
+		catch (err){
+			console.error('Error',err)
+		}
+	}
 
 	const submitConfirmationCode = (e) => {
 		e.preventDefault();
