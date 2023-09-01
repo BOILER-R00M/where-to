@@ -16,11 +16,10 @@ const SignUpForm = () => {
     email: "",
   });
   const [cognitoUserId, setCognitoUserId] = useState(null);
-console.log(cognitoUserId)
   const attributes = [
     { Name: "email", Value: userObj.email },
     { Name: "name", Value: `${userObj.lastName}, ${userObj.firstName}` },
-    // Add other attributes as needed
+    
   ];
 
   const handleUserObj = (e) => {
@@ -28,22 +27,6 @@ console.log(cognitoUserId)
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
-
-  // const cognitoUserSignup = ()=> {
-  //   UserPool.signUp(
-  //     userObj.username,
-  //     userObj.password,
-  //     attributes,
-  //     null,
-  //     (err, data) => {
-  //        setCognitoUserId(data.userSub);
-  //       if (err) {
-  //         console.log(err);
-  //       }
-  //       console.log(data);
-  //     }
-  //   );
-  // }
   const cognitoUserSignup = async () => {
     try {
       const data = await new Promise((resolve, reject) => {
@@ -72,13 +55,13 @@ console.log(cognitoUserId)
   const handleSignUp = async () => {
     
     if (!userObj) {
-      return; // Early return if userObj is falsy
+      return; 
     }
     
     try {
       await createUser(userObj,cognitoUserId);
     } catch (err) {
-      console.error('Error:', err); // Improved error message
+      console.error('Error:', err); 
     }
   };
   
@@ -105,7 +88,7 @@ console.log(cognitoUserId)
   return (
     <motion.div
       name="signup_form_container"
-      className="max-w-[600px] mx-auto w-81 pb-[5vh] sm:pb-10 md:pb-64 lg:pb-0"
+      className="max-w-[600px] mx-auto w-80 pb-[5vh] sm:pb-10 md:pb-64 lg:pb-0"
       initial="hidden"
       animate="visible"
       variants={signUpVariant}
