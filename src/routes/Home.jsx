@@ -1,5 +1,6 @@
 import NavBar from "../components/ui/NavBar";
 import bus from "../assets/bus.svg";
+import traveling from '../assets/traveling.svg'
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
             you've visited on an interactive map. It's like creating memories
             together on a digital journey!
           </p>
+          <img src={traveling} alt="traveling"/>
         </div>
       </section>
       <section className="h-screen bg-tertiary">
