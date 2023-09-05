@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import doubleUpArrow from "../../../assets/doubleUp.svg";
@@ -99,12 +98,12 @@ const Login = () => {
 					<span className="hidden lg:inline lg:mr-2 lg:text-primary">
 						New to WhereTo?
 					</span>
-					<Link
+					<div
+						// [ ] we need to make this pull up the sign up on click
 						className="hidden lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
-						to="/"
 					>
 						Create an account
-					</Link>
+					</div>
 				</div>
 			</div>
 		</motion.div>

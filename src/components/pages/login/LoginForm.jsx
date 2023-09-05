@@ -2,11 +2,49 @@ import { Link } from "react-router-dom";
 import Button from "../../utility/Button";
 import or from "../../../assets/or.svg";
 
+import { useState } from "react";
+import UserPool from "../../../AWS/auth/UserPool";
+import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+
 // TODO:
 // [ ] place a dummy callback function for now for the login button. Will later stick the Cognito fetch function there
 // [ ] increase size of the Welcome Back when width increase.
 
 const LoginForm = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const onLogin = (event) => {
+		event.preventDefault();
+
+		const authenticationData = {
+			Username: email,
+			Password: password,
+		};
+
+		const authenticationDetails = new AuthenticationDetails(
+			authenticationData
+		);
+
+		const userData = {
+			Username: email,
+			Pool: UserPool,
+		};
+
+		const cognitoUser = new CognitoUser(userData);
+
+		cognitoUser.authenticateUser(authenticationDetails, {
+			onSuccess: function (result) {
+				console.log("Authentication successful", result);
+			},
+			onFailure: function (err) {
+				console.log("Authentication failed", err);
+			},
+			newPasswordRequired: function (userAttributes, requiredAttributes) {
+				// User needs to set a new password
+				console.log("New password required");
+			},
+		});
+	};
 	return (
 		<div
 			name="login_form_container"
@@ -25,6 +63,8 @@ const LoginForm = () => {
 						className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
 						type="email"
 						placeholder="Email"
+						value={email} // Linking to state
+						onChange={(e) => setEmail(e.target.value)} // Updating state
 						required
 					/>
 				</div>
@@ -34,12 +74,15 @@ const LoginForm = () => {
 						className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
 						type="password"
 						placeholder="Password"
+						value={password} // Linking to state
+						onChange={(e) => setPassword(e.target.value)} // Updating state
 						required
 					/>
 				</div>
 
-				<div className="py-3">
-					<Button>Login</Button>
+				<div onClick={onLogin} className="py-3">
+					{/* <Button>Login</Button> */}
+					Login
 				</div>
 			</form>
 

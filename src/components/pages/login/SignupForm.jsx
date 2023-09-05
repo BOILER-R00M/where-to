@@ -7,6 +7,7 @@ import UserPool from "../../../AWS/auth/UserPool";
 // TODO:
 // [ ] need callback logic to render a form where we can submit verification code
 // [ ] implement sign out link
+// [ ] implement conditional rendering of confirmation page based on http response status
 
 const SignUpForm = () => {
 	const [userOjb, setUserOjb] = useState({
