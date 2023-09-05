@@ -27,7 +27,7 @@ const GroupSpace = () => {
 	const { groupId } = useParams();
 	const [locations, setLocations] = useState(null);
 	const users = fetchUsersInGroup(groupId);
-
+	console.log("LOCATIONS: ", locations);
 	useEffect(() => {
 		setLocations(fetchGroupLocations(groupId));
 	}, []);
