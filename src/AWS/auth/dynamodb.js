@@ -1,10 +1,21 @@
 // import { API } from 'aws-amplify';
+
 import AWS from "aws-sdk";
+import * as dotenv from 'dotenv';
+
+
+// Load environment variables from .env file
+// dotenv.config();
+
+const AWS_ACCESS_KEY_ID = import.meta.env.AWS_ACCESS_KEY_ID;
+const AWS_SECRET_ACCESS_KEY = import.meta.env.AWS_SECRET_ACCESS_KEY;
+
+console.log(AWS_ACCESS_KEY_ID);
 
 AWS.config.update({
   region: "us-east-1",
-  accessKeyId: "AKIAWWSACU622OFBY3F7",
-  secretAccessKey: "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"
+  accessKeyId: AWS_ACCESS_KEY_ID,
+  secretAccessKey: AWS_SECRET_ACCESS_KEY,
 });
 
 // export const createUser = async (userObj, cognitoUserId) => {
