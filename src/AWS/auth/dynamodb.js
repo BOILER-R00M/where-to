@@ -7,8 +7,8 @@ import * as dotenv from 'dotenv';
 // Load environment variables from .env file
 // dotenv.config();
 
-const AWS_ACCESS_KEY_ID = import.meta.env.AWS_ACCESS_KEY_ID;
-const AWS_SECRET_ACCESS_KEY = import.meta.env.AWS_SECRET_ACCESS_KEY;
+const AWS_ACCESS_KEY_ID = import.meta.env.VITE_AWS_ACCESS_KEY_ID;
+const AWS_SECRET_ACCESS_KEY = import.meta.env.VITE_AWS_SECRET_ACCESS_KEY;
 
 console.log(AWS_ACCESS_KEY_ID);
 
