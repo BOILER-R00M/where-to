@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../../utility/Button";
+import { useContext } from "react";
+import AppContext from "../../../context/AppContext";
 import or from "../../../assets/or.svg";
 import { useState } from "react";
 import useAuthorization from "../../../customHooks/useAuthService";
@@ -10,12 +12,13 @@ const LoginForm = () => {
 	const [password, setPassword] = useState("");
 	const { authenticate } = useAuthorization(); // De-structure the 'authenticate' method from custom hook
 	const navigate = useNavigate();
-
+	const { setUser } = useContext(AppContext);
 	const onLogin = async (event) => {
 		event.preventDefault();
 		try {
 			const authResult = await authenticate(email, password);
 			console.log("Authentication successful:", authResult);
+			setUser(authResult.accessToken.payload.username);
 			navigate("/dashboard/0001");
 		} catch (error) {
 			console.log("Authentication failed:", error);
