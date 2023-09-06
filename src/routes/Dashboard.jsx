@@ -22,7 +22,7 @@ const Dashboard = () => {
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			userName={user?.userName}
+			userName={user}
 		/>
 	);
 };
