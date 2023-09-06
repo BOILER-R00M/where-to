@@ -1,11 +1,11 @@
 [
 	{
-		"pk": "USER#0001",
+		"pk": "USER#c4084468-20f1-7062-a531-2daa9c6aba76",
 		"sk": "GROUP#001",
 		"groupId": "001",
 		"groupName": "Travel Group 2023",
 		"username": "MadisonEvans94",
-		"userID": "0001"
+		"userID": "c4084468-20f1-7062-a531-2daa9c6aba76"
 	},
 
 	{
@@ -17,12 +17,12 @@
 		"userID": "0002"
 	},
 	{
-		"pk": "USER#0001",
+		"pk": "USER#c4084468-20f1-7062-a531-2daa9c6aba76",
 		"sk": "GROUP#002",
 		"groupId": "002",
 		"groupName": "In Search of New Housing",
 		"username": "MadisonEvans94",
-		"userID": "0001"
+		"userID": "c4084468-20f1-7062-a531-2daa9c6aba76"
 	},
 
 	{
@@ -57,7 +57,7 @@
 		},
 		"usersVisited": [
 			{
-				"userID": "0001",
+				"userID": "c4084468-20f1-7062-a531-2daa9c6aba76",
 				"username": "MadisonEvans94"
 			},
 			{
@@ -89,7 +89,7 @@
 		},
 		"usersVisited": [
 			{
-				"userID": "0001",
+				"userID": "c4084468-20f1-7062-a531-2daa9c6aba76",
 				"username": "MadisonEvans94"
 			}
 		]
@@ -146,7 +146,7 @@
 		},
 		"usersVisited": [
 			{
-				"userID": "0001",
+				"userID": "c4084468-20f1-7062-a531-2daa9c6aba76",
 				"username": "MadisonEvans94"
 			}
 		]
@@ -168,7 +168,7 @@
 		}
 	},
 	{
-		"pk": "GROUP#001#USER#0001",
+		"pk": "GROUP#001#USER#c4084468-20f1-7062-a531-2daa9c6aba76",
 		"sk": "LOCATION#001",
 		"locationName": "Atlanta",
 		"score": {
@@ -184,7 +184,7 @@
 		}
 	},
 	{
-		"pk": "GROUP#001#USER#0001",
+		"pk": "GROUP#001#USER#c4084468-20f1-7062-a531-2daa9c6aba76",
 		"sk": "LOCATION#002",
 		"locationName": "New York City",
 		"score": {
@@ -216,7 +216,7 @@
 		}
 	},
 	{
-		"pk": "GROUP#002#USER#0001",
+		"pk": "GROUP#002#USER#c4084468-20f1-7062-a531-2daa9c6aba76",
 		"sk": "LOCATION#001",
 		"locationName": "San Diego",
 		"score": {

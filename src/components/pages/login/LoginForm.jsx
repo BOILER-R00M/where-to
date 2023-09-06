@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const { authenticate } = useAuthorization(); // De-structure the 'authenticate' method from custom hook
+	const { authenticate, userData } = useAuthorization(); // De-structure the 'authenticate' method from custom hook
 	const navigate = useNavigate();
 	const { setUser } = useContext(AppContext);
 	const onLogin = async (event) => {
@@ -19,7 +19,7 @@ const LoginForm = () => {
 			const authResult = await authenticate(email, password);
 			console.log("Authentication successful:", authResult);
 			setUser(authResult.accessToken.payload.username);
-			navigate("/dashboard/0001");
+			navigate(`/dashboard/${userData.userId}`);
 		} catch (error) {
 			console.log("Authentication failed:", error);
 		}
