@@ -20,13 +20,10 @@ const Dashboard = () => {
 	const { userData } = useAuthorization();
 
 	return (
-		<>
-			<NavBar userName={user?.userName} />
-			<DashboardLayout
-				groupList={<GroupList groups={groups} />}
-				userName={userData?.userName}
-			/>
-		</>
+		<DashboardLayout
+			groupList={<GroupList groups={groups} />}
+			userName={user?.userName}
+		/>
 	);
 };
 

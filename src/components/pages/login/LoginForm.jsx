@@ -1,22 +1,16 @@
 import NavLink from "../../utility/NavLink.jsx";
 import Button from "../../utility/Button";
 import or from "../../../assets/or.svg";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import useAuthorization from "../../../customHooks/useAuthService";
-import { useNavigate } from "react-router-dom";
-
+import { useContext } from "react";
+import AppContext from "../../../context/AppContext";
 import { useState } from "react";
 import UserPool from "../../../AWS/auth/UserPool";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 
-// TODO:
-// [ ] place a dummy callback function for now for the login button. Will later stick the Cognito fetch function there
-// [ ] increase size of the Welcome Back when width increase.
-
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const { setAccessToken } = useContext(AppContext);
 	const onLogin = (event) => {
 		event.preventDefault();
 
@@ -38,7 +32,7 @@ const LoginForm = () => {
 
 		cognitoUser.authenticateUser(authenticationDetails, {
 			onSuccess: function (result) {
-				console.log("Authentication successful", result);
+				setAccessToken(result?.accessToken.jwtToken);
 			},
 			onFailure: function (err) {
 				console.log("Authentication failed", err);
