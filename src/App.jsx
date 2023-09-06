@@ -6,6 +6,7 @@ import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
 import Login from "./components/pages/login/Login";
 import { useState } from "react";
+import useAuthorization from "./customHooks/useAuthService";
 
 
 
@@ -13,6 +14,17 @@ function App() {
 	// NOTE: Using this user object just to test
 	const [user, setUser] = useState(null);
 	const [accessToken, setAccessToken] = useState(null);
+
+	const {
+		authenticate,
+		getSession,
+		logout,
+		tokens,
+		isAuthenticated,
+		userData,
+	} = useAuthorization();
+
+	console.log("isAuthenticated", isAuthenticated, "userData", userData);
 
 	return (
 		<>
