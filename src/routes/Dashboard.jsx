@@ -11,10 +11,11 @@ const Dashboard = () => {
 	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
-	const { userData } = useAuthorization();
+	const { userData, logout } = useAuthorization();
 	console.log("USERDATA", userData);
 	return (
 		<DashboardLayout
+			logout={logout}
 			groupList={<GroupList groups={groups} />}
 			userName={userData?.username}
 		/>
@@ -22,11 +23,14 @@ const Dashboard = () => {
 };
 
 // Use DashboardLayout as a layout component that is responsible for structuring the children components only
-const DashboardLayout = ({ userName, groupList }) => {
+const DashboardLayout = ({ userName, groupList, logout }) => {
 	return (
 		<div className="px-3 bg-primary h-screen md:px-6 lg:px-12">
 			<Display className="py-4 text-secondary">Welcome Back,</Display>
 			<Display className="py-4 text-secondary">{userName}</Display>
+			<button onClick={logout} className="p-2 border rounded">
+				Logout
+			</button>
 			{groupList}
 		</div>
 	);
