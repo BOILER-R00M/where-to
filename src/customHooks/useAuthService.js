@@ -54,9 +54,16 @@ const useAuthorization = () => {
 			});
 			user.authenticateUser(authDetails, {
 				onSuccess: (data) => {
+					console.log(
+						"DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ",
+						data
+					);
 					setTokens(data.getIdToken().getJwtToken());
 					setIsAuthenticated(true);
-					setUserData(user);
+					setUserData({
+						userId: data.idToken.payload.sub,
+						username: data.accessToken.payload.username,
+					});
 					resolve(data);
 				},
 				onFailure: (error) => {
