@@ -12,7 +12,7 @@ const Dashboard = () => {
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
 	const { userData } = useAuthorization();
-
+	console.log("USERDATA", userData);
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}

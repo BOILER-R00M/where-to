@@ -31,6 +31,7 @@ const useAuthorization = () => {
 				setIsAuthenticated(true);
 				setTokens(session.getIdToken().getJwtToken());
 				setUserData({
+					userId: session.getIdToken().payload["sub"],
 					username: session.getIdToken().payload["cognito:username"],
 				});
 			} else {
@@ -55,8 +56,10 @@ const useAuthorization = () => {
 			user.authenticateUser(authDetails, {
 				onSuccess: (data) => {
 					console.log(
-						"DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ",
-						data
+						"Username From Cognito Token: ",
+						data.accessToken.payload.username,
+						"User ID from Cognito Token: ",
+						data.idToken.payload.sub
 					);
 					setTokens(data.getIdToken().getJwtToken());
 					setIsAuthenticated(true);
