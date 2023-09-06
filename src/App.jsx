@@ -1,6 +1,4 @@
 import AppContext from "./context/AppContext";
-
-import useDatabaseService from "./customHooks/useDatabaseService";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./routes/Dashboard";
@@ -17,7 +15,9 @@ function App() {
 	return (
 		<>
 			{/* any state that we want global access to, create it at the app level and stick it in the `value` object of the Provider */}
-			<AppContext.Provider value={{ user, accessToken, setAccessToken }}>
+			<AppContext.Provider
+				value={{ user, setUser, accessToken, setAccessToken }}
+			>
 				<Router>
 					<Routes>
 						{/* Home Route */}
