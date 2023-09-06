@@ -7,20 +7,19 @@ import GroupListItem from "../components/pages/dashboard/GroupListItem";
 import Button from "../components/utility/Button";
 import { useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
-
-// TODO:
-// [x] Add username to welcome Display message
+import useAuthorization from "../customHooks/useAuthService";
 
 const Dashboard = () => {
 	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
-	const { user } = useContext(AppContext);
+
+	const { userData } = useAuthorization();
 
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			userName={user}
+			userName={userData?.username}
 		/>
 	);
 };
@@ -38,12 +37,6 @@ const DashboardLayout = ({ userName, groupList }) => {
 
 // Sub component responsible for displaying the list of groups that a user belongs to
 const GroupList = ({ groups }) => {
-	useEffect(() => {
-		console.log("FETCHING USER TEST");
-		fetch(
-			"https://b5vaajxtmj.execute-api.us-east-1.amazonaws.com/production/users"
-		);
-	}, []);
 	return (
 		<div className="flex flex-col">
 			<Header className="pt-6 pb-3 text-tertiary">Your Groups</Header>
