@@ -7,6 +7,7 @@ import Dashboard from "./routes/Dashboard";
 import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
 import Login from "./components/pages/login/Login";
+import { useState } from "react";
 
 function App() {
 	// custom hook for CRUD operations with database - Madison
@@ -15,12 +16,13 @@ function App() {
 		useDatabaseService();
 
 	// NOTE: Using this user object just to test
-	const user = { userName: "MadisonEvans94" };
+	const [user, setUser] = useState(null);
+	const [accessToken, setAccessToken] = useState(null);
 
 	return (
 		<>
 			{/* any state that we want global access to, create it at the app level and stick it in the `value` object of the Provider */}
-			<AppContext.Provider value={{ user }}>
+			<AppContext.Provider value={{ user, accessToken, setAccessToken }}>
 				<Router>
 					<Routes>
 						{/* Home Route */}
