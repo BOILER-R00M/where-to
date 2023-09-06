@@ -7,8 +7,6 @@ import doubleDownArrow from "../../../assets/DoubleDown.svg";
 import bus from "../../../assets/bus.svg";
 
 const Login = () => {
-	//TODO:
-	//[ ] increase the size of logo when width gets larger
 	const [slideUp, setSlideUp] = useState(false);
 	const handleSlideUp = () => {
 		setSlideUp((prev) => !prev);

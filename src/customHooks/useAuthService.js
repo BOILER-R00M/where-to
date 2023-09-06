@@ -1,40 +1,94 @@
-import React from "react";
-import { UserContext } from "../context/UserContext";
+import { useState, useEffect } from "react";
+import UserPool from "../AWS/auth/UserPool";
+import { AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
 
-//NOTE: import Cognito SDK and other necessary dependencies here
-//NOTE: user context will be globally available after it's set with setUser
+const useAuthorization = () => {
+	const [userData, setUserData] = useState(null);
+	const [tokens, setTokens] = useState(null);
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-const { authUser, setAuthUser } = useContext(UserContext);
+	const getSession = async () => {
+		return await new Promise((resolve, reject) => {
+			const user = UserPool.getCurrentUser();
+			if (user) {
+				user.getSession((err, session) => {
+					if (err) {
+						console.error(err);
+						reject();
+					} else {
+						resolve(session);
+					}
+				});
+			} else {
+				reject();
+			}
+		});
+	};
 
-const useAuthService = () => {
-	//NOTE: all auth logic for sign up, log in, and log out will be handled here
+	useEffect(() => {
+		getSession().then((session) => {
+			if (session) {
+				setIsAuthenticated(true);
+				setTokens(session.getIdToken().getJwtToken());
+				setUserData({
+					username: session.getIdToken().payload["cognito:username"],
+				});
+			} else {
+				setIsAuthenticated(false);
+				setUserData(null);
+				setTokens(null);
+			}
+		});
+	}, []);
 
-	// Logic to sign up a user with Cognito
-	const signUp = (email, password, attributes) => {};
+	const authenticate = async (Username, Password) => {
+		return await new Promise((resolve, reject) => {
+			const user = new CognitoUser({
+				Username,
+				Pool: UserPool,
+			});
 
-	// Logic to authenticate a user with Cognito
-	const logIn = (email, password, callback) => {};
+			const authDetails = new AuthenticationDetails({
+				Username,
+				Password,
+			});
+			user.authenticateUser(authDetails, {
+				onSuccess: (data) => {
+					setTokens(data.getIdToken().getJwtToken());
+					setIsAuthenticated(true);
+					setUserData(user);
+					resolve(data);
+				},
+				onFailure: (error) => {
+					console.error(error);
+					reject(error);
+				},
+				newPasswordRequired: (data) => {
+					console.log("New Password required", data);
+					resolve(data);
+				},
+			});
+		});
+	};
 
-	// Logic to log out a user from Cognito
-	const logOut = () => {};
-
-	// Logic to confirm user's sign up with Cognito
-	const confirmSignUp = (username, code) => {};
-
-	// Logic to initiate password reset with Cognito
-	const forgotPassword = (username) => {};
-
-	// Logic to reset user's password with Cognito
-	const resetPassword = (username, code, newPassword) => {};
+	const logout = async () => {
+		const user = UserPool.getCurrentUser();
+		if (user) {
+			user.signOut();
+			setIsAuthenticated(false);
+			setUserData(null);
+			setTokens(null);
+		}
+	};
 
 	return {
-		signUp,
-		logIn,
-		logOut,
-		confirmSignUp,
-		forgotPassword,
-		resetPassword,
+		authenticate,
+		getSession,
+		logout,
+		tokens,
+		isAuthenticated,
+		userData,
 	};
 };
 
-export default useAuthService;
+export default useAuthorization;

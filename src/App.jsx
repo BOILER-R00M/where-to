@@ -10,11 +10,6 @@ import Login from "./components/pages/login/Login";
 import { useState } from "react";
 
 function App() {
-	// custom hook for CRUD operations with database - Madison
-	// fyi: I recently created state management in userContext for user groups - Keino
-	const { fetchUserGroups, fetchGroupLocations, fetchUserLocationsInGroup } =
-		useDatabaseService();
-
 	// NOTE: Using this user object just to test
 	const [user, setUser] = useState(null);
 	const [accessToken, setAccessToken] = useState(null);
