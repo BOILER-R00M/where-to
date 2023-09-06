@@ -40,7 +40,7 @@ const useAuthorization = () => {
 				setTokens(null);
 			}
 		});
-	}, []);
+	}, [isAuthenticated]);
 
 	const authenticate = async (Username, Password) => {
 		return await new Promise((resolve, reject) => {

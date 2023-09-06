@@ -12,6 +12,7 @@ const Dashboard = () => {
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
 	const { userData, logout } = useAuthorization();
+
 	console.log("USERDATA", userData);
 	return (
 		<DashboardLayout
