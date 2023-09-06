@@ -5,15 +5,12 @@ import Header from "../components/utility/Header";
 import Display from "../components/utility/Display";
 import GroupListItem from "../components/pages/dashboard/GroupListItem";
 import Button from "../components/utility/Button";
-import { useContext, useEffect } from "react";
-import AppContext from "../context/AppContext";
 import useAuthorization from "../customHooks/useAuthService";
 
 const Dashboard = () => {
 	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
 	const groups = fetchUserGroups(userId);
-
 	const { userData } = useAuthorization();
 
 	return (
