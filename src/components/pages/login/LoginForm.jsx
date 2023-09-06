@@ -1,47 +1,25 @@
 import NavLink from "../../utility/NavLink.jsx";
 import Button from "../../utility/Button";
 import or from "../../../assets/or.svg";
-import { useContext } from "react";
-import AppContext from "../../../context/AppContext";
 import { useState } from "react";
-import UserPool from "../../../AWS/auth/UserPool";
-import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+import useAuthorization from "../../../customHooks/useAuthService";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const { setAccessToken } = useContext(AppContext);
-	const onLogin = (event) => {
+	const { authenticate } = useAuthorization(); // De-structure the 'authenticate' method from custom hook
+
+	const onLogin = async (event) => {
 		event.preventDefault();
 
-		const authenticationData = {
-			Username: email,
-			Password: password,
-		};
-
-		const authenticationDetails = new AuthenticationDetails(
-			authenticationData
-		);
-
-		const userData = {
-			Username: email,
-			Pool: UserPool,
-		};
-
-		const cognitoUser = new CognitoUser(userData);
-
-		cognitoUser.authenticateUser(authenticationDetails, {
-			onSuccess: function (result) {
-				setAccessToken(result?.accessToken.jwtToken);
-			},
-			onFailure: function (err) {
-				console.log("Authentication failed", err);
-			},
-			newPasswordRequired: function (userAttributes, requiredAttributes) {
-				// User needs to set a new password
-				console.log("New password required");
-			},
-		});
+		try {
+			const authResult = await authenticate(email, password);
+			// Logic to handle successful authentication can go here.
+			// For example, if you want to store the accessToken in a state, you can do that.
+			console.log("Authentication successful:", authResult);
+		} catch (error) {
+			console.log("Authentication failed:", error);
+		}
 	};
 	return (
 		<div

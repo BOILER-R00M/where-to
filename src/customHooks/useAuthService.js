@@ -6,7 +6,6 @@ const useAuthorization = () => {
 	const [userData, setUserData] = useState(null);
 	const [tokens, setTokens] = useState(null);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
-	
 
 	const getSession = async () => {
 		return await new Promise((resolve, reject) => {
@@ -32,7 +31,6 @@ const useAuthorization = () => {
 				setIsAuthenticated(true);
 				setTokens(session.getIdToken().getJwtToken());
 				setUserData({
-					userId: session.getIdToken().payload["sub"],
 					username: session.getIdToken().payload["cognito:username"],
 				});
 			} else {
@@ -41,7 +39,7 @@ const useAuthorization = () => {
 				setTokens(null);
 			}
 		});
-	}, [isAuthenticated]);
+	}, []);
 
 	const authenticate = async (Username, Password) => {
 		return await new Promise((resolve, reject) => {
@@ -56,18 +54,9 @@ const useAuthorization = () => {
 			});
 			user.authenticateUser(authDetails, {
 				onSuccess: (data) => {
-					console.log(
-						"Username From Cognito Token: ",
-						data.accessToken.payload.username,
-						"User ID from Cognito Token: ",
-						data.idToken.payload.sub
-					);
 					setTokens(data.getIdToken().getJwtToken());
 					setIsAuthenticated(true);
-					setUserData({
-						userId: data.idToken.payload.sub,
-						username: data.accessToken.payload.username,
-					});
+					setUserData(user);
 					resolve(data);
 				},
 				onFailure: (error) => {
