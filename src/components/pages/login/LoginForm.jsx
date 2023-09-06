@@ -54,11 +54,9 @@ const LoginForm = () => {
 						required
 					/>
 				</div>
-
-				<div onClick={onLogin} className="py-3">
-					{/* <Button>Login</Button> */}
+				<Button className="my-2" onClick={onLogin}>
 					Login
-				</div>
+				</Button>
 			</form>
 
 			<Link

@@ -8,6 +8,7 @@ import bus from "../../../assets/bus.svg";
 
 const Login = () => {
 	const [slideUp, setSlideUp] = useState(false);
+	const [showSignup, setShowSignup] = useState(false);
 	const handleSlideUp = () => {
 		setSlideUp((prev) => !prev);
 	};
@@ -77,7 +78,7 @@ const Login = () => {
 					To
 				</h1>
 				<div className="hidden mx-auto lg:block lg:pb-12">
-					<LoginForm />
+					{showSignup ? <SignupForm /> : <LoginForm />}
 				</div>
 				<img
 					src={slideUp ? doubleDownArrow : doubleUpArrow}
@@ -92,17 +93,31 @@ const Login = () => {
 						: "Don't have an account? Slide up to sign up"}
 				</p>
 				{slideUp ? <SignupForm /> : null}
-				<div>
-					<span className="hidden lg:inline lg:mr-2 lg:text-primary">
-						New to WhereTo?
-					</span>
-					<div
-						// [ ] we need to make this pull up the sign up on click
-						className="hidden lg:text-base lg:inline-block lg:text-blue-700 lg:font-main lg:pb-12"
-					>
-						Create an account
+				{showSignup ? (
+					<div>
+						<span className="hidden lg:inline lg:mr-2 lg:text-primary">
+							Already Have An Account?
+						</span>
+						<span
+							onClick={() => setShowSignup(false)}
+							className="hidden cursor-pointer font-bold lg:text-base lg:inline-block lg:text-blue-900 lg:font-main"
+						>
+							Login
+						</span>
 					</div>
-				</div>
+				) : (
+					<div>
+						<span className="hidden lg:inline lg:mr-2 lg:text-primary">
+							New to WhereTo?
+						</span>
+						<span
+							onClick={() => setShowSignup(true)}
+							className="hidden cursor-pointer font-bold lg:text-base lg:inline-block lg:text-blue-900 lg:font-main"
+						>
+							Create an account
+						</span>
+					</div>
+				)}
 			</div>
 		</motion.div>
 	);
