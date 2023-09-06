@@ -3,20 +3,20 @@ import Button from "../../utility/Button";
 import or from "../../../assets/or.svg";
 import { useState } from "react";
 import useAuthorization from "../../../customHooks/useAuthService";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { authenticate } = useAuthorization(); // De-structure the 'authenticate' method from custom hook
+	const navigate = useNavigate();
 
 	const onLogin = async (event) => {
 		event.preventDefault();
-
 		try {
 			const authResult = await authenticate(email, password);
-			// Logic to handle successful authentication can go here.
-			// For example, if you want to store the accessToken in a state, you can do that.
 			console.log("Authentication successful:", authResult);
+			navigate("/dashboard/0001");
 		} catch (error) {
 			console.log("Authentication failed:", error);
 		}
