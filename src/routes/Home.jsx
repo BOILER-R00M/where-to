@@ -3,7 +3,9 @@ import bus from "../assets/bus.svg";
 import traveling from "../assets/traveling.svg";
 import { useNavigate } from "react-router-dom";
 import travel_flag from "../assets/travel_flag.svg";
-import Button from "../components/utility/Button";
+import groups from "../assets/groups.svg";
+import pin from "../assets/pin.svg";
+import rate from "../assets/rate.svg";
 
 export default function Home() {
   const nav = useNavigate();
@@ -27,10 +29,16 @@ export default function Home() {
         </div>
 
         <div className="lg:flex lg:space-x-4 lg:pl-[10%] lg:pt-[5%] ">
-          <button onClick={()=> nav('/login')}className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
+          <button
+            onClick={() => nav("/login")}
+            className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block"
+          >
             CREATE ACCOUNT
           </button>
-          <button onClick={() => window.location.href = '#offer-section'} className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
+          <button
+            onClick={() => (window.location.href = "#offer-section")}
+            className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block"
+          >
             LEARN MORE >
           </button>
           <p className="px-6 py-4 font-main text-primary iphoneXr:text-2xl lg:hidden">
@@ -63,39 +71,52 @@ export default function Home() {
         </div>
       </section>
       <section className="h-screen bg-tertiary">
-    <div>
-        <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-5xl lg:pt-20 lg:pl-18">
+        <div>
+          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-5xl lg:pt-20 lg:pl-18">
             Key <span className="text-secondary">Features</span>
-        </h2>
-    </div>
+          </h2>
+        </div>
 
-    <div className="px-6 py-4 font-main text-primary">
-        <ul className="pl-5 list-disc lg:flex lg:space-x-4 lg:list-none lg:pt-10">
-            <li className="iphoneXr:text-[18px] pt-3 lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
+        <div className="px-6 py-4 font-main text-primary">
+          <ul className="pl-5 list-disc lg:flex lg:space-x-4 lg:list-none lg:pt-10">
+            <div className="lg:w-1/3 lg:flex lg:flex-col lg:items-center">
+              <img src={groups} alt="Groups" className="hidden mb-4 lg:block" />
+              <li className="iphoneXr:text-[18px] pt-3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
                 <strong className="text-secondary">
-                    Create and Join Groups:
+                  Create and Join Groups:
                 </strong>{" "}
                 Gather your travel buddies and create groups to embark on
                 memorable journeys together. Share your experiences,
                 recommendations, and favorite spots in a collaborative space
                 that's just for your group.
-            </li>
-            <li className="iphoneXr:text-[18px] pt-8 lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
+              </li>
+            </div>
+            <div className="lg:w-1/3 lg:flex lg:flex-col lg:items-center">
+              <img src={pin} alt="Pin" className="hidden mb-4 lg:block" />
+              <li className="iphoneXr:text-[18px] pt-8 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
                 <strong className="text-secondary">Pin Your Adventures:</strong>{" "}
                 Drop pins on the map to mark the places you've been to. Whether
                 it's a hidden gem or a popular landmark, you can pinpoint your
                 travels and add meaningful notes to remember the moments.
-            </li>
-            <li className="iphoneXr:text-[18px] pt-8 lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
-                <strong className="text-secondary">Rate and Review:</strong> Rate
-                the places you've visited and leave reviews to share your thoughts
-                with your group. Did you discover an incredible local eatery or a
-                breathtaking viewpoint? Your friends can now benefit from your
-                insights.
-            </li>
-        </ul>
-    </div>
-</section>
+              </li>
+            </div>
+            <div className="lg:w-1/3 lg:flex lg:flex-col lg:items-center">
+              <img
+                src={rate}
+                alt="Rate and Review"
+                className="hidden mb-4 lg:block"
+              />
+              <li className="iphoneXr:text-[18px] pt-8 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
+                <strong className="text-secondary">Rate and Review:</strong>{" "}
+                Rate the places you've visited and leave reviews to share your
+                thoughts with your group. Did you discover an incredible local
+                eatery or a breathtaking viewpoint? Your friends can now benefit
+                from your insights.
+              </li>
+            </div>
+          </ul>
+        </div>
+      </section>
 
       <section className="h-screen bg-tertiary">
         <div>
