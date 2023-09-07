@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <NavBar />
       <section className="h-screen bg-tertiary">
-        <div className="lg:pt-20 lg:flex lg:space-x-6 lg:items-center">
+        <div className="lg:max-w-[80%] lg:pt-5 lg:flex lg:space-x-6 lg:items-center">
           <h1 className="px-6 py-4 mx-auto text-4xl font-main text-primary iphoneXr:text-6xl lg:w-3/5">
             Track Your <span className="text-secondary">Travels</span>. Share
             Your <span className="text-secondary">Tales</span>.
@@ -23,7 +23,7 @@ export default function Home() {
         </div>
 
         <div>
-          <p className="px-6 py-4 font-main text-primary iphoneXr:text-2xl">
+          <p className="px-6 py-4 font-main text-primary iphoneXr:text-2xl lg:hidden">
             Explore the world together, one pin at a time! WhereTo is a unique
             platform that lets you create and join groups with your friends to
             share and discover exciting travel experiences.
