@@ -1,19 +1,25 @@
 import NavBar from "../components/ui/NavBar";
 import bus from "../assets/bus.svg";
-import traveling from '../assets/traveling.svg'
+import traveling from "../assets/traveling.svg";
 import { useNavigate } from "react-router-dom";
+import travel_flag from "../assets/travel_flag.svg";
 
 export default function Home() {
-  const nav = useNavigate()
+  const nav = useNavigate();
   return (
     <>
       <NavBar />
       <section className="h-screen bg-tertiary">
-        <div>
-          <h1 className="px-6 py-4 mx-auto text-4xl font-main text-primary iphoneXr:text-6xl">
+        <div className="lg:pt-20 lg:flex lg:space-x-6 lg:items-center">
+          <h1 className="px-6 py-4 mx-auto text-4xl font-main text-primary iphoneXr:text-6xl lg:w-3/5">
             Track Your <span className="text-secondary">Travels</span>. Share
             Your <span className="text-secondary">Tales</span>.
           </h1>
+          <img
+            className="hidden lg:block lg:w-2/5"
+            src={travel_flag}
+            alt="travel_flag"
+          />
         </div>
 
         <div>
@@ -23,7 +29,7 @@ export default function Home() {
             share and discover exciting travel experiences.
           </p>
         </div>
-        <div>
+        <div className="lg:hidden">
           <img src={bus} alt="bus" />
         </div>
       </section>
@@ -43,7 +49,7 @@ export default function Home() {
             you've visited on an interactive map. It's like creating memories
             together on a digital journey!
           </p>
-          <img src={traveling} alt="traveling"/>
+          <img src={traveling} alt="traveling" />
         </div>
       </section>
       <section className="h-screen bg-tertiary">
@@ -56,49 +62,58 @@ export default function Home() {
         <div className="px-6 py-4 font-main text-primary">
           <ul className="pl-5 list-disc">
             <li className="iphoneXr:text-[18px] pt-3">
-              <strong className="text-secondary">Create and Join Groups:</strong> Gather your travel
-              buddies and create groups to embark on memorable journeys
-              together. Share your experiences, recommendations, and favorite
-              spots in a collaborative space that's just for your group.
+              <strong className="text-secondary">
+                Create and Join Groups:
+              </strong>{" "}
+              Gather your travel buddies and create groups to embark on
+              memorable journeys together. Share your experiences,
+              recommendations, and favorite spots in a collaborative space
+              that's just for your group.
             </li>
             <li className="iphoneXr:text-[18px] pt-8">
-              <strong className="text-secondary">Pin Your Adventures:</strong> Drop pins on the map to mark
-              the places you've been to. Whether it's a hidden gem or a popular
-              landmark, you can pinpoint your travels and add meaningful notes
-              to remember the moments.
+              <strong className="text-secondary">Pin Your Adventures:</strong>{" "}
+              Drop pins on the map to mark the places you've been to. Whether
+              it's a hidden gem or a popular landmark, you can pinpoint your
+              travels and add meaningful notes to remember the moments.
             </li>
             <li className="iphoneXr:text-[18px] pt-8">
-              <strong className="text-secondary">Rate and Review:</strong> Rate the places you've visited
-              and leave reviews to share your thoughts with your group. Did you
-              discover an incredible local eatery or a breathtaking viewpoint?
-              Your friends can now benefit from your insights.
+              <strong className="text-secondary">Rate and Review:</strong> Rate
+              the places you've visited and leave reviews to share your thoughts
+              with your group. Did you discover an incredible local eatery or a
+              breathtaking viewpoint? Your friends can now benefit from your
+              insights.
             </li>
           </ul>
         </div>
       </section>
       <section className="h-screen bg-tertiary">
-  <div>
-    <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
-      Join the <span className="text-secondary">Adventure</span>
-    </h2>
-  </div>
+        <div>
+          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
+            Join the <span className="text-secondary">Adventure</span>
+          </h2>
+        </div>
 
-  <div className="px-6 py-4 font-main text-primary">
-    <p className="iphoneXr:text-2xl">
-      Whether it's a cross-country road trip, an exotic getaway, or simply exploring your local neighborhood, WhereTo is your ultimate companion. Unleash the power of shared experiences and turn every journey into an unforgettable story.
-    </p>
-    <p className="mt-4 iphoneXr:text-2xl">
-      Ready to embark on a new way of traveling?
-    </p>
-    <div className="mt-4 iphoneXr:pt-8">
-      {/* Placeholder for your link */}
-      <button onClick={ ()=> nav('/login')}className="px-4 py-2 text-white rounded bg-secondary hover:bg-blue-600 iphoneXr:text-2xl ">
-        CREATE AN ACCOUNT
-      </button>
-    </div>
-  </div>
-</section>
-
+        <div className="px-6 py-4 font-main text-primary">
+          <p className="iphoneXr:text-2xl">
+            Whether it's a cross-country road trip, an exotic getaway, or simply
+            exploring your local neighborhood, WhereTo is your ultimate
+            companion. Unleash the power of shared experiences and turn every
+            journey into an unforgettable story.
+          </p>
+          <p className="mt-4 iphoneXr:text-2xl">
+            Ready to embark on a new way of traveling?
+          </p>
+          <div className="mt-4 iphoneXr:pt-8">
+            {/* Placeholder for your link */}
+            <button
+              onClick={() => nav("/login")}
+              className="px-4 py-2 text-white rounded bg-secondary hover:bg-blue-600 iphoneXr:text-2xl "
+            >
+              CREATE AN ACCOUNT
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
