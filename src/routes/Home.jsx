@@ -1,8 +1,10 @@
 import NavBar from "../components/ui/NavBar";
 import bus from "../assets/bus.svg";
 import traveling from '../assets/traveling.svg'
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const nav = useNavigate()
   return (
     <>
       <NavBar />
@@ -90,8 +92,8 @@ export default function Home() {
     </p>
     <div className="mt-4">
       {/* Placeholder for your link */}
-      <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
-        Go to Dashboard
+      <button onClick={ ()=> nav('/login')}className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
+        create an account
       </button>
     </div>
   </div>
