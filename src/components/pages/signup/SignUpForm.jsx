@@ -16,6 +16,7 @@ const SignUpForm = () => {
     email: "",
   });
   const [cognitoUserId, setCognitoUserId] = useState(null);
+
   const attributes = [
     { Name: "email", Value: userObj.email },
     { Name: "name", Value: `${userObj.lastName}, ${userObj.firstName}` },

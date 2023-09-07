@@ -4,7 +4,6 @@ import dropDown from "../../assets/dropDown.svg";
 import DropDown from "./DropDown";
 
 const NavBar = ({userName}) => {
-    console.log(userName)
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {

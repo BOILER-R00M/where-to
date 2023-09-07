@@ -1,12 +1,30 @@
 import NavLink from "../../utility/NavLink.jsx";
 import Button from "../../utility/Button";
 import or from "../../../assets/or.svg";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import useAuthorization from "../../../customHooks/useAuthService";
+import { useNavigate } from "react-router-dom";
 
 // TODO:
 // [ ] place a dummy callback function for now for the login button. Will later stick the Cognito fetch function there
 // [ ] increase size of the Welcome Back when width increase.
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { authenticate, userData } = useAuthorization(); // De-structure the 'authenticate' method from custom hook
+  const navigate = useNavigate();
+  const onLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const authResult = await authenticate(email, password);
+      console.log("Authentication successful:", authResult);
+      navigate(`/dashboard/${authResult.accessToken.payload["sub"]}`);
+    } catch (error) {
+      console.log("Authentication failed:", error);
+    }
+  };
   return (
     <div
       name="login_form_container"
@@ -22,25 +40,27 @@ const LoginForm = () => {
 
         <div className="py-3">
           <input
-            className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
             type="email"
-            placeholder="Email"
-            required
+						placeholder="Email"
+						value={email} // Linking to state
+						onChange={(e) => setEmail(e.target.value)} // Updating state
+						required
           />
         </div>
 
         <div className="py-3">
           <input
-            className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
             type="password"
-            placeholder="Password"
-            required
+						placeholder="Password"
+						value={password} // Linking to state
+						onChange={(e) => setPassword(e.target.value)} // Updating state
+						required
           />
         </div>
 
-        <div className="py-3">
-          <Button>Login</Button>
-        </div>
+        <Button className="my-2" onClick={onLogin}>
+					Login
+				</Button>
       </form>
       <NavLink
         tailwind={
