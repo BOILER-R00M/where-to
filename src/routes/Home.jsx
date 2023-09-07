@@ -64,13 +64,13 @@ export default function Home() {
       </section>
       <section className="h-screen bg-tertiary">
     <div>
-        <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-5xl">
+        <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-5xl lg:pt-20 lg:pl-18">
             Key <span className="text-secondary">Features</span>
         </h2>
     </div>
 
     <div className="px-6 py-4 font-main text-primary">
-        <ul className="pl-5 list-disc lg:flex lg:space-x-4 lg:list-none">
+        <ul className="pl-5 list-disc lg:flex lg:space-x-4 lg:list-none lg:pt-10">
             <li className="iphoneXr:text-[18px] pt-3 lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
                 <strong className="text-secondary">
                     Create and Join Groups:
