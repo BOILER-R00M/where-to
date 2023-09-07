@@ -30,7 +30,7 @@ export default function Home() {
           <button onClick={()=> nav('/login')}className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
             CREATE ACCOUNT
           </button>
-          <button className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
+          <button onClick={() => window.location.href = '#offer-section'} className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
             LEARN MORE >
           </button>
           <p className="px-6 py-4 font-main text-primary iphoneXr:text-2xl lg:hidden">
@@ -44,7 +44,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="h-screen bg-tertiary">
+      <section id="offer-section" className="h-screen bg-tertiary">
         <div>
           <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
             What We <span className="text-secondary">Offer</span>

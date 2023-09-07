@@ -10,6 +10,10 @@
 	height: 100%;
 }
 
+html {
+	scroll-behavior: smooth;
+  }
+
 /* Target the zoom control container */
 .leaflet-control-zoom {
 	background-color: #f0f0f0; /* Change the background color */
