@@ -27,7 +27,7 @@ export default function Home() {
         </div>
 
         <div className="lg:flex lg:space-x-4 lg:pl-[10%] lg:pt-[5%] ">
-          <button className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
+          <button onClick={()=> nav('/login')}className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
             CREATE ACCOUNT
           </button>
           <button className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
