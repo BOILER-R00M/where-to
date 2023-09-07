@@ -63,39 +63,40 @@ export default function Home() {
         </div>
       </section>
       <section className="h-screen bg-tertiary">
-        <div>
-          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-5xl">
+    <div>
+        <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-5xl">
             Key <span className="text-secondary">Features</span>
-          </h2>
-        </div>
+        </h2>
+    </div>
 
-        <div className="px-6 py-4 font-main text-primary">
-          <ul className="pl-5 list-disc">
-            <li className="iphoneXr:text-[18px] pt-3">
-              <strong className="text-secondary">
-                Create and Join Groups:
-              </strong>{" "}
-              Gather your travel buddies and create groups to embark on
-              memorable journeys together. Share your experiences,
-              recommendations, and favorite spots in a collaborative space
-              that's just for your group.
+    <div className="px-6 py-4 font-main text-primary">
+        <ul className="pl-5 list-disc lg:flex lg:space-x-4 lg:list-none">
+            <li className="iphoneXr:text-[18px] pt-3 lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
+                <strong className="text-secondary">
+                    Create and Join Groups:
+                </strong>{" "}
+                Gather your travel buddies and create groups to embark on
+                memorable journeys together. Share your experiences,
+                recommendations, and favorite spots in a collaborative space
+                that's just for your group.
             </li>
-            <li className="iphoneXr:text-[18px] pt-8">
-              <strong className="text-secondary">Pin Your Adventures:</strong>{" "}
-              Drop pins on the map to mark the places you've been to. Whether
-              it's a hidden gem or a popular landmark, you can pinpoint your
-              travels and add meaningful notes to remember the moments.
+            <li className="iphoneXr:text-[18px] pt-8 lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
+                <strong className="text-secondary">Pin Your Adventures:</strong>{" "}
+                Drop pins on the map to mark the places you've been to. Whether
+                it's a hidden gem or a popular landmark, you can pinpoint your
+                travels and add meaningful notes to remember the moments.
             </li>
-            <li className="iphoneXr:text-[18px] pt-8">
-              <strong className="text-secondary">Rate and Review:</strong> Rate
-              the places you've visited and leave reviews to share your thoughts
-              with your group. Did you discover an incredible local eatery or a
-              breathtaking viewpoint? Your friends can now benefit from your
-              insights.
+            <li className="iphoneXr:text-[18px] pt-8 lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:p-4 lg:bg-white">
+                <strong className="text-secondary">Rate and Review:</strong> Rate
+                the places you've visited and leave reviews to share your thoughts
+                with your group. Did you discover an incredible local eatery or a
+                breathtaking viewpoint? Your friends can now benefit from your
+                insights.
             </li>
-          </ul>
-        </div>
-      </section>
+        </ul>
+    </div>
+</section>
+
       <section className="h-screen bg-tertiary">
         <div>
           <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
