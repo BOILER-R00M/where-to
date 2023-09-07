@@ -10,14 +10,14 @@ export default function Home() {
       <NavBar />
       <section className="h-screen bg-tertiary">
         <div>
-          <h1 className="px-6 py-4 mx-auto text-4xl font-main text-primary">
+          <h1 className="px-6 py-4 mx-auto text-4xl font-main text-primary iphoneXr:text-6xl">
             Track Your <span className="text-secondary">Travels</span>. Share
-            Your <span className="text-secondary">Tales</span>
+            Your <span className="text-secondary">Tales</span>.
           </h1>
         </div>
 
         <div>
-          <p className="px-6 py-4 font-main text-primary">
+          <p className="px-6 py-4 font-main text-primary iphoneXr:text-2xl">
             Explore the world together, one pin at a time! WhereTo is a unique
             platform that lets you create and join groups with your friends to
             share and discover exciting travel experiences.
@@ -30,13 +30,13 @@ export default function Home() {
 
       <section className="h-screen bg-tertiary">
         <div>
-          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary">
+          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
             What We <span className="text-secondary">Offer</span>
           </h2>
         </div>
 
         <div>
-          <p className="px-6 py-4 font-main text-primary">
+          <p className="px-6 py-4 font-main text-primary iphoneXr:text-2xl">
             Imagine having a virtual travel diary that you can share with your
             closest companions. With WhereTo, you can create personalized travel
             groups where you and your friends can collaboratively pin locations
@@ -48,27 +48,27 @@ export default function Home() {
       </section>
       <section className="h-screen bg-tertiary">
         <div>
-          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary">
+          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
             Key <span className="text-secondary">Features</span>
           </h2>
         </div>
 
         <div className="px-6 py-4 font-main text-primary">
           <ul className="pl-5 list-disc">
-            <li>
-              <strong>Create and Join Groups:</strong> Gather your travel
+            <li className="iphoneXr:text-[18px] pt-3">
+              <strong className="text-secondary">Create and Join Groups:</strong> Gather your travel
               buddies and create groups to embark on memorable journeys
               together. Share your experiences, recommendations, and favorite
               spots in a collaborative space that's just for your group.
             </li>
-            <li>
-              <strong>Pin Your Adventures:</strong> Drop pins on the map to mark
+            <li className="iphoneXr:text-[18px] pt-8">
+              <strong className="text-secondary">Pin Your Adventures:</strong> Drop pins on the map to mark
               the places you've been to. Whether it's a hidden gem or a popular
               landmark, you can pinpoint your travels and add meaningful notes
               to remember the moments.
             </li>
-            <li>
-              <strong>Rate and Review:</strong> Rate the places you've visited
+            <li className="iphoneXr:text-[18px] pt-8">
+              <strong className="text-secondary">Rate and Review:</strong> Rate the places you've visited
               and leave reviews to share your thoughts with your group. Did you
               discover an incredible local eatery or a breathtaking viewpoint?
               Your friends can now benefit from your insights.
@@ -78,22 +78,22 @@ export default function Home() {
       </section>
       <section className="h-screen bg-tertiary">
   <div>
-    <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary">
+    <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
       Join the <span className="text-secondary">Adventure</span>
     </h2>
   </div>
 
   <div className="px-6 py-4 font-main text-primary">
-    <p>
+    <p className="iphoneXr:text-2xl">
       Whether it's a cross-country road trip, an exotic getaway, or simply exploring your local neighborhood, WhereTo is your ultimate companion. Unleash the power of shared experiences and turn every journey into an unforgettable story.
     </p>
-    <p className="mt-4">
+    <p className="mt-4 iphoneXr:text-2xl">
       Ready to embark on a new way of traveling?
     </p>
-    <div className="mt-4">
+    <div className="mt-4 iphoneXr:pt-8">
       {/* Placeholder for your link */}
-      <button onClick={ ()=> nav('/login')}className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
-        create an account
+      <button onClick={ ()=> nav('/login')}className="px-4 py-2 text-white rounded bg-secondary hover:bg-blue-600 iphoneXr:text-2xl ">
+        CREATE AN ACCOUNT
       </button>
     </div>
   </div>
