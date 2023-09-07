@@ -3,6 +3,7 @@ import bus from "../assets/bus.svg";
 import traveling from "../assets/traveling.svg";
 import { useNavigate } from "react-router-dom";
 import travel_flag from "../assets/travel_flag.svg";
+import Button from "../components/utility/Button";
 
 export default function Home() {
   const nav = useNavigate();
@@ -10,11 +11,14 @@ export default function Home() {
     <>
       <NavBar />
       <section className="h-screen bg-tertiary">
-        <div className="lg:max-w-[80%] lg:pt-5 lg:flex lg:space-x-6 lg:items-center">
-          <h1 className="px-6 py-4 mx-auto text-4xl font-main text-primary iphoneXr:text-6xl lg:w-3/5">
-            Track Your <span className="text-secondary">Travels</span>. Share
-            Your <span className="text-secondary">Tales</span>.
-          </h1>
+        <div className="lg:max-w-[80%] lg:pt-5 lg:flex lg:space-x-6 lg:items-center lg:mx-auto">
+          <div className="flex flex-col lg:space-y-4">
+            {" "}
+            <h1 className="px-6 py-4 mx-auto text-4xl font-main text-primary iphoneXr:text-6xl lg:w-full">
+              Track Your <span className="text-secondary">Travels</span>. Share
+              Your <span className="text-secondary">Tales</span>.
+            </h1>
+          </div>
           <img
             className="hidden lg:block lg:w-2/5"
             src={travel_flag}
@@ -22,7 +26,13 @@ export default function Home() {
           />
         </div>
 
-        <div>
+        <div className="lg:flex lg:space-x-4 lg:pl-[10%] lg:pt-[5%] ">
+          <button className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
+            CREATE ACCOUNT
+          </button>
+          <button className="hidden px-6 py-3 font-bold text-white rounded-full bg-secondary lg:block">
+            LEARN MORE >
+          </button>
           <p className="px-6 py-4 font-main text-primary iphoneXr:text-2xl lg:hidden">
             Explore the world together, one pin at a time! WhereTo is a unique
             platform that lets you create and join groups with your friends to
