@@ -48,7 +48,7 @@ export default function Home() {
       </section>
       <section className="h-screen bg-tertiary">
         <div>
-          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-6xl">
+          <h2 className="px-6 py-4 mx-auto text-3xl font-main text-primary iphoneXr:text-5xl">
             Key <span className="text-secondary">Features</span>
           </h2>
         </div>
