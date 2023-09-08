@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import UserPool from "../AWS/auth/UserPool";
 import { AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
-
 const useAuthorization = () => {
 	const [userData, setUserData] = useState(null);
 	const [tokens, setTokens] = useState(null);
