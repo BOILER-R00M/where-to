@@ -7,8 +7,7 @@ import GroupSpace from "./routes/GroupSpace";
 import Login from "./components/pages/login/Login";
 import { useState } from "react";
 import useAuthorization from "./customHooks/useAuthService";
-
-
+import PageLayout from "./components/PageLayout";
 
 function App() {
 	// NOTE: Using this user object just to test
@@ -44,14 +43,22 @@ function App() {
 							// using path parameters here. for testing purposes, visit "/dashboard/0001"
 							name="dashboard"
 							path="/dashboard/:userId"
-							element={<Dashboard />}
+							element={
+								<PageLayout userName="test user">
+									<Dashboard />
+								</PageLayout>
+							}
 						/>
 
 						{/* GroupSpace Route */}
 						<Route
 							name="groupspace"
 							path="/groupspace/:groupId"
-							element={<GroupSpace />}
+							element={
+								<PageLayout userName="test user">
+									<GroupSpace />
+								</PageLayout>
+							}
 						/>
 					</Routes>
 				</Router>
