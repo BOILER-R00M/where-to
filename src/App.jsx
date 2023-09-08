@@ -44,7 +44,7 @@ function App() {
 							name="dashboard"
 							path="/dashboard/:userId"
 							element={
-								<PageLayout userName="test user">
+								<PageLayout userName={userData?.username}>
 									<Dashboard />
 								</PageLayout>
 							}
@@ -55,7 +55,7 @@ function App() {
 							name="groupspace"
 							path="/groupspace/:groupId"
 							element={
-								<PageLayout userName="test user">
+								<PageLayout userName={userData?.username}>
 									<GroupSpace />
 								</PageLayout>
 							}

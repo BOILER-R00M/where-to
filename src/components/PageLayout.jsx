@@ -4,7 +4,7 @@ import NavBar from "./ui/NavBar";
 const MainLayout = ({ children, userName }) => {
 	return (
 		<>
-			<NavBar userName="test user" />
+			<NavBar userName="" />
 			<main>{children}</main>
 		</>
 	);

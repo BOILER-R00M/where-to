@@ -59,9 +59,7 @@ const LoginForm = () => {
 					/>
 				</div>
 
-				<Button type={null} onClick={onLogin}>
-					Login
-				</Button>
+				<Button onClick={onLogin}>Login</Button>
 			</form>
 
 			<Link
