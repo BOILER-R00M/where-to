@@ -10,20 +10,10 @@ import useAuthorization from "./customHooks/useAuthService";
 import PageLayout from "./components/PageLayout";
 
 function App() {
-	// NOTE: Using this user object just to test
 	const [user, setUser] = useState(null);
 	const [accessToken, setAccessToken] = useState(null);
-
-	const {
-		authenticate,
-		getSession,
-		logout,
-		tokens,
-		isAuthenticated,
-		userData,
-	} = useAuthorization();
-
-	console.log("isAuthenticated", isAuthenticated, "userData", userData);
+	const { isAuthenticated, userData } = useAuthorization();
+	// console.log("isAuthenticated", isAuthenticated, "userData", userData);
 
 	return (
 		<>

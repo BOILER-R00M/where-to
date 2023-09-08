@@ -6,13 +6,43 @@ import db from "../seedData/fakeDynamoDB.json";
 
 const useDatabaseService = () => {
 	// Query the mock database to get the list of groups for a specific user
-	const fetchUserGroups = (userId) => {
-		return db.filter(
-			(item) =>
-				item.pk === `USER#${userId}` && item.sk.startsWith("GROUP#")
-		);
+	// [x] make a version in Lambda
+	// const fetchUserGroups = (userId) => {
+	// 	return db.filter(
+	// 		(item) =>
+	// 			item.pk === `USER#${userId}` && item.sk.startsWith("GROUP#")
+	// 	);
+	// };
+
+	const fetchUserGroups = async (userId) => {
+		const baseUrl =
+			"https://b5vaajxtmj.execute-api.us-east-1.amazonaws.com/production";
+		const endpoint = `${baseUrl}/users/${userId}/groups`;
+
+		try {
+			const response = await fetch(endpoint, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+
+			const data = await response.json();
+			return data;
+		} catch (error) {
+			console.error(
+				"There was a problem with the fetch operation:",
+				error
+			);
+			throw error;
+		}
 	};
 
+	// [ ] make a version in Lambda
 	const fetchUsersInGroup = (groupId) => {
 		return db
 			.filter(
@@ -26,6 +56,7 @@ const useDatabaseService = () => {
 			}));
 	};
 
+	// [x] make a version in Lambda
 	// Query the mock database to get the list of locations for a specific group
 	const fetchGroupLocations = (groupId) => {
 		return db.filter(
