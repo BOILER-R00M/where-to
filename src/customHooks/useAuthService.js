@@ -31,7 +31,8 @@ const useAuthorization = () => {
 				setIsAuthenticated(true);
 				setTokens(session.getIdToken().getJwtToken());
 				setUserData({
-					username: session.getIdToken().payload["cognito:username"],
+					username: session.accessToken.payload.username,
+					userId: session.accessToken.payload.sub,
 				});
 			} else {
 				setIsAuthenticated(false);

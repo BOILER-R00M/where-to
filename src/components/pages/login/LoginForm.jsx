@@ -22,7 +22,7 @@ const LoginForm = () => {
 				username: authResult.accessToken.payload.username,
 				userId: authResult.accessToken.payload.sub,
 			});
-			navigate(`/dashboard/${authResult.accessToken.payload.sub}`);
+			navigate(`/dashboard`);
 		} catch (error) {
 			console.log("Authentication failed:", error);
 		}

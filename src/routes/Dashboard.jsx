@@ -8,15 +8,15 @@ import Button from "../components/utility/Button";
 import useAuthorization from "../customHooks/useAuthService";
 
 const Dashboard = () => {
-	const { userId } = useParams();
 	const { fetchUserGroups } = useDatabaseService();
 	const [groups, setGroups] = useState([]); // Initial state set to an empty array
 	const { userData } = useAuthorization();
+	console.log("userData: ", userData);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const data = await fetchUserGroups(userId);
+				const data = await fetchUserGroups(userData.userId);
 				setGroups(data);
 			} catch (error) {
 				console.error(
@@ -27,7 +27,7 @@ const Dashboard = () => {
 		};
 
 		fetchData();
-	}, [userId]); // Re-run the effect when userId changes
+	}, [userData]); // Re-run the effect when userId changes
 
 	return (
 		<DashboardLayout

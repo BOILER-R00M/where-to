@@ -38,7 +38,7 @@ function App() {
 						<Route
 							// using path parameters here. for testing purposes, visit "/dashboard/0001"
 							name="dashboard"
-							path="/dashboard/:userId"
+							path="/dashboard"
 							element={
 								<PageLayout userName={user?.username}>
 									<Dashboard />
