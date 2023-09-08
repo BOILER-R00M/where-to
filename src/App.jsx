@@ -34,7 +34,15 @@ function App() {
 				<Router>
 					<Routes>
 						{/* Home Route */}
-						<Route name="home" path="/" element={<Home />} />
+						<Route
+							name="home"
+							path="/"
+							element={
+								<PageLayout userName={userData?.username}>
+									<Home />
+								</PageLayout>
+							}
+						/>
 
 						{/* Dashboard Route */}
 						<Route name="login" path="/login" element={<Login />} />

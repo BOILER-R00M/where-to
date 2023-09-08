@@ -1,4 +1,3 @@
-import NavBar from "../components/ui/NavBar";
 import bus from "../assets/bus.svg";
 import traveling from "../assets/traveling.svg";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +10,6 @@ export default function Home() {
 	const nav = useNavigate();
 	return (
 		<>
-			<NavBar />
 			<section className="h-screen bg-tertiary">
 				<div className="lg:max-w-[80%] lg:pt-5 lg:flex lg:space-x-6 lg:items-center lg:mx-auto">
 					<div className="flex flex-col lg:space-y-4">

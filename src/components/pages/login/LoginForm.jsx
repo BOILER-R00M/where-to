@@ -29,7 +29,7 @@ const LoginForm = () => {
 			name="login_form_container"
 			className="max-w-[600px] mx-auto w-81 pb-[5vh] samsungS8:pb-60 iphoneXr:pb-60 sm:pb-10  md:pb-64 lg:w-[25vw] lg:pb-0 "
 		>
-			<form className="mx-auto">
+			<form className="mx-auto" onSubmit={onLogin}>
 				<h2 className="text-[4vh] py-2 font-semibold text-center text-secondary font-main lg:hidden">
 					Login
 				</h2>
@@ -59,7 +59,7 @@ const LoginForm = () => {
 					/>
 				</div>
 
-				<Button onClick={onLogin}>Login</Button>
+				<Button>Login</Button>
 			</form>
 
 			<Link
