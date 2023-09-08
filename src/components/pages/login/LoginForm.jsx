@@ -40,7 +40,7 @@ const LoginForm = () => {
 				<div className="py-3 w-full">
 					<input
 						className="w-full p-2 text-lg font-main rounded text-tertiary"
-						type="email"
+						// type="email" commenting this out until we fix the email issue with cognito login
 						placeholder="Email"
 						value={email} // Linking to state
 						onChange={(e) => setEmail(e.target.value)} // Updating state
@@ -59,7 +59,9 @@ const LoginForm = () => {
 					/>
 				</div>
 
-				<Button>Login</Button>
+				<Button type={null} onClick={onLogin}>
+					Login
+				</Button>
 			</form>
 
 			<Link
