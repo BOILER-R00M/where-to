@@ -69,7 +69,7 @@ const SignUpForm = () => {
 	return (
 		<motion.div
 			name="signup_form_container"
-			className="max-w-[600px] mx-auto w-81 pb-[5vh] sm:pb-10 md:pb-64"
+			className="max-w-[600px] mx-auto w-81 pb-[5vh] samsungS8:pb-60 iphoneXr:pb-60 sm:pb-10  md:pb-64 lg:w-[25vw] lg:pb-0"
 			initial="hidden"
 			animate="visible"
 			variants={signUpVariant}
@@ -81,7 +81,7 @@ const SignUpForm = () => {
 					</h2>
 					<div className="py-3">
 						<input
-							className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+							className="w-full p-2 text-lg font-main rounded text-tertiary"
 							type="text"
 							placeholder="Confirmation Code "
 							name="confirmationCode"
@@ -117,13 +117,13 @@ export default SignUpForm;
 function Registration({ onSubmit, userOjb, handleUserObj }) {
 	return (
 		<form className="mx-auto" onSubmit={onSubmit}>
-			<h2 className="text-[4vh] py-3 font-semibold text-center text-secondary font-main">
+			<h2 className="text-[2.25rem]  py-2 font-semibold text-center text-primary font-main">
 				Sign Up
 			</h2>
 
 			<div className="py-3">
 				<input
-					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					className="w-full p-2 text-lg font-main rounded text-tertiary"
 					type="text"
 					placeholder="First Name"
 					name="firstName"
@@ -135,7 +135,7 @@ function Registration({ onSubmit, userOjb, handleUserObj }) {
 
 			<div className="py-3">
 				<input
-					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					className="w-full p-2 text-lg font-main rounded text-tertiary"
 					type="text"
 					placeholder="Last Name"
 					name="lastName"
@@ -147,7 +147,7 @@ function Registration({ onSubmit, userOjb, handleUserObj }) {
 
 			<div className="py-3">
 				<input
-					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					className="w-full p-2 text-lg font-main rounded text-tertiary"
 					type="text"
 					placeholder="Username"
 					name="username"
@@ -159,7 +159,7 @@ function Registration({ onSubmit, userOjb, handleUserObj }) {
 
 			<div className="py-3">
 				<input
-					className="w-full px-3 py-2 text-lg border border-black rounded-md font-main text-tertiary"
+					className="w-full p-2 text-lg font-main rounded text-tertiary"
 					type="email"
 					placeholder="Email"
 					name="email"
@@ -171,7 +171,7 @@ function Registration({ onSubmit, userOjb, handleUserObj }) {
 
 			<div className="py-3">
 				<input
-					className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
+					className="w-full p-2 text-lg font-main rounded text-tertiary"
 					type="password"
 					placeholder="Password"
 					name="password"
@@ -182,7 +182,7 @@ function Registration({ onSubmit, userOjb, handleUserObj }) {
 			</div>
 			<div className="py-3">
 				<input
-					className="w-full px-3 py-2 text-lg border border-black rounded-md text-tertiary font-main"
+					className="w-full p-2 text-lg font-main rounded text-tertiary"
 					type="password"
 					placeholder="Confirm Password"
 					required
