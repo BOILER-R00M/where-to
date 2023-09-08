@@ -18,8 +18,11 @@ const LoginForm = () => {
 		try {
 			const authResult = await authenticate(email, password);
 			console.log("Authentication successful:", authResult);
-			setUser(authResult.accessToken.payload.username);
-			navigate("/dashboard/0001");
+			setUser({
+				username: authResult.accessToken.payload.username,
+				userId: authResult.accessToken.payload.sub,
+			});
+			navigate(`/dashboard/${authResult.accessToken.payload.sub}`);
 		} catch (error) {
 			console.log("Authentication failed:", error);
 		}

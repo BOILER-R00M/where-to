@@ -6,14 +6,12 @@ import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
 import Login from "./components/pages/login/Login";
 import { useState } from "react";
-import useAuthorization from "./customHooks/useAuthService";
+// import useAuthorization from "./customHooks/useAuthService";
 import PageLayout from "./components/PageLayout";
 
 function App() {
 	const [user, setUser] = useState(null);
 	const [accessToken, setAccessToken] = useState(null);
-	const { isAuthenticated, userData } = useAuthorization();
-	// console.log("isAuthenticated", isAuthenticated, "userData", userData);
 
 	return (
 		<>
@@ -28,7 +26,7 @@ function App() {
 							name="home"
 							path="/"
 							element={
-								<PageLayout userName={userData?.username}>
+								<PageLayout userName={user?.username}>
 									<Home />
 								</PageLayout>
 							}
@@ -42,7 +40,7 @@ function App() {
 							name="dashboard"
 							path="/dashboard/:userId"
 							element={
-								<PageLayout userName={userData?.username}>
+								<PageLayout userName={user?.username}>
 									<Dashboard />
 								</PageLayout>
 							}
@@ -53,7 +51,7 @@ function App() {
 							name="groupspace"
 							path="/groupspace/:groupId"
 							element={
-								<PageLayout userName={userData?.username}>
+								<PageLayout userName={user?.username}>
 									<GroupSpace />
 								</PageLayout>
 							}

@@ -54,10 +54,6 @@ const useAuthorization = () => {
 			});
 			user.authenticateUser(authDetails, {
 				onSuccess: (data) => {
-					console.log(
-						"DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ",
-						data
-					);
 					setTokens(data.getIdToken().getJwtToken());
 					setIsAuthenticated(true);
 					setUserData({
