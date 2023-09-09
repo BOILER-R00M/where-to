@@ -33,7 +33,7 @@ const UserList = ({ users, groupId, setHighlightedUserLocations }) => {
 								className="w-8 mx-4"
 							/>
 						</div>
-						{users.map((user) => {
+						{users?.map((user) => {
 							return (
 								<UserListItem
 									key={user.userId}
