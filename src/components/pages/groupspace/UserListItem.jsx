@@ -24,6 +24,7 @@ const UserListItem = ({
 
 	const handleHighlightUser = () => {
 		if (highlightedUser && highlightedUser.userId === user.userId) {
+			setHighlightedUserLocations(null);
 			setHighlightedUser(null);
 		} else {
 			setHighlightedUser(user);

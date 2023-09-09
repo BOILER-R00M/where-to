@@ -1,10 +1,11 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
-
+import { useEffect } from "react";
 const Map = ({ locations, highlightedUserLocations }) => {
 	// center of US as default starting point
 	const zoom = 5;
 	const position = [39.8283, -98.5795];
+	useEffect(() => {}, [highlightedUserLocations]); //
 	console.log("ALL LOCATIONS", locations);
 
 	return (
@@ -17,8 +18,11 @@ const Map = ({ locations, highlightedUserLocations }) => {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
-
-			<MarkerList locations={locations} highlight={false} />
+			{highlightedUserLocations ? (
+				<></>
+			) : (
+				<MarkerList locations={locations} highlight={false} />
+			)}
 		</MapContainer>
 	);
 };
