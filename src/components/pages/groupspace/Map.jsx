@@ -19,41 +19,47 @@ const Map = ({ locations, highlightedUserLocations }) => {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
-
-			{locations &&
-				locations.map((location) => <MarkerList location={location} />)}
+			<MarkerList locations={locations} />
 		</MapContainer>
 	);
 };
 
 export default Map;
-function MarkerList({ location }) {
+function MarkerList({ locations }) {
 	return (
-		<Marker
-			// TODO: using sk for mapping but should create Location ID and update database accordingly
-			key={location.SK}
-			position={[location.coordinates.lat, location.coordinates.lng]}
-		>
-			<Tooltip permanent={false}>
-				<div
-					style={{
-						background: "white",
-						border: "1px solid black",
-						padding: "5px",
-					}}
-					className="border border-gray-300 bg-white"
-				>
-					<ul>
-						{Object.entries(location.averageScore).map(
-							([key, value]) => (
-								<li key={key}>
-									{key}: {value}
-								</li>
-							)
-						)}
-					</ul>
-				</div>
-			</Tooltip>
-		</Marker>
+		<>
+			{locations &&
+				locations.map((location) => (
+					<Marker
+						// TODO: using sk for mapping but should create Location ID and update database accordingly
+						key={location.SK}
+						position={[
+							location.coordinates.lat,
+							location.coordinates.lng,
+						]}
+					>
+						<Tooltip permanent={false}>
+							<div
+								style={{
+									background: "white",
+									border: "1px solid black",
+									padding: "5px",
+								}}
+								className="border border-gray-300 bg-white"
+							>
+								<ul>
+									{Object.entries(location.averageScore).map(
+										([key, value]) => (
+											<li key={key}>
+												{key}: {value}
+											</li>
+										)
+									)}
+								</ul>
+							</div>
+						</Tooltip>
+					</Marker>
+				))}
+		</>
 	);
 }
