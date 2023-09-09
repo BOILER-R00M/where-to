@@ -42,7 +42,7 @@ const useDatabaseService = () => {
 		}
 	};
 
-	// [ ] make a version in Lambda
+	// [x] make a version in Lambda
 	// const fetchUsersInGroup = (groupId) => {
 	// 	return db
 	// 		.filter(
