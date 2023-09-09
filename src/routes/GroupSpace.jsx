@@ -15,17 +15,15 @@ const GroupSpace = () => {
 	const [usersInGroup, setUsersInGroup] = useState(null);
 	const [highlightedUserLocations, setHighlightedUserLocations] =
 		useState(null);
+	const clickedLocation = null;
 
 	//##########################
 	//useQuery
 
-	const {data: users} = useQuery({
+	const { data: users } = useQuery({
 		queryFn: () => fetchUsersInGroup(groupId),
-		queryKey: "queryKey"
-	})
-
-
-
+		queryKey: "queryKey",
+	});
 
 	//useQuery
 	//##########################
@@ -67,7 +65,8 @@ const GroupSpace = () => {
 					/>
 				</div>
 				<Map
-					locations={locations} 
+					center={clickedLocation?.center || [39.8283, -98.5795]}
+					locations={locations}
 					highlightedUserLocations={highlightedUserLocations}
 				/>
 			</div>

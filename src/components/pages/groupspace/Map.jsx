@@ -1,6 +1,6 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import L from "leaflet";
 import markerHighlighted from "../../../assets/markerHighlighted.svg";
 import markerDefault from "../../../assets/markerDefault.svg";
@@ -23,18 +23,27 @@ const iconHighlighted = L.icon({
 	shadowAnchor: [22, 94],
 	tooltipAnchor: [22, 94],
 });
-const Map = ({ locations, highlightedUserLocations }) => {
-	// center of US as default starting point
-	const zoom = 5;
-	const position = [39.8283, -98.5795];
+const Map = ({
+	locations,
+	highlightedUserLocations,
+	zoom = 5,
+	center = [39.8283, -98.5795],
+}) => {
+	const handleLocationClick = (newPosition, newZoom) => {
+		mapRef.current.setView(newPosition, newZoom);
+	};
+
 	useEffect(() => {}, [highlightedUserLocations]); //
 	// console.log("ALL LOCATIONS", locations);
 	// console.log("HIGHLIGHTED USER LOCATIONS", highlightedUserLocations);
 	return (
 		<MapContainer
-			center={position}
+			center={center}
 			zoom={zoom}
 			style={{ height: "100%", width: "100%", zIndex: 0 }}
+			whenCreated={(mapInstance) => {
+				mapRef.current = mapInstance;
+			}}
 		>
 			<TileLayer
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
