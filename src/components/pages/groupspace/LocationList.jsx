@@ -30,8 +30,12 @@ const LocationList = ({ locations }) => {
 			</div>
 			<ul>
 				{locations
-					? locations.map((location, sk) => (
-							<LocationCard location={location} key={sk} />
+					? locations.map((location) => (
+							// TODO: currently using SK of location object for key, but should add location id to db and use that instead
+							<LocationCard
+								location={location}
+								key={location.SK}
+							/>
 					  ))
 					: "Loading locations..."}
 			</ul>
