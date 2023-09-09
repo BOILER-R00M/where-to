@@ -5,7 +5,7 @@ import upArrow from "../../../assets/doubleUp.svg";
 import downArrow from "../../../assets/doubleDown.svg";
 import UserListItem from "./UserListItem";
 import { useState } from "react";
-const UserList = ({ users }) => {
+const UserList = ({ users, groupId }) => {
 	const [isExtended, setIsExtended] = useState(false);
 	const handleExtension = () => {
 		setIsExtended((prev) => !prev);
@@ -13,7 +13,9 @@ const UserList = ({ users }) => {
 
 	// NOTE: This state will be used to highlight locations when a user is clicked
 	const [highlightedUser, setHighlightedUser] = useState(null);
-	console.log("Highlighted user", highlightedUser);
+	const [highlightedUserLocations, setHighlightedUserLocations] =
+		useState(null);
+
 	return (
 		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
@@ -39,8 +41,12 @@ const UserList = ({ users }) => {
 								<UserListItem
 									key={user.userId}
 									user={user}
+									groupId={groupId}
 									setHighlightedUser={setHighlightedUser}
 									highlightedUser={highlightedUser}
+									setHighlightedUserLocations={
+										setHighlightedUserLocations
+									}
 								/>
 							);
 						})}

@@ -1,6 +1,12 @@
 import React from "react";
-
-const UserListItem = ({ user, setHighlightedUser, highlightedUser }) => {
+// import { useEffect } from "react";
+const UserListItem = ({
+	user,
+	setHighlightedUser,
+	highlightedUser,
+	setHighlightedUserLocations,
+	groupId,
+}) => {
 	const handleHighlightUser = () => {
 		if (highlightedUser && highlightedUser.userId === user.userId) {
 			setHighlightedUser(null);
