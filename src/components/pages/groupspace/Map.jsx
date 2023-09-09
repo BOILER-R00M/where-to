@@ -5,7 +5,7 @@ const Map = ({ locations, highlightedUserLocations }) => {
 	// center of US as default starting point
 	const zoom = 5;
 	const position = [39.8283, -98.5795];
-	console.log("ALL LOCATIONAS", locations);
+	console.log("ALL LOCATIONS", locations);
 
 	return (
 		<MapContainer

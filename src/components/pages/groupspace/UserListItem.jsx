@@ -15,7 +15,9 @@ const UserListItem = ({
 		);
 		console.log(
 			`${user.username} has visited these locations: `,
-			visitedLocations
+			visitedLocations,
+			`USER ID USED IN GET REQ: ${user.userId}`,
+			`GROUP ID USED IN GET REQ: ${user.groupId}`
 		);
 		setHighlightedUserLocations(visitedLocations);
 	};
