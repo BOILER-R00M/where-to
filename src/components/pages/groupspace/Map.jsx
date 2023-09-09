@@ -21,39 +21,39 @@ const Map = ({ locations, highlightedUserLocations }) => {
 			/>
 
 			{locations &&
-				locations.map((location) => (
-					<Marker
-						// TODO: using sk for mapping but should create Location ID and update database accordingly
-						key={location.SK}
-						position={[
-							location.coordinates.lat,
-							location.coordinates.lng,
-						]}
-					>
-						<Tooltip permanent={false}>
-							<div
-								style={{
-									background: "white",
-									border: "1px solid black",
-									padding: "5px",
-								}}
-								className="border border-gray-300 bg-white"
-							>
-								<ul>
-									{Object.entries(location.averageScore).map(
-										([key, value]) => (
-											<li key={key}>
-												{key}: {value}
-											</li>
-										)
-									)}
-								</ul>
-							</div>
-						</Tooltip>
-					</Marker>
-				))}
+				locations.map((location) => <MarkerList location={location} />)}
 		</MapContainer>
 	);
 };
 
 export default Map;
+function MarkerList({ location }) {
+	return (
+		<Marker
+			// TODO: using sk for mapping but should create Location ID and update database accordingly
+			key={location.SK}
+			position={[location.coordinates.lat, location.coordinates.lng]}
+		>
+			<Tooltip permanent={false}>
+				<div
+					style={{
+						background: "white",
+						border: "1px solid black",
+						padding: "5px",
+					}}
+					className="border border-gray-300 bg-white"
+				>
+					<ul>
+						{Object.entries(location.averageScore).map(
+							([key, value]) => (
+								<li key={key}>
+									{key}: {value}
+								</li>
+							)
+						)}
+					</ul>
+				</div>
+			</Tooltip>
+		</Marker>
+	);
+}
