@@ -19,9 +19,9 @@ const GroupSpace = () => {
 		const fetchData = async () => {
 			try {
 				const usersInGroup = await fetchUsersInGroup(groupId);
-				const testLocations = await fetchGroupLocations(groupId);
+				const locations = await fetchGroupLocations(groupId);
 				setUsersInGroup(usersInGroup);
-				setLocations(testLocations);
+				setLocations(locations);
 			} catch (error) {
 				console.error(
 					"There was a problem with the fetch operation:",
