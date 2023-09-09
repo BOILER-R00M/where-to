@@ -19,13 +19,20 @@ const Map = ({ locations, highlightedUserLocations }) => {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
-			<MarkerList locations={locations} />
+			{highlightedUserLocations ? (
+				<MarkerList
+					locations={highlightedUserLocations}
+					highlight={true}
+				/>
+			) : (
+				<MarkerList locations={locations} highlight={false} />
+			)}
 		</MapContainer>
 	);
 };
 
 export default Map;
-function MarkerList({ locations }) {
+function MarkerList({ locations, highlight }) {
 	return (
 		<>
 			{locations &&
