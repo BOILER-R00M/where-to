@@ -115,18 +115,36 @@ const useDatabaseService = () => {
 	};
 
 	// Query the mock database to get the list of locations a specific user in a group has been to
-	const fetchUserLocationsInGroup = (groupId, userId) => {
-		return db.filter(
-			(item) =>
-				item.pk === `GROUP#${groupId}#USER#${userId}` &&
-				item.sk.startsWith("LOCATION#")
-		);
+	const fetchLocationsVisitedByUser = async (groupId, userId) => {
+		const baseUrl =
+			"https://b5vaajxtmj.execute-api.us-east-1.amazonaws.com/production";
+		const endpoint = `${baseUrl}/groups/${groupId}/users/${userId}`;
+
+		try {
+			const response = await fetch(endpoint, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+			const data = await response.json();
+			return data;
+		} catch (error) {
+			console.error(
+				"There was a problem with the fetch operation:",
+				error
+			);
+			throw error;
+		}
 	};
 
 	return {
 		fetchUserGroups,
 		fetchGroupLocations,
-		fetchUserLocationsInGroup,
+		fetchLocationsVisitedByUser,
 		fetchUsersInGroup,
 	};
 };
