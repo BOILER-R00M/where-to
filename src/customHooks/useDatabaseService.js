@@ -81,8 +81,6 @@ const useDatabaseService = () => {
 		}
 	};
 
-	// [x] make a version in Lambda
-	// Query the mock database to get the list of locations for a specific group
 	const fetchGroupLocations = (groupId) => {
 		return db.filter(
 			(item) =>
@@ -90,6 +88,32 @@ const useDatabaseService = () => {
 				item.sk.startsWith("LOCATION#")
 		);
 	};
+
+	// TODO: implement this version and fix any bugs
+	// const fetchGroupLocations = async (groupId) => {
+	// 	const baseUrl =
+	// 		"https://b5vaajxtmj.execute-api.us-east-1.amazonaws.com/production";
+	// 	const endpoint = `${baseUrl}/groups/${groupId}/locations`;
+	// 	try {
+	// 		const response = await fetch(endpoint, {
+	// 			method: "GET",
+	// 			headers: {
+	// 				"Content-Type": "application/json",
+	// 			},
+	// 		});
+	// 		if (!response.ok) {
+	// 			throw new Error(`HTTP error! status: ${response.status}`);
+	// 		}
+	// 		const data = await response.json();
+	// 		return data;
+	// 	} catch (error) {
+	// 		console.error(
+	// 			"There was a problem with the fetch operation:",
+	// 			error
+	// 		);
+	// 		throw error;
+	// 	}
+	// };
 
 	// Query the mock database to get the list of locations a specific user in a group has been to
 	const fetchUserLocationsInGroup = (groupId, userId) => {
