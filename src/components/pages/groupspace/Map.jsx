@@ -5,10 +5,8 @@ const Map = ({ locations, highlightedUserLocations }) => {
 	// center of US as default starting point
 	const zoom = 5;
 	const position = [39.8283, -98.5795];
-	console.log("LOCATIONS FROM MAP COMPONENT: ", locations);
-	if (highlightedUserLocations) {
-		console.log("highlighted user locations have been populated");
-	}
+	console.log("ALL LOCATIONAS", locations);
+
 	return (
 		<MapContainer
 			center={position}
@@ -19,20 +17,14 @@ const Map = ({ locations, highlightedUserLocations }) => {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
-			{highlightedUserLocations ? (
-				<MarkerList
-					locations={highlightedUserLocations}
-					highlight={true}
-				/>
-			) : (
-				<MarkerList locations={locations} highlight={false} />
-			)}
+
+			<MarkerList locations={locations} highlight={false} />
 		</MapContainer>
 	);
 };
 
 export default Map;
-function MarkerList({ locations, highlight }) {
+const MarkerList = ({ locations, highlight }) => {
 	return (
 		<>
 			{locations &&
@@ -69,4 +61,4 @@ function MarkerList({ locations, highlight }) {
 				))}
 		</>
 	);
-}
+};

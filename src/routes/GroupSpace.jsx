@@ -14,10 +14,7 @@ const GroupSpace = () => {
 	const [usersInGroup, setUsersInGroup] = useState(null);
 	const [highlightedUserLocations, setHighlightedUserLocations] =
 		useState(null);
-	console.log(
-		"Highlighted user locations from the GroupSpace level",
-		highlightedUserLocations
-	);
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
