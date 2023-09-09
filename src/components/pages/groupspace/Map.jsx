@@ -1,6 +1,28 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import { useEffect } from "react";
+import L from "leaflet";
+import markerHighlighted from "../../../assets/markerHighlighted.svg";
+import markerDefault from "../../../assets/markerDefault.svg";
+
+const icondDefault = L.icon({
+	iconUrl: markerDefault,
+	iconSize: [38, 95],
+	iconAnchor: [22, 94],
+	popupAnchor: [-3, -76],
+	shadowSize: [68, 95],
+	shadowAnchor: [22, 94],
+	tooltipAnchor: [22, 94],
+});
+const iconHighlighted = L.icon({
+	iconUrl: markerHighlighted,
+	iconSize: [38, 95],
+	iconAnchor: [22, 94],
+	popupAnchor: [-3, -76],
+	shadowSize: [68, 95],
+	shadowAnchor: [22, 94],
+	tooltipAnchor: [22, 94],
+});
 const Map = ({ locations, highlightedUserLocations }) => {
 	// center of US as default starting point
 	const zoom = 5;
@@ -31,6 +53,7 @@ const Map = ({ locations, highlightedUserLocations }) => {
 };
 
 export default Map;
+
 const MarkerList = ({ locations, highlight }) => {
 	return (
 		<>
@@ -43,6 +66,7 @@ const MarkerList = ({ locations, highlight }) => {
 							location.coordinates.lat,
 							location.coordinates.lng,
 						]}
+						icon={highlight ? iconHighlighted : icondDefault}
 					>
 						<Tooltip permanent={false}>
 							<div
