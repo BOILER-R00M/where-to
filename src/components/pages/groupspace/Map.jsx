@@ -7,7 +7,7 @@ const Map = ({ locations, highlightedUserLocations }) => {
 	const position = [39.8283, -98.5795];
 	useEffect(() => {}, [highlightedUserLocations]); //
 	console.log("ALL LOCATIONS", locations);
-
+	console.log("HIGHLIGHTED USER LOCATIONS", highlightedUserLocations);
 	return (
 		<MapContainer
 			center={position}
@@ -19,7 +19,10 @@ const Map = ({ locations, highlightedUserLocations }) => {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
 			{highlightedUserLocations ? (
-				<></>
+				<MarkerList
+					locations={highlightedUserLocations}
+					highlight={true}
+				/>
 			) : (
 				<MarkerList locations={locations} highlight={false} />
 			)}
@@ -51,7 +54,7 @@ const MarkerList = ({ locations, highlight }) => {
 								className="border border-gray-300 bg-white"
 							>
 								<ul>
-									{Object.entries(location.averageScore).map(
+									{Object.entries(location.score).map(
 										([key, value]) => (
 											<li key={key}>
 												{key}: {value}
