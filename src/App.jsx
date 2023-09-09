@@ -6,14 +6,14 @@ import Home from "./routes/Home";
 import GroupSpace from "./routes/GroupSpace";
 import Login from "./components/pages/login/Login";
 import { useState } from "react";
-import useAuthorization from "./customHooks/useAuthService";
+// import useAuthorization from "./customHooks/useAuthService";
 import PageLayout from "./components/PageLayout";
-import ProtectedRoute from "./components/pages/ProtectedRoute";
+// import ProtectedRoute from "./components/pages/ProtectedRoute";
 
 function App() {
 	const [user, setUser] = useState(null);
 	const [accessToken, setAccessToken] = useState(null);
-	const { isAuthenticated } = useAuthorization(false);
+	// const { isAuthenticated } = useAuthorization(false);
 	return (
 		<>
 			{/* any state that we want global access to, create it at the app level and stick it in the `value` object of the Provider */}
