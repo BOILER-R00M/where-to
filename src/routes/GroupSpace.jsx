@@ -26,16 +26,31 @@ const GroupSpace = () => {
 	const { fetchGroupLocations, fetchUsersInGroup } = useDatabaseService();
 	const { groupId } = useParams();
 	const [locations, setLocations] = useState(null);
-	const users = fetchUsersInGroup(groupId);
+	const [usersInGroup, setUsersInGroup] = useState(null);
 	console.log("LOCATIONS: ", locations);
+	console.log("usersInGroup", usersInGroup);
+	console.log("groupId", groupId);
 	useEffect(() => {
 		setLocations(fetchGroupLocations(groupId));
+		const fetchData = async () => {
+			try {
+				const usersInGroup = await fetchUsersInGroup(groupId);
+				setUsersInGroup(usersInGroup);
+			} catch (error) {
+				console.error(
+					"There was a problem with the fetch operation:",
+					error
+				);
+			}
+		};
+
+		fetchData();
 	}, []);
 
 	return (
 		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr]  bg-primary relative">
 			<LocationList locations={locations} />
-			<UserList users={users} />
+			{usersInGroup && <UserList users={usersInGroup} />}
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
 					<img

@@ -43,17 +43,42 @@ const useDatabaseService = () => {
 	};
 
 	// [ ] make a version in Lambda
-	const fetchUsersInGroup = (groupId) => {
-		return db
-			.filter(
-				(item) =>
-					item.pk.startsWith("USER#") &&
-					item.sk === `GROUP#${groupId}`
-			)
-			.map((user) => ({
-				userId: user.userID,
-				username: user.username,
-			}));
+	// const fetchUsersInGroup = (groupId) => {
+	// 	return db
+	// 		.filter(
+	// 			(item) =>
+	// 				item.pk.startsWith("USER#") &&
+	// 				item.sk === `GROUP#${groupId}`
+	// 		)
+	// 		.map((user) => ({
+	// 			userId: user.userID,
+	// 			username: user.username,
+	// 		}));
+	// };
+
+	const fetchUsersInGroup = async (groupId) => {
+		const baseUrl =
+			"https://b5vaajxtmj.execute-api.us-east-1.amazonaws.com/production";
+		const endpoint = `${baseUrl}/groups/${groupId}/users`;
+		try {
+			const response = await fetch(endpoint, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+			const data = await response.json();
+			return data;
+		} catch (error) {
+			console.error(
+				"There was a problem with the fetch operation:",
+				error
+			);
+			throw error;
+		}
 	};
 
 	// [x] make a version in Lambda

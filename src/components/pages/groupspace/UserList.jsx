@@ -36,7 +36,7 @@ const UserList = ({ users }) => {
 						{users.map((user) => {
 							return (
 								<UserListItem
-									key={user.userId}
+									key={user.userID}
 									user={user}
 									setHighlightedUser={setHighlightedUser}
 									highlightedUser={highlightedUser}
