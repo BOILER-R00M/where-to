@@ -1,7 +1,5 @@
-import { useParams } from "react-router-dom";
 import useDatabaseService from "../customHooks/useDatabaseService";
 import Header from "../components/utility/Header";
-import Display from "../components/utility/Display";
 import { useState, useEffect } from "react";
 import GroupListItem from "../components/pages/dashboard/GroupListItem";
 import Button from "../components/utility/Button";
