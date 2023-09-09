@@ -1,11 +1,14 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 
-const Map = ({ locations }) => {
+const Map = ({ locations, highlightedUserLocations }) => {
 	// center of US as default starting point
 	const zoom = 5;
 	const position = [39.8283, -98.5795];
-
+	console.log("LOCATIONS FROM MAP COMPONENT: ", locations);
+	if (highlightedUserLocations) {
+		console.log("highlighted user locations have been populated");
+	}
 	return (
 		<MapContainer
 			center={position}
@@ -16,10 +19,12 @@ const Map = ({ locations }) => {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			/>
+
 			{locations &&
 				locations.map((location) => (
 					<Marker
-						key={location.sk}
+						// TODO: using sk for mapping but should create Location ID and update database accordingly
+						key={location.SK}
 						position={[
 							location.coordinates.lat,
 							location.coordinates.lng,

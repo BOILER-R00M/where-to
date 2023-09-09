@@ -5,16 +5,13 @@ import upArrow from "../../../assets/doubleUp.svg";
 import downArrow from "../../../assets/doubleDown.svg";
 import UserListItem from "./UserListItem";
 import { useState } from "react";
-const UserList = ({ users, groupId }) => {
+const UserList = ({ users, groupId, setHighlightedUserLocations }) => {
 	const [isExtended, setIsExtended] = useState(false);
 	const handleExtension = () => {
 		setIsExtended((prev) => !prev);
 	};
 
-	// NOTE: This state will be used to highlight locations when a user is clicked
 	const [highlightedUser, setHighlightedUser] = useState(null);
-	const [highlightedUserLocations, setHighlightedUserLocations] =
-		useState(null);
 
 	return (
 		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">

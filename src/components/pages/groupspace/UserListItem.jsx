@@ -1,12 +1,10 @@
 import React from "react";
-import { useEffect } from "react";
 import useDatabaseService from "../../../customHooks/useDatabaseService";
 const UserListItem = ({
 	user,
 	setHighlightedUser,
 	highlightedUser,
 	setHighlightedUserLocations,
-	groupId,
 }) => {
 	const { fetchLocationsVisitedByUser } = useDatabaseService();
 
@@ -15,7 +13,11 @@ const UserListItem = ({
 			user.groupId,
 			user.userId
 		);
-		console.log("VISITED LOCATIONS: ", visitedLocations);
+		console.log(
+			`${user.username} has visited these locations: `,
+			visitedLocations
+		);
+		setHighlightedUserLocations(visitedLocations);
 	};
 
 	const handleHighlightUser = () => {

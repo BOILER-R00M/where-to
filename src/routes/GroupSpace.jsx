@@ -12,7 +12,12 @@ const GroupSpace = () => {
 	const { groupId } = useParams();
 	const [locations, setLocations] = useState(null);
 	const [usersInGroup, setUsersInGroup] = useState(null);
-
+	const [highlightedUserLocations, setHighlightedUserLocations] =
+		useState(null);
+	console.log(
+		"Highlighted user locations from the GroupSpace level",
+		highlightedUserLocations
+	);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -35,7 +40,11 @@ const GroupSpace = () => {
 		<div className="h-screen lg:grid lg:grid-cols-[300px,5fr]  bg-primary relative">
 			<LocationList locations={locations} />
 			{usersInGroup && (
-				<UserList users={usersInGroup} groupId={groupId} />
+				<UserList
+					users={usersInGroup}
+					groupId={groupId}
+					setHighlightedUserLocations={setHighlightedUserLocations}
+				/>
 			)}
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
 				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
@@ -45,7 +54,10 @@ const GroupSpace = () => {
 						className="w-10"
 					/>
 				</div>
-				<Map locations={locations} />
+				<Map
+					locations={locations}
+					highlightedUserLocations={highlightedUserLocations}
+				/>
 			</div>
 		</div>
 	);
