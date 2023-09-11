@@ -28,8 +28,8 @@ const Map = ({ locations, highlightedUserLocations }) => {
 	const zoom = 5;
 	const position = [39.8283, -98.5795];
 	useEffect(() => {}, [highlightedUserLocations]); //
-	console.log("ALL LOCATIONS", locations);
-	console.log("HIGHLIGHTED USER LOCATIONS", highlightedUserLocations);
+	// console.log("ALL LOCATIONS", locations);
+	// console.log("HIGHLIGHTED USER LOCATIONS", highlightedUserLocations);
 	return (
 		<MapContainer
 			center={position}
