@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useDatabaseService from "../../../customHooks/useDatabaseService";
 import { useQuery } from "react-query";
 
@@ -10,19 +10,12 @@ const UserListItem = ({
 }) => {
   const { fetchLocationsVisitedByUser } = useDatabaseService();
 
-  // State to control when the data should be fetched
-  const [shouldFetch, setShouldFetch] = useState(false);
-
-  const { data: locations } = useQuery({
-    queryKey: ["locations"],
+  const { data: locations, refetch } = useQuery({
+    queryKey: ["locations", user.userId],
     queryFn: () => fetchLocationsVisitedByUser(user.groupId, user.userId),
-    enabled: shouldFetch,  // Only fetch when shouldFetch is true
+    enabled: false,
     onSuccess: (data) => {
-      // Process the data as required
-      setHighlightedUserLocations(data);
-      
-      // Reset shouldFetch state after fetching is done
-      setShouldFetch(false);
+       setHighlightedUserLocations(data);
     }
   });
 
@@ -32,9 +25,7 @@ const UserListItem = ({
       setHighlightedUser(null);
     } else {
       setHighlightedUser(user);
-      
-      // Trigger the fetch by setting shouldFetch to true
-      setShouldFetch(true);
+      refetch();
     }
   };
 
@@ -53,3 +44,4 @@ const UserListItem = ({
 };
 
 export default UserListItem;
+
