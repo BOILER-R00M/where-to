@@ -16,10 +16,10 @@ function App() {
   const [accessToken, setAccessToken] = useState(null);
   const queryClient = new QueryClient();
 
-
-
-
   // const { isAuthenticated } = useAuthorization(false);
+  
+
+  
   return (
     <>
       {/* any state that we want global access to, create it at the app level and stick it in the `value` object of the Provider */}
