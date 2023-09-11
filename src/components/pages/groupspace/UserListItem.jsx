@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import useDatabaseService from "../../../customHooks/useDatabaseService";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 const UserListItem = ({
   user,
@@ -9,9 +9,16 @@ const UserListItem = ({
   setHighlightedUserLocations,
 }) => {
   const { fetchLocationsVisitedByUser } = useDatabaseService();
+  const queryClient = useQueryClient();
 
-  const { data: locations, refetch } = useQuery({
-    queryKey: ["locations", user.userId],
+  const queryKey = ["locations", user.userId];
+
+  const {
+    data: locations,
+    refetch,
+    isFetched,
+  } = useQuery({
+    queryKey: queryKey,
     queryFn: () => fetchLocationsVisitedByUser(user.groupId, user.userId),
     enabled: false,
     onSuccess: (data) => {
@@ -25,7 +32,16 @@ const UserListItem = ({
       setHighlightedUser(null);
     } else {
       setHighlightedUser(user);
-      refetch();
+
+      const cachedData = queryClient.getQueryData(queryKey);
+
+      if (cachedData) {
+        // Update the UI directly with the cached data
+        setHighlightedUserLocations(cachedData);
+      } else {
+        // If data isn't cached, then fetch it
+        refetch();
+      }
     }
   };
 
