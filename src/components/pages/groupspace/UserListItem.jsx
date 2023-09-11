@@ -33,13 +33,15 @@ const UserListItem = ({
     } else {
       setHighlightedUser(user);
 
+      console.time(`Retrieving cache for user ${user.userId}`); // Start timer
+
       const cachedData = queryClient.getQueryData(queryKey);
 
+      console.timeEnd(`Retrieving cache for user ${user.userId}`); // End timer
+
       if (cachedData) {
-        // Update the UI directly with the cached data
         setHighlightedUserLocations(cachedData);
       } else {
-        // If data isn't cached, then fetch it
         refetch();
       }
     }
