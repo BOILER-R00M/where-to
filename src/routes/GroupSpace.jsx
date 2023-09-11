@@ -6,6 +6,7 @@ import Map from "../components/pages/groupspace/Map";
 import addLocationIcon from "../assets/addLocationIcon.svg";
 import LocationList from "../components/pages/groupspace/LocationList";
 import UserList from "../components/pages/groupspace/UserList";
+import { useQuery } from "react-query";
 
 const GroupSpace = () => {
 	const { fetchGroupLocations, fetchUsersInGroup } = useDatabaseService();
@@ -14,6 +15,20 @@ const GroupSpace = () => {
 	const [usersInGroup, setUsersInGroup] = useState(null);
 	const [highlightedUserLocations, setHighlightedUserLocations] =
 		useState(null);
+
+	//##########################
+	//useQuery
+
+	const {data: users} = useQuery({
+		queryFn: () => fetchUsersInGroup(groupId),
+		queryKey: "queryKey"
+	})
+
+
+
+
+	//useQuery
+	//##########################
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -52,7 +67,7 @@ const GroupSpace = () => {
 					/>
 				</div>
 				<Map
-					locations={locations}
+					locations={locations} 
 					highlightedUserLocations={highlightedUserLocations}
 				/>
 			</div>

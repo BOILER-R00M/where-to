@@ -25,6 +25,8 @@ export const UserProvider = ({ children }) => {
   const [authUid, setAuthUid] = useState("");
   const [userGroups, setUserGroups] = useState([]);
 
+  console.log(userGroups)
+
   useEffect(() => {
     if (authUser) {
       setAuthUid(authUser.userID);
