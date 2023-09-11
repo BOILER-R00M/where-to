@@ -15,7 +15,7 @@ const Login = () => {
     setSlideUp((prev) => !prev)
     setIsAbsolute((prev) => !prev)
   };
-
+console.log("test")
 
 
   return (
