@@ -15,8 +15,8 @@ const UserListItem = ({
     queryFn: () => fetchLocationsVisitedByUser(user.groupId, user.userId),
     enabled: false,
     onSuccess: (data) => {
-       setHighlightedUserLocations(data);
-    }
+      setHighlightedUserLocations(data);
+    },
   });
 
   const handleHighlightUser = () => {
@@ -44,4 +44,3 @@ const UserListItem = ({
 };
 
 export default UserListItem;
-
