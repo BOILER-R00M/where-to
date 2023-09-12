@@ -14,6 +14,7 @@ import PageLayout from "./components/PageLayout";
 function App() {
   const [user, setUser] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
+  const [showGroupForm, setShowGroupForm] = useState(false)
   const queryClient = new QueryClient();
 
   // const { isAuthenticated } = useAuthorization(false);
@@ -48,7 +49,7 @@ function App() {
               element={
                 // TODO: need to implement protected route wrapper around this
                 <PageLayout userName={user?.username}>
-                  <Dashboard />
+                  <Dashboard showGroupForm={showGroupForm} setShowGroupForm={setShowGroupForm}/>
                 </PageLayout>
               }
             />
