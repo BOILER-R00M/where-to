@@ -57,13 +57,8 @@ const GroupSpace = () => {
 				/>
 			)}
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
-				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
-					<img
-						src={addLocationIcon}
-						alt="location"
-						className="w-10"
-					/>
-				</div>
+				<AddLocationModal />
+				<div className="z-50 border h-1/2 absolute m-auto bg-primary w-1/2 rounded"></div>
 				<Map
 					center={clickedLocation?.center || [39.8283, -98.5795]}
 					locations={locations}
@@ -75,3 +70,10 @@ const GroupSpace = () => {
 };
 
 export default GroupSpace;
+const AddLocationModal = () => {
+	return (
+		<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
+			<img src={addLocationIcon} alt="location" className="w-10" />
+		</div>
+	);
+};
