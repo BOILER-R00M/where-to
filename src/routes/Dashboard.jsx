@@ -32,7 +32,7 @@ const Dashboard = ({showGroupForm, setShowGroupForm}) => {
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			userName={userData.username}
+			userName={userData?.username}
 			showGroupForm={showGroupForm}
 			setShowGroupForm={setShowGroupForm}
 		/>
