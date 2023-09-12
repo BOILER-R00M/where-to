@@ -15,7 +15,7 @@ const Dashboard = ({showGroupForm, setShowGroupForm}) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const data = await fetchUserGroups(userData?.userId);
+				const data = await fetchUserGroups(userData.userId);
 				setGroups(data);
 			} catch (error) {
 				console.error(
@@ -32,7 +32,7 @@ const Dashboard = ({showGroupForm, setShowGroupForm}) => {
 	return (
 		<DashboardLayout
 			groupList={<GroupList groups={groups} />}
-			userName={userData?.username}
+			userName={userData.username}
 			showGroupForm={showGroupForm}
 			setShowGroupForm={setShowGroupForm}
 		/>
