@@ -1,6 +1,6 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import L from "leaflet";
 import markerHighlighted from "../../../assets/markerHighlighted.svg";
 import markerDefault from "../../../assets/markerDefault.svg";
@@ -34,8 +34,7 @@ const Map = ({
 	};
 
 	useEffect(() => {}, [highlightedUserLocations]); //
-	// console.log("ALL LOCATIONS", locations);
-	// console.log("HIGHLIGHTED USER LOCATIONS", highlightedUserLocations);
+
 	return (
 		<MapContainer
 			center={center}
