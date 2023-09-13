@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS SAM template for the SignUp Lambda function
+
+Resources:
+  SignUpFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: SignUpFunction
+      Description: Function to handle user sign-up using Cognito
+      Handler: auth-config.handler
+      Runtime: nodejs14.x
+      CodeUri: ./path_to_your_code_directory/
+      Environment:
+        Variables:
+          CLIENT_ID: '256k7rjpi2ltkdakt3qgjkk98n'
+      Policies:
+        - Statement:
+            Effect: Allow
+            Action:
+              - cognito-idp:SignUp
+            Resource: '*'
+
+Outputs:
+  SignUpFunction:
+    Description: SignUp Lambda Function ARN
+    Value: !GetAtt SignUpFunction.Arn

@@ -2,6 +2,8 @@
 	{
 		"pk": "USER#0001",
 		"sk": "GROUP#001",
+		"groupId": "001",
+		"groupName": "Travel Group 2023",
 		"username": "MadisonEvans94",
 		"userID": "0001"
 	},
@@ -9,13 +11,50 @@
 	{
 		"pk": "USER#0002",
 		"sk": "GROUP#001",
+		"groupId": "001",
+		"groupName": "Travel Group 2023",
 		"username": "TonyStarkAvenger",
 		"userID": "0002"
 	},
 	{
+		"pk": "USER#0001",
+		"sk": "GROUP#002",
+		"groupId": "002",
+		"groupName": "In Search of New Housing",
+		"username": "MadisonEvans94",
+		"userID": "0001"
+	},
+	{
+		"pk": "USER#0001",
+		"sk": "GROUP#002",
+		"groupId": "002",
+		"groupName": "In Search of New Housing",
+		"username": "MadisonEvans94",
+		"userID": "0001"
+	},
+	{
+		"pk": "USER#0001",
+		"sk": "GROUP#002",
+		"groupId": "002",
+		"groupName": "In Search of New Housing",
+		"username": "MadisonEvans94",
+		"userID": "0001"
+	},
+
+	{
+		"pk": "USER#0002",
+		"sk": "GROUP#002",
+		"groupId": "002",
+		"groupName": "In Search of New Housing",
+		"username": "TonyStarkAvenger",
+		"userID": "0002"
+	},
+
+	{
 		"pk": "GROUP#001",
 		"sk": "LOCATION#001",
-		"groupName": "Our Travel Group 2023",
+		"groupId": "001",
+		"groupName": "Travel Group 2023",
 		"locationName": "Atlanta",
 		"coordinates": {
 			"lat": 33.753746,
@@ -46,11 +85,12 @@
 	{
 		"pk": "GROUP#001",
 		"sk": "LOCATION#002",
-		"groupName": "Our Travel Group 2023",
+		"groupId": "001",
+		"groupName": "Travel Group 2023",
 		"locationName": "New York City",
 		"coordinates": {
 			"lat": 40.7128,
-			"lng": 74.006
+			"lng": -74.006
 		},
 		"averageScore": {
 			"costOfLiving": 5,
@@ -73,11 +113,12 @@
 	{
 		"pk": "GROUP#001",
 		"sk": "LOCATION#003",
-		"groupName": "Our Travel Group 2023",
+		"groupId": "001",
+		"groupName": "Travel Group 2023",
 		"locationName": "Baltimore",
 		"coordinates": {
 			"lat": 39.2904,
-			"lng": 76.6122
+			"lng": -76.6122
 		},
 		"averageScore": {
 			"costOfLiving": 8,
@@ -94,6 +135,35 @@
 			{
 				"userID": "0002",
 				"username": "TonyStarkAvenger"
+			}
+		]
+	},
+
+	{
+		"pk": "GROUP#002",
+		"sk": "LOCATION#001",
+		"groupId": "002",
+		"groupName": "In Search of New Housing",
+		"locationName": "San Diego",
+		"coordinates": {
+			"lat": 32.7157,
+			"lng": -117.1611
+		},
+		"averageScore": {
+			"costOfLiving": 3,
+			"pollution": 8,
+			"crime": 6,
+			"transportation": 6,
+			"food": 7,
+			"culture": 7,
+			"naturalEnvironment": 7,
+			"employmentOpportunities": 6,
+			"entertainment": 8
+		},
+		"usersVisited": [
+			{
+				"userID": "0001",
+				"username": "MadisonEvans94"
 			}
 		]
 	},
@@ -158,6 +228,22 @@
 			"culture": 8,
 			"naturalEnvironment": 8,
 			"employmentOpportunities": 8,
+			"entertainment": 8
+		}
+	},
+	{
+		"pk": "GROUP#002#USER#0001",
+		"sk": "LOCATION#001",
+		"locationName": "San Diego",
+		"score": {
+			"costOfLiving": 3,
+			"pollution": 8,
+			"crime": 6,
+			"transportation": 6,
+			"food": 7,
+			"culture": 7,
+			"naturalEnvironment": 7,
+			"employmentOpportunities": 6,
 			"entertainment": 8
 		}
 	}
