@@ -19,6 +19,7 @@ const AddLocationModal = ({ closeModal }) => {
 	// Function to handle form submission
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		closeModal();
 		// Handle the form submission logic here
 	};
 
