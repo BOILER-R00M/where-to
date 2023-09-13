@@ -18,6 +18,7 @@ const GroupSpace = () => {
 	const clickedLocation = null;
 	const [showAddLocationModal, setShowAddLocationModal] = useState(false);
 
+	const toggleLocationModal = (prev) => setShowAddLocationModal(!prev);
 	//##########################
 	//useQuery
 
@@ -66,9 +67,7 @@ const GroupSpace = () => {
 					/>
 				</div>
 				{showAddLocationModal && (
-					<AddLocationModal
-						closeModal={(prev) => setShowAddLocationModal(!prev)}
-					/>
+					<AddLocationModal closeModal={toggleLocationModal} />
 				)}
 				<Map
 					center={clickedLocation?.center || [39.8283, -98.5795]}
