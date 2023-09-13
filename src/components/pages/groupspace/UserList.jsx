@@ -5,6 +5,7 @@ import upArrow from "../../../assets/doubleUp.svg";
 import downArrow from "../../../assets/doubleDown.svg";
 import UserListItem from "./UserListItem";
 import { useState } from "react";
+import { a } from "framer-motion"
 const UserList = ({ users, groupId, setHighlightedUserLocations }) => {
 	const [isExtended, setIsExtended] = useState(false);
 	const handleExtension = () => {
@@ -14,11 +15,11 @@ const UserList = ({ users, groupId, setHighlightedUserLocations }) => {
 	const [highlightedUser, setHighlightedUser] = useState(null);
 
 	return (
-		<div className="absolute m-3 z-50 right-0 flex flex-row items-center">
+		<div className="absolute m-3 z-50 right-0 flex flex-row  items-center">
 			<div className="mr-3 border p-1 rounded-full bg-primary hover:bg-secondary transition cursor-pointer">
 				<img src={plusIcon} className="w-3" alt="" />
 			</div>
-			<div className="border py-3 px-6 flex flex-col bg-primary rounded">
+			<div className="border py-3 px-6 flex flex-col bg-primary min-w-[20rem] rounded w-full">
 				<div className="mx-auto">
 					Users:{" "}
 					<strong className="text-secondary">{users.length}</strong>
