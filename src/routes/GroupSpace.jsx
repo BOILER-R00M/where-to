@@ -7,7 +7,7 @@ import addLocationIcon from "../assets/addLocationIcon.svg";
 import LocationList from "../components/pages/groupspace/LocationList";
 import UserList from "../components/pages/groupspace/UserList";
 import { useQuery } from "react-query";
-import Button from "../components/utility/Button";
+import AddLocationModal from "../components/pages/groupspace/AddLocationModal";
 const GroupSpace = () => {
 	const { fetchGroupLocations, fetchUsersInGroup } = useDatabaseService();
 	const { groupId } = useParams();
@@ -83,26 +83,3 @@ const GroupSpace = () => {
 };
 
 export default GroupSpace;
-function AddLocationModal({ closeModal }) {
-	return (
-		<div className="z-50 h-full w-full absolute">
-			<div className="relative border h-fit w-1/2 rounded bg-primary m-auto">
-				<p className="cursor-pointer" onClick={closeModal}>
-					close
-				</p>
-				<div>
-					<form
-						action="submit"
-						className="grid grid-cols-1 gap-4 p-4"
-					>
-						<input type="text" className="border rounded p-2" />
-						<input type="text" className="border rounded p-2" />
-						<input type="text" className="border rounded p-2" />
-						<input type="text" className="border rounded p-2" />
-						<Button>Add Location</Button>
-					</form>
-				</div>
-			</div>
-		</div>
-	);
-}
