@@ -16,6 +16,7 @@ const GroupSpace = () => {
 	const [highlightedUserLocations, setHighlightedUserLocations] =
 		useState(null);
 	const clickedLocation = null;
+	const [showAddLocationModal, setShowAddLocationModal] = useState(false);
 
 	//##########################
 	//useQuery
@@ -64,7 +65,11 @@ const GroupSpace = () => {
 						className="w-10"
 					/>
 				</div>
-				{AddLocationModal()}
+				{showAddLocationModal && (
+					<AddLocationModal
+						closeModal={(prev) => setShowAddLocationModal(!prev)}
+					/>
+				)}
 				<Map
 					center={clickedLocation?.center || [39.8283, -98.5795]}
 					locations={locations}
@@ -76,8 +81,14 @@ const GroupSpace = () => {
 };
 
 export default GroupSpace;
-function AddLocationModal() {
+function AddLocationModal({ closeModal }) {
 	return (
-		<div className="z-50 border h-1/2 absolute m-auto bg-primary w-1/2 rounded"></div>
+		<div className="z-50 h-full w-full absolute">
+			<div className="relative border h-1/2 w-1/2 rounded bg-primary m-auto">
+				<p className="cursor-pointer" onClick={closeModal}>
+					close
+				</p>
+			</div>
+		</div>
 	);
 }
