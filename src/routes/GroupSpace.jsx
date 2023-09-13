@@ -16,9 +16,9 @@ const GroupSpace = () => {
 	const [highlightedUserLocations, setHighlightedUserLocations] =
 		useState(null);
 	const clickedLocation = null;
-	const [showAddLocationModal, setShowAddLocationModal] = useState(false);
+	const [showAddLocationModal, setShowAddLocationModal] = useState(true);
 
-	const toggleLocationModal = (prev) => setShowAddLocationModal(!prev);
+	const toggleLocationModal = () => setShowAddLocationModal((prev) => !prev);
 	//##########################
 	//useQuery
 
@@ -59,7 +59,10 @@ const GroupSpace = () => {
 				/>
 			)}
 			<div className="flex relative flex-col items-center justify-center bg-gray-300 h-full lg:h-auto">
-				<div className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition">
+				<div
+					onClick={toggleLocationModal}
+					className="cursor-pointer absolute border z-50 left-0 mx-3 top-0 mt-36 p-2 rounded bg-primary hover:bg-secondary transition"
+				>
 					<img
 						src={addLocationIcon}
 						alt="location"
