@@ -7,9 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 const GroupListItem = ({ group }) => {
   const navigate = useNavigate();
+
+
   return (
     <div>
-      
+      test
       <li
         className="p-6 text-center transition border rounded-lg cursor-pointer bg-primary border-tertiary hover:bg-secondary hover:text-primary hover:border-secondary"
         onClick={() => {

@@ -5,6 +5,7 @@ import GroupListItem from "../components/pages/dashboard/GroupListItem";
 import Button from "../components/utility/Button";
 import useAuthorization from "../customHooks/useAuthService";
 import GroupCard from "../components/ui/GroupCard";
+import TopBarStats from "../components/pages/dashboard/TopBarStats";
 
 const Dashboard = ({showGroupForm, setShowGroupForm}) => {
 	const { fetchUserGroups } = useDatabaseService();
@@ -45,6 +46,7 @@ const DashboardLayout = ({ userName, groupList, setShowGroupForm, showGroupForm 
     
     return (
         <div className="relative h-screen px-20 bg-primary md:px-6 lg:px-12">
+			<TopBarStats />
             {groupList}
             <button 
                 onClick={() => setShowGroupForm(prev => !prev)} 

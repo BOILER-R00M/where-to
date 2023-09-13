@@ -5,7 +5,6 @@ import upArrow from "../../../assets/doubleUp.svg";
 import downArrow from "../../../assets/doubleDown.svg";
 import UserListItem from "./UserListItem";
 import { useState } from "react";
-import { a } from "framer-motion"
 const UserList = ({ users, groupId, setHighlightedUserLocations }) => {
 	const [isExtended, setIsExtended] = useState(false);
 	const handleExtension = () => {
