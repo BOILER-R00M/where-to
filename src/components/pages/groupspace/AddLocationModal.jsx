@@ -15,6 +15,11 @@ const AddLocationModal = ({ closeModal }) => {
 	];
 
 	const scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	// Function to handle form submission
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		// Handle the form submission logic here
+	};
 
 	return (
 		<div className="z-50 h-full w-full absolute">
@@ -24,7 +29,7 @@ const AddLocationModal = ({ closeModal }) => {
 				</p>
 
 				<form
-					action="submit"
+					onSubmit={handleSubmit}
 					className="grid grid-cols-1 gap-2 p-4 w-fit"
 				>
 					{categories.map((category, index) => {
