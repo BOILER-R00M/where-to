@@ -16,7 +16,7 @@ const GroupSpace = () => {
 	const [highlightedUserLocations, setHighlightedUserLocations] =
 		useState(null);
 	const clickedLocation = null;
-	const [showAddLocationModal, setShowAddLocationModal] = useState(true);
+	const [showAddLocationModal, setShowAddLocationModal] = useState(false);
 
 	const toggleLocationModal = () => setShowAddLocationModal((prev) => !prev);
 	//##########################
