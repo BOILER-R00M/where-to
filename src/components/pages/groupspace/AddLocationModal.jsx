@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../utility/Button";
+import close from "../../../assets/close.svg";
 
 const AddLocationModal = ({ closeModal }) => {
 	const categories = [
@@ -23,10 +24,13 @@ const AddLocationModal = ({ closeModal }) => {
 
 	return (
 		<div className="z-50 h-full w-full absolute">
-			<div className="border h-fit w-fit rounded-lg bg-primary m-auto">
-				<p className="cursor-pointer" onClick={closeModal}>
-					close
-				</p>
+			<div className="relative border h-fit w-fit rounded-lg bg-primary mx-auto mt-32">
+				<img
+					className="absolute -right-12 -top-12 cursor-pointer"
+					onClick={closeModal}
+					src={close}
+					alt=""
+				/>
 
 				<form
 					onSubmit={handleSubmit}
