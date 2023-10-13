@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import dropDown from "../../assets/dropDown.svg";
 import useAuthorization from "../../customHooks/useAuthService";
 import NavLink from "../utility/NavLink";
-const navLinks = [
-	{ label: "Contact", action: "/contact" },
-	{ label: "Settings", action: "/settings" },
-	{ label: "Log out", action: "logout" },
-];
+
 
 const NavBar = ({ userName }) => {
 	const [isDropdownOpen, setDropdownOpen] = useState(false);
 	const { userData } = useAuthorization();
+	const navLinks = [
+		{ label: "Contact", action: "/contact" },
+		{ label: "Settings", action: "/settings" },
+		{ label: userData ? "Logout" : 'Login', action: "logout" },
+	];
 
 	return (
 		<nav className="bg-secondary box-border flex items-center justify-between w-full p-5 text-white bg-gray-800">
